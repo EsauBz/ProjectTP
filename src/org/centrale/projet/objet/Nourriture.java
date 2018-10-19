@@ -12,4 +12,5 @@ package org.centrale.projet.objet;
  */
 public class Nourriture {
     
+    private int v;
 }
