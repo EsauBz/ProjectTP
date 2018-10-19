@@ -96,11 +96,11 @@ public class World {
                 }
                 switch (i) {
                     case 1:
-                        this.listJouers.get(0).getPerso().deplacer();
-                        verifierPotions();
+                        a.getPerso().deplacer();
+                        verifierPotions(a.getPerso());
                         break;
                     case 2:
-                        //this.listJouers.get(0).getPerso().combattre(c);
+                        //a.getPerso().combattre();
                         break;
                 }
 
@@ -269,20 +269,24 @@ public class World {
      * Méthode qui verifie les differents potions (Mana et soins) avec la
      * position du personnage, s'il est dans la meme position il prends les
      * points de la potion et apres l'objet est enleve de la liste.
+     *
+     * @param p On verifie si ce personnage est dans la potition d'un potion.
      */
-    public void verifierPotions() {
-        for (ElementDeJeu le : this.listElmentsJeu) {
-
-            if (le instanceof Soin && (le.getPos() == this.listJouers.get(0).getPerso().getPos())) {
-                this.listJouers.get(0).getPerso().setPtVie(this.listJouers.get(0).getPerso().getPtVie() + 25);
-                this.listElmentsJeu.remove(le);
+    public void verifierPotions(Personnage p) {
+        Iterator<ElementDeJeu> it = this.listElmentsJeu.iterator();
+        while (it.hasNext()) {
+            ElementDeJeu i = it.next();
+            if (i instanceof Soin && i.getPos().memePos(p.getPos())) {
+                p.setPtVie(p.getPtVie() + 25);
+                it.remove();
             }
 
-            if (le instanceof Mana && (le.getPos() == this.listJouers.get(0).getPerso().getPos())) {
-                this.listJouers.get(0).getPerso().setPtMana(this.listJouers.get(0).getPerso().getPtMana() + 25);
-                this.listElmentsJeu.remove(le);
+            if (it instanceof Mana && i.getPos().memePos(p.getPos())) {
+                p.setPtMana(p.getPtMana() + 25);
+                it.remove();
             }
         }
+
     }
 
 }
