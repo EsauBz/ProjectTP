@@ -97,7 +97,10 @@ public class Archer extends Personnage implements Combattant {
     }
 
     /**
-     * Method que effectué un combat avec un créature qui est proche
+     * Method que effectué un combat avec un créature qui est dans la zone
+     * d'attaque de l'archer. Un variable random represent un dé qui est lance
+     * pour savoir premierement si l'attaque est reussi. L'archer utilise un
+     * fleche toujours.
      *
      * @param c parametre du class creature
      */

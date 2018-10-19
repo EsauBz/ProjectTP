@@ -41,8 +41,12 @@ public class Mage extends Personnage implements Combattant {
     }
 
     /**
+     * Method que effectué un combat avec un créature qui est dans la zone
+     * d'attaque du Mage. Un variable random represent un dé qui est lance pour
+     * savoir premierement si l'attaque est reussi. Le mage utilise un point de
+     * mana toujours.
      *
-     * @param c
+     * @param c parametre du class creature pour combattre
      */
     @Override
     public void combattre(Creature c) {
@@ -56,7 +60,7 @@ public class Mage extends Personnage implements Combattant {
             System.out.println("Combat de mage contre" + c.getClass());
             System.out.println("Dammage Direct");
             System.out.println("Le dammge causé était: " + (this.getDegAtt()));
-            
+
             c.affiche();
         } else {
             /* attaque echoue*/

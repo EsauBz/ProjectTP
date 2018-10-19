@@ -198,11 +198,11 @@ public class World {
                         p.setCoordY(gA.nextInt(tailleY));
                     }
                 }
-                this.listMonstres.add(l = new Lapin(100 + i, 10, 10, 10, p, 10));
+                this.listMonstres.add(l = new Lapin(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
             } else {
                 p.setCoordX(gA.nextInt(tailleX));
                 p.setCoordY(gA.nextInt(tailleY));
-                this.listMonstres.add(l = new Lapin(100 + i, 10, 10, 10, p, 10));
+                this.listMonstres.add(l = new Lapin(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
             }
         }
         /**
@@ -216,7 +216,7 @@ public class World {
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listMonstres.add(lp = new Loup(100 + i, 10, 10, 10, p, 10));
+            this.listMonstres.add(lp = new Loup(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
         }
         /**
          * Potions Soin *
