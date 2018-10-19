@@ -34,13 +34,7 @@ public class TestSeance2 {
              */
             w.tourdeJeu();           
         }      
-       /*
-        Joueur p1 = new Joueur();
-        Joueur p2 = new Joueur();        
-        p1.getPerso().affiche();
-        
-        p2.getPerso().affiche();
-*/
+       
     }
 }
 

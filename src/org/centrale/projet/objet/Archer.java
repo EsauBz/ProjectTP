@@ -105,15 +105,16 @@ public class Archer extends Personnage implements Combattant {
     public void combattre(Creature c) {
         Random gA = new Random();
         int indiceCombat = gA.nextInt(100);
-        System.out.println("************************");
+        this.setNbFleches(this.getNbFleches() - 1);
+
         if (indiceCombat <= this.getPourcentageAtt()) {
             /* Attaque reussi*/
             c.setPtVie(c.getPtVie() - this.getDegAtt());
-            this.setNbFleches(this.getNbFleches() - 1);
             System.out.println("Combat d'archer contre" + c.getClass());
             System.out.println("Dammage Direct");
             System.out.println("Le dammge causé était: " + (this.getDegAtt()));
 
+            c.affiche();
         } else {
             /*Attaque echoue*/
             System.out.println("L'attaque a échoué");
