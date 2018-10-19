@@ -120,6 +120,9 @@ public class World {
                                 if (a.getPerso().getPos().distance(mt.getPos()) == 1) {
 
                                     a.getPerso().combattre(mt);
+                                    if(mt instanceof Loup){
+                                        ((Loup) mt).combattre(a.getPerso());
+                                    }
                                 }
                             }
                         }
@@ -130,6 +133,9 @@ public class World {
                                 if (a.getPerso().getPos().distance(mt.getPos()) > 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
 
                                     a.getPerso().combattre(mt);
+                                    if(mt instanceof Loup){
+                                        ((Loup) mt).combattre(a.getPerso());
+                                    }
                                 }
                             }
                         }
@@ -140,6 +146,9 @@ public class World {
                                 if (a.getPerso().getPos().distance(mt.getPos()) >= 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
 
                                     a.getPerso().combattre(mt);
+                                    if(mt instanceof Loup){
+                                        ((Loup) mt).combattre(a.getPerso());
+                                    }
                                 }
                             }
                         }
@@ -189,11 +198,12 @@ public class World {
     private void creationMonstres() {
         Random gA = new Random();
         Point2D p = new Point2D();
+        int cont = gA.nextInt(20);
         /**
          * Lapins *
          */
         Lapin l;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < cont; i++) {
             if (i > 0) {
                 for (int j = 0; j < i; j++) {
                     while (p.getCoordX() == listMonstres.get(j).getPos().getCoordX() && p.getCoordY() == listMonstres.get(j).getPos().getCoordY()) {
@@ -212,7 +222,7 @@ public class World {
          * Loups *
          */
         Loup lp;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < cont; i++) {
             for (int j = 0; j < listMonstres.size(); j++) {
                 while (p.getCoordX() == listMonstres.get(j).getPos().getCoordX() && p.getCoordY() == listMonstres.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
@@ -225,7 +235,7 @@ public class World {
          * Nuages *
          */
         NuageToxique nt;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < cont; i++) {
             for (int j = 0; j < listMonstres.size(); j++) {
                 while (p.getCoordX() == listMonstres.get(j).getPos().getCoordX() && p.getCoordY() == listMonstres.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
@@ -244,12 +254,12 @@ public class World {
     private void creationPotions() {
         Random gA = new Random();
         Point2D p = new Point2D();
-
+        int cont = gA.nextInt(10);
         /**
          * Potions Soin *
          */
         Soin sp;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < cont; i++) {
             if (i > 0) {
                 for (int j = 0; j < listPotions.size(); j++) {
                     while (p.getCoordX() == listPotions.get(j).getPos().getCoordX() && p.getCoordY() == listPotions.get(j).getPos().getCoordY()) {
@@ -257,20 +267,20 @@ public class World {
                         p.setCoordY(gA.nextInt(tailleY));
                     }
                 }
-                this.listPotions.add(sp = new Soin(p,gA.nextInt(tailleY)));
+                this.listPotions.add(sp = new Soin(p, gA.nextInt(tailleY)));
             } else {
                 p.setCoordX(gA.nextInt(tailleX));
                 p.setCoordY(gA.nextInt(tailleY));
-                this.listPotions.add(sp = new Soin(p,gA.nextInt(tailleY)));
+                this.listPotions.add(sp = new Soin(p, gA.nextInt(tailleY)));
             }
 
         }
-
+        cont = gA.nextInt(10);
         /**
          * Potions Mana *
          */
         Mana mp;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < cont; i++) {
 
             for (int j = 0; j < listPotions.size(); j++) {
                 while (p.getCoordX() == listPotions.get(j).getPos().getCoordX() && p.getCoordY() == listPotions.get(j).getPos().getCoordY()) {
@@ -278,7 +288,8 @@ public class World {
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listPotions.add(mp = new Mana(p,gA.nextInt(tailleY)));
+            this.listPotions.add(mp = new Mana(p, gA.nextInt(tailleY))
+            );
 
         }
     }
@@ -356,13 +367,13 @@ public class World {
         while (it.hasNext()) {
             ElementDeJeu i = it.next();
             if (i instanceof Soin && i.getPos().memePos(p.getPos())) {
-                Soin n = (Soin)i;
+                Soin n = (Soin) i;
                 p.setPtVie(p.getPtVie() + n.getPointPotion());
                 it.remove();
             }
 
             if (it instanceof Mana && i.getPos().memePos(p.getPos())) {
-                Mana m = (Mana)i;
+                Mana m = (Mana) i;
                 p.setPtMana(p.getPtMana() + m.getPointPotion());
                 it.remove();
             }
@@ -371,4 +382,3 @@ public class World {
     }
 
 }
-

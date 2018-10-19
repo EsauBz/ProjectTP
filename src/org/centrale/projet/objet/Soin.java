@@ -28,7 +28,6 @@ public class Soin extends Potion {
      */
     @Override
     public void affiche() {
-        System.out.println("");
         System.out.println("**************************************");
         System.out.println("Potion Soin: " + this.getPointPotion() + "Points");
         this.getPos().affiche();

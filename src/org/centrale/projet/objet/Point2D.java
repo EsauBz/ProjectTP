@@ -84,8 +84,7 @@ public class Point2D {
      */
     public void affiche() {
 
-        System.out.print("[Position en X: " + coordX + " Position en Y: " + coordY + "]");
-        System.out.print(" ");
+        System.out.println("[Position en X: " + coordX + " Position en Y: " + coordY + "]");       
     }
 
     /**
