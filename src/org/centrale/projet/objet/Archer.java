@@ -110,6 +110,7 @@ public class Archer extends Personnage implements Combattant {
             /* Attaque reussi*/
             c.setPtVie(c.getPtVie() - this.getDegAtt());
             this.setNbFleches(this.getNbFleches() - 1);
+            System.out.println("Combat d'archer contre" + c.getClass());
             System.out.println("Dammage Direct");
             System.out.println("Le dammge causé était: " + (this.getDegAtt()));
 

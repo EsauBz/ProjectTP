@@ -53,6 +53,7 @@ public class Mage extends Personnage implements Combattant {
         if (indiceCombat <= this.getPourcentageAtt()) {/* attaque reussi*/
             
             c.setPtVie(c.getPtVie() - this.getDegAtt());
+            System.out.println("Combat d'archer contre" + c.getClass());
             System.out.println("Dammage Direct");
             System.out.println("Le dammge causé était: " + (this.getDegAtt()));
 

@@ -55,6 +55,7 @@ public class Guerrier extends Personnage implements Combattant {
         int indiceCombat = gA.nextInt(100);
         if (indiceCombat <= this.getPourcentageAtt()) {/* attaque reussi*/
             System.out.println("************************");
+            System.out.println("Combat d'archer contre" + c.getClass());
             System.out.println("L'attaque était certaine");
 
             indiceCombat = gA.nextInt(100);

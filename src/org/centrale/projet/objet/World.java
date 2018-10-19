@@ -113,6 +113,7 @@ public class World {
                             while (it.hasNext()) {
                                 Monstre mt = (Monstre) it.next();
                                 if (a.getPerso().getPos().distance(mt.getPos()) == 1) {
+                                    System.out.println("---- MODE COMBAT ----");
                                     a.getPerso().combattre(mt);
                                 }
                             }
@@ -122,6 +123,7 @@ public class World {
                             while (it.hasNext()) {
                                 Monstre mt = (Monstre) it.next();
                                 if (a.getPerso().getPos().distance(mt.getPos()) > 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
+                                    System.out.println("---- MODE COMBAT ----");
                                     a.getPerso().combattre(mt);
                                 }
                             }
@@ -131,6 +133,7 @@ public class World {
                             while (it.hasNext()) {
                                 Monstre mt = (Monstre) it.next();
                                 if (a.getPerso().getPos().distance(mt.getPos()) >= 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
+                                    System.out.println("---- MODE COMBAT ----");
                                     a.getPerso().combattre(mt);
                                 }
                             }
