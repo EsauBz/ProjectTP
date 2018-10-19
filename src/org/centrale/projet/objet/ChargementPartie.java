@@ -30,9 +30,10 @@ public class ChargementPartie {
         nomFichier = fichierNom; 
     }
     
-    public void chargerPartie(){
+    public World chargerPartie(){
+        World monde = new World();
         
-        
+        return monde;
     }
     
 }
