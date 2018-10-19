@@ -226,32 +226,28 @@ public class Personnage extends Creature {
         }
         switch (dir) {
             case 1:
-                this.getPos().setCoordY(this.getPos().getCoordY() + 2);
+                this.getPos().translate(0, 2);                
                 break;
             case 2:
-                this.getPos().setCoordY(this.getPos().getCoordY() - 2);
+                this.getPos().translate(0, -2);                 
                 break;
             case 3:
-                this.getPos().setCoordX(this.getPos().getCoordX() - 2);
+                this.getPos().translate(-2, 0);                 
                 break;
             case 4:
-                this.getPos().setCoordX(this.getPos().getCoordX() + 2);
+                this.getPos().translate(2,0);                
                 break;
             case 5:
-                this.getPos().setCoordY(this.getPos().getCoordY() + 2);
-                this.getPos().setCoordX(this.getPos().getCoordX() - 2);
+                this.getPos().translate(-2, 2);                 
                 break;
             case 6:
-                this.getPos().setCoordY(this.getPos().getCoordY() - 2);
-                this.getPos().setCoordX(this.getPos().getCoordX() + 2);
+                this.getPos().translate(2,-2);                 
                 break;
             case 7:
-                this.getPos().setCoordX(this.getPos().getCoordX() - 2);
-                this.getPos().setCoordY(this.getPos().getCoordY() - 2);
+                this.getPos().translate(-2,-2);                 
                 break;
             case 8:
-                this.getPos().setCoordX(this.getPos().getCoordX() + 2);
-                this.getPos().setCoordY(this.getPos().getCoordY() + 2);
+                this.getPos().translate(2, 2);                 
                 break;
         }
     }
