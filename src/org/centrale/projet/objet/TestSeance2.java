@@ -65,6 +65,7 @@ public class TestSeance2 {
                                       System.out.println("Ecrivez le nom du ficher à charger: ");
                                       fichierNom = sc.next();
                                       ChargementPartie load = new ChargementPartie(fichierNom);
+                                      load.chargerPartie();
                                       break;
                            default :  System.out.println("Vous n'avez suivi les instructions! See ya later! \n");
                                       break;

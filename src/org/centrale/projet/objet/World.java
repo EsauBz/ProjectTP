@@ -62,6 +62,13 @@ public class World {
         this.creationMonstres();
         this.creationPotions();
     }
+    
+    public World(int x, int y){
+        
+        tailleX = x;
+        tailleY = y;
+}
+
 
     /**
      * Ce methode done une position aleatoire a les diferents Joueurs les
