@@ -2,7 +2,7 @@
  * Ecole Centrale de Nantes
  * Option Informatique
  * Programation Oriente a Object
- * 
+ *
  */
 package org.centrale.projet.objet;
 
@@ -17,8 +17,7 @@ public class Point2D {
     private int coordY;
 
     /**
-     * Constructor sans parametres
-     * initialise les deux parametres en cero
+     * Constructor sans parametres initialise les deux parametres en cero
      */
     public Point2D() {
         coordX = 0;
@@ -28,8 +27,8 @@ public class Point2D {
     /**
      * Constructor avec parametres
      *
-     * @param  x coordX s'initialise dans le valeur de X
-     * @param  y coordY s'initialise dans le valeur de Y
+     * @param x coordX s'initialise dans le valeur de X
+     * @param y coordY s'initialise dans le valeur de Y
      */
     public Point2D(int x, int y) {
         coordX = x;
@@ -39,7 +38,8 @@ public class Point2D {
     /**
      * Constructor avec parametre object Point2D
      *
-     * @param objt (class Point2D) represent l'objet Point qu'on veut faire un copie
+     * @param objt (class Point2D) represent l'objet Point qu'on veut faire un
+     * copie
      */
     public Point2D(Point2D objt) {
         coordX = objt.getCoordX();
@@ -66,30 +66,49 @@ public class Point2D {
         coordX = x;
         coordY = y;
     }
+
     /**
-    @param dx valeur du differentiel qu'on veut faire a la position du coordone X
-    @param dy valeur du differentiel qu'on veut faire a la position du coordone Y
-    */
+     * @param dx valeur du differentiel qu'on veut faire a la position du
+     * coordone X
+     * @param dy valeur du differentiel qu'on veut faire a la position du
+     * coordone Y
+     */
     public void translate(int dx, int dy) {
         coordX = coordX + dx;
         coordY = coordY + dy;
     }
-     /**
-    * methode qui affiche les valeurs de coordX et coordY qui represent une position dans le joue
-    */
+
+    /**
+     * methode qui affiche les valeurs de coordX et coordY qui represent une
+     * position dans le joue
+     */
     public void affiche() {
-        
+
         System.out.print("[Position en X: " + coordX + " Position en Y: " + coordY + "]");
         System.out.print(" ");
     }
+
     /**
-     * 
+     *
      * @param p point2d
-     * @return  float represent distance entre deux points
+     * @return float represent distance entre deux points
      */
     public float distance(Point2D p) {
         float dif;
-        dif = (float)Math.sqrt(Math.pow(Math.abs(coordX - p.getCoordX()),2) + Math.pow(Math.abs(coordY - p.getCoordY()), 2));
+        dif = (float) Math.sqrt(Math.pow(Math.abs(coordX - p.getCoordX()), 2) + Math.pow(Math.abs(coordY - p.getCoordY()), 2));
+        return dif;
+    }
+
+    /**
+     *
+     * @param p la fonction recoit un point pour verifier si a la meme position
+     * @return un boolean True si les points ont la meme position False sinon.
+     */
+    public boolean memePos(Point2D p) {
+        boolean dif = false;
+        if (p.getCoordX() == this.coordX && p.getCoordY() == this.coordY) {
+            dif = true;
+        }
         return dif;
     }
 }
