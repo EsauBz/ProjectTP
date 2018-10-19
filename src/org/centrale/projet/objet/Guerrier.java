@@ -54,7 +54,8 @@ public class Guerrier extends Personnage implements Combattant {
         Random gA = new Random();
         int indiceCombat = gA.nextInt(100);
         if (indiceCombat <= this.getPourcentageAtt()) {/* attaque reussi*/
-            System.out.println("************************");
+
+            System.out.println("Combat de guerrier contre" + c.getClass());
             System.out.println("L'attaque était certaine");
 
             indiceCombat = gA.nextInt(100);
@@ -70,6 +71,7 @@ public class Guerrier extends Personnage implements Combattant {
                 System.out.println("Dammage Direct");
                 System.out.println("Le dammge causé était: " + (this.getDegAtt()));
             }
+            c.affiche();
         } else {
             /* attaque echoue*/
             System.out.println("L'attaque a échoué");

@@ -108,11 +108,14 @@ public class World {
                         verifierPotions(a.getPerso());
                         break;
                     case 2:
+                        System.out.println("************************");
+                        System.out.println("---- MODE COMBAT ----");
                         if (a.getPerso() instanceof Guerrier) {
                             Iterator<ElementDeJeu> it = this.listMonstres.iterator();
                             while (it.hasNext()) {
                                 Monstre mt = (Monstre) it.next();
                                 if (a.getPerso().getPos().distance(mt.getPos()) == 1) {
+
                                     a.getPerso().combattre(mt);
                                 }
                             }
@@ -122,6 +125,7 @@ public class World {
                             while (it.hasNext()) {
                                 Monstre mt = (Monstre) it.next();
                                 if (a.getPerso().getPos().distance(mt.getPos()) > 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
+
                                     a.getPerso().combattre(mt);
                                 }
                             }
@@ -131,6 +135,7 @@ public class World {
                             while (it.hasNext()) {
                                 Monstre mt = (Monstre) it.next();
                                 if (a.getPerso().getPos().distance(mt.getPos()) >= 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
+
                                     a.getPerso().combattre(mt);
                                 }
                             }

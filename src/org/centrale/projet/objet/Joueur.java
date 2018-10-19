@@ -77,16 +77,16 @@ public class Joueur {
         Point2D p = new Point2D(gA.nextInt(50), gA.nextInt(50));
         switch (classeJ) {
             case "Guerrier":
-                this.perso = new Guerrier(nom, gA.nextInt(100), gA.nextInt(100), gA.nextInt(100)/*attack*/, gA.nextInt(90)/*Par*/, gA.nextInt(30)/*magie*/, gA.nextInt(50), gA.nextInt(100), gA.nextInt(30), gA.nextInt(20), p, gA.nextInt(100));
+                this.perso = new Guerrier(nom, gA.nextInt(100), gA.nextInt(30), gA.nextInt(100)/*attack*/, gA.nextInt(80)/*Par*/, gA.nextInt(30)/*magie*/, gA.nextInt(50), gA.nextInt(70), gA.nextInt(30), gA.nextInt(5), p, gA.nextInt(80));
                 break;
             case "Paysan":
-                this.perso = new Paysan(nom, gA.nextInt(100), gA.nextInt(100), gA.nextInt(50)/*attack*/, gA.nextInt(100)/*Par*/, gA.nextInt(70)/*magie*/, gA.nextInt(70), gA.nextInt(70), gA.nextInt(90), gA.nextInt(20), p, gA.nextInt(100));
+                this.perso = new Paysan(nom, gA.nextInt(100), gA.nextInt(100), gA.nextInt(50)/*attack*/, gA.nextInt(100)/*Par*/, gA.nextInt(70)/*magie*/, gA.nextInt(70), gA.nextInt(50), gA.nextInt(90), gA.nextInt(5), p, gA.nextInt(90));
                 break;
             case "Archer":
-                this.perso = new Archer(nom, gA.nextInt(100), gA.nextInt(100), gA.nextInt(100)/*attack*/, gA.nextInt(100)/*Par*/, gA.nextInt(30)/*magie*/, gA.nextInt(60), gA.nextInt(100), gA.nextInt(30), gA.nextInt(40), p, gA.nextInt(100), gA.nextInt(100));
+                this.perso = new Archer(nom, gA.nextInt(100), gA.nextInt(50), gA.nextInt(80)/*attack*/, gA.nextInt(50)/*Par*/, gA.nextInt(30)/*magie*/, gA.nextInt(60), gA.nextInt(70), gA.nextInt(30), gA.nextInt(10), p, gA.nextInt(100), gA.nextInt(60));
                 break;
             case "Mage":
-                this.perso = new Mage(nom, gA.nextInt(100), gA.nextInt(100), gA.nextInt(80)/*attack*/, gA.nextInt(100)/*Par*/, gA.nextInt(100)/*magie*/, gA.nextInt(100), gA.nextInt(70), gA.nextInt(100), gA.nextInt(50), p, gA.nextInt(100));
+                this.perso = new Mage(nom, gA.nextInt(100), gA.nextInt(100), gA.nextInt(80)/*attack*/, gA.nextInt(50)/*Par*/, gA.nextInt(100)/*magie*/, gA.nextInt(100), gA.nextInt(70), gA.nextInt(80), gA.nextInt(12), p, gA.nextInt(60));
                 break;
             default:
                 System.out.println("La clase: " + classeJ + " n'existe pas");

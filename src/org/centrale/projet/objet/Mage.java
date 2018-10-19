@@ -49,13 +49,15 @@ public class Mage extends Personnage implements Combattant {
         Random gA = new Random();
         int indiceCombat = gA.nextInt(100);
         this.setPtMana(this.getPtMana() - 1);
-        System.out.println("************************");
+
         if (indiceCombat <= this.getPourcentageAtt()) {/* attaque reussi*/
-            
+
             c.setPtVie(c.getPtVie() - this.getDegAtt());
+            System.out.println("Combat de mage contre" + c.getClass());
             System.out.println("Dammage Direct");
             System.out.println("Le dammge causé était: " + (this.getDegAtt()));
-
+            
+            c.affiche();
         } else {
             /* attaque echoue*/
             System.out.println("L'attaque a échoué");
