@@ -10,7 +10,7 @@ package org.centrale.projet.objet;
  *
  * @author EsauBZ
  */
-public class Guerrier extends Personnage implements Combattant{
+public class Guerrier extends Personnage implements Combattant {
 
     /**
      * Constructeur de la class Guerrier, il fait un appel a le constructeur de
@@ -32,8 +32,9 @@ public class Guerrier extends Personnage implements Combattant{
     public Guerrier(String nom, int pV, int ptM, int pA, int pP, int pM, int rM, int dA, int dM, int distMax, Point2D p, int ptP) {
         super(nom, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);
     }
+
     /**
-     * 
+     *
      */
     public Guerrier() {
         super();

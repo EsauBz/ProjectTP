@@ -16,9 +16,13 @@ import java.util.*;
 public class World {
 
     /**
-     * list de ElementsJeu (Monstres et Potions) *
+     * list de Potions *
      */
-    private ArrayList<ElementDeJeu> listElmentsJeu;
+    private ArrayList<ElementDeJeu> listPotions;
+    /**
+     * list de Monstres *
+     */
+    private ArrayList<ElementDeJeu> listMonstres;
     /**
      * lists de personnages *
      */
@@ -42,7 +46,11 @@ public class World {
         /**
          * Lists de potions *
          */
-        this.listElmentsJeu = new ArrayList<>();
+        this.listPotions = new ArrayList<>();
+        /**
+         * Lists de potions *
+         */
+        this.listMonstres = new ArrayList<>();
         /**
          * Variables taille du monde *
          */
@@ -100,7 +108,36 @@ public class World {
                         verifierPotions(a.getPerso());
                         break;
                     case 2:
-                        //a.getPerso().combattre();
+                        if (a.getPerso() instanceof Guerrier) {
+                            Iterator<ElementDeJeu> it = this.listMonstres.iterator();
+                            while (it.hasNext()) {
+                                Monstre mt = (Monstre) it.next();
+                                if (a.getPerso().getPos().distance(mt.getPos()) == 1) {
+                                    a.getPerso().combattre(mt);
+                                }
+                            }
+                        }
+                        if (a.getPerso() instanceof Archer) {
+                            Iterator<ElementDeJeu> it = this.listMonstres.iterator();
+                            while (it.hasNext()) {
+                                Monstre mt = (Monstre) it.next();
+                                if (a.getPerso().getPos().distance(mt.getPos()) > 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
+                                    a.getPerso().combattre(mt);
+                                }
+                            }
+                        }
+                        if (a.getPerso() instanceof Mage) {
+                            Iterator<ElementDeJeu> it = this.listMonstres.iterator();
+                            while (it.hasNext()) {
+                                Monstre mt = (Monstre) it.next();
+                                if (a.getPerso().getPos().distance(mt.getPos()) >= 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
+                                    a.getPerso().combattre(mt);
+                                }
+                            }
+                        }
+                        break;
+                    case 3:
+                        //Game Saving
                         break;
                 }
 
@@ -123,10 +160,16 @@ public class World {
             this.listJouers.get(i).getPerso().affiche();
         }
         /**
-         * ElementesDeJeu *
+         * Monstres *
          */
-        for (int i = 0; i < listElmentsJeu.size(); i++) {
-            this.listElmentsJeu.get(i).affiche();
+        for (int i = 0; i < listMonstres.size(); i++) {
+            this.listMonstres.get(i).affiche();
+        }
+        /**
+         * Potions *
+         */
+        for (int i = 0; i < this.listPotions.size(); i++) {
+            this.listPotions.get(i).affiche();
         }
     }
 
@@ -145,16 +188,16 @@ public class World {
         for (int i = 0; i < 20; i++) {
             if (i > 0) {
                 for (int j = 0; j < i; j++) {
-                    while (p.getCoordX() == listElmentsJeu.get(j).getPos().getCoordX() && p.getCoordY() == listElmentsJeu.get(j).getPos().getCoordY()) {
+                    while (p.getCoordX() == listMonstres.get(j).getPos().getCoordX() && p.getCoordY() == listMonstres.get(j).getPos().getCoordY()) {
                         p.setCoordX(gA.nextInt(tailleX));
                         p.setCoordY(gA.nextInt(tailleY));
                     }
                 }
-                this.listElmentsJeu.add(l = new Lapin(100 + i, 10, 10, 10, p, 10));
+                this.listMonstres.add(l = new Lapin(100 + i, 10, 10, 10, p, 10));
             } else {
                 p.setCoordX(gA.nextInt(tailleX));
                 p.setCoordY(gA.nextInt(tailleY));
-                this.listElmentsJeu.add(l = new Lapin(100 + i, 10, 10, 10, p, 10));
+                this.listMonstres.add(l = new Lapin(100 + i, 10, 10, 10, p, 10));
             }
         }
         /**
@@ -162,13 +205,13 @@ public class World {
          */
         Loup lp;
         for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < listElmentsJeu.size(); j++) {
-                while (p.getCoordX() == listElmentsJeu.get(j).getPos().getCoordX() && p.getCoordY() == listElmentsJeu.get(j).getPos().getCoordY()) {
+            for (int j = 0; j < listMonstres.size(); j++) {
+                while (p.getCoordX() == listMonstres.get(j).getPos().getCoordX() && p.getCoordY() == listMonstres.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listElmentsJeu.add(lp = new Loup(100 + i, 10, 10, 10, p, 10));
+            this.listMonstres.add(lp = new Loup(100 + i, 10, 10, 10, p, 10));
         }
         /**
          * Potions Soin *
@@ -176,16 +219,15 @@ public class World {
         Soin sp;
         for (int i = 0; i < 5; i++) {
 
-            for (int j = 0; j < listElmentsJeu.size(); j++) {
-                while (p.getCoordX() == listElmentsJeu.get(j).getPos().getCoordX() && p.getCoordY() == listElmentsJeu.get(j).getPos().getCoordY()) {
+            for (int j = 0; j < listPotions.size(); j++) {
+                while (p.getCoordX() == listPotions.get(j).getPos().getCoordX() && p.getCoordY() == listPotions.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listElmentsJeu.add(sp = new Soin(p));
+            this.listPotions.add(sp = new Soin(p));
 
         }
-        this.listElmentsJeu.add(sp = new Soin(this.listJouers.get(0).getPerso().getPos().getCoordX() + 2, this.listJouers.get(0).getPerso().getPos().getCoordY()));
 
         /**
          * Potions Mana *
@@ -193,13 +235,13 @@ public class World {
         Mana mp;
         for (int i = 0; i < 5; i++) {
 
-            for (int j = 0; j < listElmentsJeu.size(); j++) {
-                while (p.getCoordX() == listElmentsJeu.get(j).getPos().getCoordX() && p.getCoordY() == listElmentsJeu.get(j).getPos().getCoordY()) {
+            for (int j = 0; j < listPotions.size(); j++) {
+                while (p.getCoordX() == listPotions.get(j).getPos().getCoordX() && p.getCoordY() == listPotions.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listElmentsJeu.add(mp = new Mana(p));
+            this.listPotions.add(mp = new Mana(p));
 
         }
     }
@@ -273,7 +315,7 @@ public class World {
      * @param p On verifie si ce personnage est dans la potition d'un potion.
      */
     public void verifierPotions(Personnage p) {
-        Iterator<ElementDeJeu> it = this.listElmentsJeu.iterator();
+        Iterator<ElementDeJeu> it = this.listPotions.iterator();
         while (it.hasNext()) {
             ElementDeJeu i = it.next();
             if (i instanceof Soin && i.getPos().memePos(p.getPos())) {

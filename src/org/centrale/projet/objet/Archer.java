@@ -101,11 +101,6 @@ public class Archer extends Personnage implements Combattant {
      */
     @Override
     public void combattre(Creature c) {
-        /* Combat corps - corps */
-        if (this.getPos().distance(c.getPos()) == 1) {
-
-        }
-
         /* Combat a distance */
         if (this.getPos().distance(c.getPos()) > 1 && this.getPos().distance(c.getPos()) < 50 /* distance*/) {
 
