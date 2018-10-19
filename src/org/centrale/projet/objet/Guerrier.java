@@ -45,7 +45,7 @@ public class Guerrier extends Personnage implements Combattant {
     /**
      * Method que effectué un combat avec un créature qui est proche. Un
      * variable random represent un dé qui est lance pour savoir premierement si
-     * l'attaque est reussi et aprés pour savoir si la creature etait protege.     
+     * l'attaque est reussi et aprés pour savoir si la creature etait protege.
      *
      * @param c parametre du class creature pour combattre
      */

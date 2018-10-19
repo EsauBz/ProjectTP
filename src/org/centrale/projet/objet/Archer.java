@@ -16,9 +16,9 @@ import java.util.Random;
  */
 public class Archer extends Personnage implements Combattant {
 
+    /*atribut de la class pour savoir combien des fleches il reste*/
     private int nbFleches;
 
-    /*atribut de la class pour savoir combien des fleches il reste*/
     /**
      * Constructeur de clasee Archer sans parametres (par défaut) initialise
      * tout en cero

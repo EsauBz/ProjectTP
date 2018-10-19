@@ -80,15 +80,7 @@ public class TestSeance2 {
         }
     }
 
-       
-        
-       /*
-        Joueur p1 = new Joueur();
-        Joueur p2 = new Joueur();        
-        p1.getPerso().affiche();
-        
-        p2.getPerso().affiche();
-        */
+   
 }
 
 

@@ -98,7 +98,7 @@ public class Joueur {
 
     /**
      *
-     * @return
+     * @return renvoie le nom du personnage
      */
     public String getNom() {
         return nom;
@@ -106,7 +106,7 @@ public class Joueur {
 
     /**
      *
-     * @return
+     * @return renvoie le nom de la classe du personnage
      */
     public String getClasseJ() {
         return classeJ;
@@ -114,7 +114,7 @@ public class Joueur {
 
     /**
      *
-     * @return
+     * @return renvoie un instence de personnage
      */
     public Personnage getPerso() {
         return perso;

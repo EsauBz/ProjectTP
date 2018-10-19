@@ -9,6 +9,8 @@ package org.centrale.projet.objet;
 import java.util.*;
 
 /**
+ * La classe World qui est en charge de la creation des personnages, monstres et
+ * les differents potions, la classe fait aussi le tour de jeu
  *
  * @author EsauBZ
  *
@@ -34,9 +36,9 @@ public class World {
     int tailleY;
 
     /**
-     * Constructeur du monde Woe on cree les differents lists pour les
-     * differents personnages et on appelle le methode ou 100 personnages sont
-     * cree dans les differents lists
+     * Constructeur du monde WoE on cree les differents lists pour les
+     * personnages, les monstres et les potions, ici s'appelle aussi a les
+     * methodes pour la creation de Joueur et les differents elements
      */
     public World() {
         /**
@@ -86,8 +88,8 @@ public class World {
     }
 
     /**
-     * Tour de Jeu il fait un decision pour le joueur, se deplace o se battre
-     * avec un monstre
+     * Tour de Jeu il fait la demmande au joueur pour savoir avec un switch s'il
+     * veut se deplacer, se battre ou sauvegarder le jeu
      */
     public void tourdeJeu() {
         if (listJouers != null) {
@@ -179,7 +181,7 @@ public class World {
     }
 
     /**
-     * methode de creation Aleatoire des Monstres dans le monde il cree un
+     * Methode de creation Aleatoire des Monstres dans le monde il cree un
      * nombre aleatoire de chaque type de Monstre dans une meme liste. Les
      * coordonnes son aleatoires.
      */

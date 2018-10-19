@@ -32,7 +32,7 @@ public class Lapin extends Monstre {
     }
 
     /**
-     * Constructeur de la class lapin avec parametres
+     * Constructeur de la class lapin avec parametres.
      *
      * @param pV points de vie
      * @param pA pourcentage attack
