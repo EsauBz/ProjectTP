@@ -11,20 +11,33 @@ package org.centrale.projet.objet;
  */
 public class Potion extends Objet{     
 
+    int pointPotion;
     /**
      * 
      * @param x
      * @param y 
+     * @param pt 
      */
-    public Potion(int x, int y) {
-        super(x,y);               
+    public Potion(int x, int y, int pt) {
+        super(x,y);           
+        pointPotion = pt;
     }
     /**
      * 
      * @param p 
+     * @param pt 
      */
-    public Potion(Point2D p) {
-        super(p);               
+    public Potion(Point2D p, int pt) {
+        super(p);   
+        pointPotion = pt;
+    }
+
+    public int getPointPotion() {
+        return pointPotion;
+    }
+
+    public void setPointPotion(int pointPotion) {
+        this.pointPotion = pointPotion;
     }
        
 }

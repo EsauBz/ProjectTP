@@ -257,11 +257,11 @@ public class World {
                         p.setCoordY(gA.nextInt(tailleY));
                     }
                 }
-                this.listPotions.add(sp = new Soin(p));
+                this.listPotions.add(sp = new Soin(p,gA.nextInt(tailleY)));
             } else {
                 p.setCoordX(gA.nextInt(tailleX));
                 p.setCoordY(gA.nextInt(tailleY));
-                this.listPotions.add(sp = new Soin(p));
+                this.listPotions.add(sp = new Soin(p,gA.nextInt(tailleY)));
             }
 
         }
@@ -278,7 +278,7 @@ public class World {
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listPotions.add(mp = new Mana(p));
+            this.listPotions.add(mp = new Mana(p,gA.nextInt(tailleY)));
 
         }
     }
@@ -356,12 +356,14 @@ public class World {
         while (it.hasNext()) {
             ElementDeJeu i = it.next();
             if (i instanceof Soin && i.getPos().memePos(p.getPos())) {
-                p.setPtVie(p.getPtVie() + 25);
+                Soin n = (Soin)i;
+                p.setPtVie(p.getPtVie() + n.getPointPotion());
                 it.remove();
             }
 
             if (it instanceof Mana && i.getPos().memePos(p.getPos())) {
-                p.setPtMana(p.getPtMana() + 25);
+                Mana m = (Mana)i;
+                p.setPtMana(p.getPtMana() + m.getPointPotion());
                 it.remove();
             }
         }
@@ -369,3 +371,4 @@ public class World {
     }
 
 }
+

@@ -13,18 +13,14 @@ import java.util.Random;
  */
 public class Soin extends Potion {
 
-    int pointPotion;
-
-    public Soin(int pointx, int pointy) {
-        super(pointx, pointy);
+    public Soin(int pointx, int pointy, int pt) {
+        super(pointx, pointy, pt);
         Random gA = new Random();
-        pointPotion = 25;
     }
 
-    public Soin(Point2D p) {
-        super(p);
+    public Soin(Point2D p, int pt) {
+        super(p, pt);
         Random gA = new Random();
-        pointPotion = 25;
     }
 
     /**
@@ -34,8 +30,8 @@ public class Soin extends Potion {
     public void affiche() {
         System.out.println("");
         System.out.println("**************************************");
-        System.out.println("Potion Soin: " + pointPotion + "Points");
+        System.out.println("Potion Soin: " + this.getPointPotion() + "Points");
         this.getPos().affiche();
-        System.out.println("**************************************");        
+        System.out.println("**************************************");
     }
 }

@@ -30,7 +30,7 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
     }
 
     /**
-     * 
+     *
      * @param p point dans le monde
      * @param ptv points de vie
      */
@@ -62,37 +62,37 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
         return ptVie;
     }
 
+    /**
+     * Methode de deplacement de la nuage, le random donne un numero aleatoire
+     * pour la direcction que la nuage prends dans le deplacement.
+     */
     @Override
     public void deplacer() {
         Random gA = new Random();
         switch (gA.nextInt(8) + 1) {
             case 1:
-                this.getPos().setCoordY(this.getPos().getCoordY() - 2);
+                this.getPos().translate(0, -2);
                 break;
             case 2:
-                this.getPos().setCoordY(this.getPos().getCoordY() + 2);
+                this.getPos().translate(0, 2);
                 break;
             case 3:
-                this.getPos().setCoordX(this.getPos().getCoordX() - 2);
+                this.getPos().translate(-2, 0);
                 break;
             case 4:
-                this.getPos().setCoordX(this.getPos().getCoordX() + 2);
+                this.getPos().translate(2, 0);
                 break;
             case 5:
-                this.getPos().setCoordY(this.getPos().getCoordY() - 2);
-                this.getPos().setCoordX(this.getPos().getCoordX() - 2);
+                this.getPos().translate(-2, -2);
                 break;
             case 6:
-                this.getPos().setCoordY(this.getPos().getCoordY() + 2);
-                this.getPos().setCoordX(this.getPos().getCoordX() + 2);
+                this.getPos().translate(2, 2);
                 break;
             case 7:
-                this.getPos().setCoordX(this.getPos().getCoordX() - 2);
-                this.getPos().setCoordY(this.getPos().getCoordY() + 2);
+                this.getPos().translate(-2, 2);
                 break;
             case 8:
-                this.getPos().setCoordX(this.getPos().getCoordX() + 2);
-                this.getPos().setCoordY(this.getPos().getCoordY() - 2);
+                this.getPos().translate(2, -2);
                 break;
             default:
 
@@ -102,7 +102,7 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
 
     /**
      * Methode combattre de la nuage, parametre de la creature avec laquel la
-     * nuage se battre
+     * nuage se battre.
      *
      * @param cr creature pour se battre
      */

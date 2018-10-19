@@ -12,26 +12,21 @@ import java.util.Random;
  * @author EsauBZ
  */
 public class Mana extends Potion{
-     int pointPotion;
-    
-    public Mana(int pointx, int pointy) {        
-        super(pointx, pointy);
-        Random gA = new Random();
-        pointPotion = 25;
+ 
+    public Mana(int pointx, int pointy, int pt) {        
+        super(pointx, pointy, pt);    
     }
-    public Mana(Point2D p) {        
-        super(p);
-        Random gA = new Random();
-        pointPotion = 25;
+    public Mana(Point2D p, int pt) {        
+        super(p, pt);
     }
-    /**
-     * 
-     */
+   /**
+    * 
+    */
     @Override
     public void affiche() {
         System.out.println("");
         System.out.println("**************************************");
-        System.out.println("Potion Mana: " + pointPotion + "Points");
+        System.out.println("Potion Mana: " + this.getPointPotion() + "Points");
         this.getPos().affiche();
         System.out.println("**************************************");        
     }
