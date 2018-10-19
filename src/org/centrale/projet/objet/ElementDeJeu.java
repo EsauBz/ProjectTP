@@ -25,7 +25,7 @@ public class ElementDeJeu {
     }
 
     /**
-     * constucteur element de jeu avec ses positions dans le monde avec deux
+     * Constucteur d'element de jeu avec ses positions dans le monde avec deux
      * integers
      *
      * @param x

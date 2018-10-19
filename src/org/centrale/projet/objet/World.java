@@ -59,7 +59,8 @@ public class World {
         tailleX = 50;
         tailleY = 50;
         this.creationJoueur();
-        this.creationElementsDeJeu();
+        this.creationMonstres();
+        this.creationPotions();
     }
 
     /**
@@ -181,11 +182,11 @@ public class World {
     }
 
     /**
-     * Methode de creation Aleatoire des Monstres dans le monde il cree un
+     * Methode de creation Aleatoire des Monstres dans le monde, il cree un
      * nombre aleatoire de chaque type de Monstre dans une meme liste. Les
-     * coordonnes son aleatoires.
+     * coordonnes et ses attributs sont aleatoires
      */
-    private void creationElementsDeJeu() {
+    private void creationMonstres() {
         Random gA = new Random();
         Point2D p = new Point2D();
         /**
@@ -221,18 +222,47 @@ public class World {
             this.listMonstres.add(lp = new Loup(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
         }
         /**
-         * Potions Soin *
+         * Nuages *
          */
-        Soin sp;
-        for (int i = 0; i < 5; i++) {
-
-            for (int j = 0; j < listPotions.size(); j++) {
-                while (p.getCoordX() == listPotions.get(j).getPos().getCoordX() && p.getCoordY() == listPotions.get(j).getPos().getCoordY()) {
+        NuageToxique nt;
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < listMonstres.size(); j++) {
+                while (p.getCoordX() == listMonstres.get(j).getPos().getCoordX() && p.getCoordY() == listMonstres.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listPotions.add(sp = new Soin(p));
+            this.listMonstres.add(nt = new NuageToxique(p, gA.nextInt(tailleX)));
+        }
+    }
+
+    /**
+     * Methode de creation Aleatoire des Potions dans le monde, il cree un
+     * nombre aleatoire de chaque type de potion dans une meme liste. Les
+     * coordonnes sont aleatoires.
+     */
+    private void creationPotions() {
+        Random gA = new Random();
+        Point2D p = new Point2D();
+
+        /**
+         * Potions Soin *
+         */
+        Soin sp;
+        for (int i = 0; i < 5; i++) {
+            if (i > 0) {
+                for (int j = 0; j < listPotions.size(); j++) {
+                    while (p.getCoordX() == listPotions.get(j).getPos().getCoordX() && p.getCoordY() == listPotions.get(j).getPos().getCoordY()) {
+                        p.setCoordX(gA.nextInt(tailleX));
+                        p.setCoordY(gA.nextInt(tailleY));
+                    }
+                }
+                this.listPotions.add(sp = new Soin(p));
+            } else {
+                p.setCoordX(gA.nextInt(tailleX));
+                p.setCoordY(gA.nextInt(tailleY));
+                this.listPotions.add(sp = new Soin(p));
+            }
 
         }
 

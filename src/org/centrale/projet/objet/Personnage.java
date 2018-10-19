@@ -129,7 +129,7 @@ public class Personnage extends Creature {
 
     /**
      *
-     * @param distAttMax
+     * @param distAttMax la distance max d'attaque
      */
     public void setDistAttMax(int distAttMax) {
         this.distAttMax = distAttMax;
@@ -177,7 +177,7 @@ public class Personnage extends Creature {
 
     /**
      *
-     * @return
+     * @return distance max de l'attaque du personnage
      */
     public int getDistAttMax() {
         return distAttMax;
@@ -189,6 +189,7 @@ public class Personnage extends Creature {
      * description.
      *
      */
+    @Override
     public void affiche() {
 
         System.out.println("");
@@ -226,33 +227,33 @@ public class Personnage extends Creature {
         }
         switch (dir) {
             case 1:
-                this.getPos().translate(0, 2);                
+                this.getPos().translate(0, 2);
                 break;
             case 2:
-                this.getPos().translate(0, -2);                 
+                this.getPos().translate(0, -2);
                 break;
             case 3:
-                this.getPos().translate(-2, 0);                 
+                this.getPos().translate(-2, 0);
                 break;
             case 4:
-                this.getPos().translate(2,0);                
+                this.getPos().translate(2, 0);
                 break;
             case 5:
-                this.getPos().translate(-2, 2);                 
+                this.getPos().translate(-2, 2);
                 break;
             case 6:
-                this.getPos().translate(2,-2);                 
+                this.getPos().translate(2, -2);
                 break;
             case 7:
-                this.getPos().translate(-2,-2);                 
+                this.getPos().translate(-2, -2);
                 break;
             case 8:
-                this.getPos().translate(2, 2);                 
+                this.getPos().translate(2, 2);
                 break;
         }
     }
-
-    public void combattre(Creature c) {
-
+    
+    public void combattre(Creature c){
+        
     }
 }

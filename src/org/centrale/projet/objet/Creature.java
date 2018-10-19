@@ -13,7 +13,7 @@ import java.util.Random;
  * @author EsauBZ
  */
 public class Creature extends ElementDeJeu implements Deplacable {
-   
+
     private int ptVie;
     /* parametre point de vie*/
     private int pourcentageAtt;
@@ -40,7 +40,7 @@ public class Creature extends ElementDeJeu implements Deplacable {
         pourcentageAtt = pA;
         pourcentagePar = pP;
         degAtt = dA;
-        ptPar = ptP;     
+        ptPar = ptP;
     }
 
     /**
@@ -48,14 +48,13 @@ public class Creature extends ElementDeJeu implements Deplacable {
      * en cero
      */
     public Creature() {
-        super(0,0);
+        super(0, 0);
         ptVie = 0;
         pourcentageAtt = 0;
         pourcentagePar = 0;
         degAtt = 0;
-        ptPar = 0;        
+        ptPar = 0;
     }
-  
 
     /**
      *
@@ -147,36 +146,32 @@ public class Creature extends ElementDeJeu implements Deplacable {
     public void deplacer() {
         Random gA = new Random();
         switch (gA.nextInt(8) + 1) {
-            case 1:                
-                this.getPos().setCoordY(this.getPos().getCoordY() - 2);
+            case 1:
+                this.getPos().translate(0, -2);
                 break;
             case 2:
-                this.getPos().setCoordY(this.getPos().getCoordY() + 2);
+                this.getPos().translate(0, 2);
                 break;
             case 3:
-                this.getPos().setCoordX(this.getPos().getCoordX() - 2);
+                this.getPos().translate(-2, 0);
                 break;
             case 4:
-                this.getPos().setCoordX(this.getPos().getCoordX() + 2);
+                this.getPos().translate(2, 0);
                 break;
             case 5:
-                this.getPos().setCoordY(this.getPos().getCoordY() - 2);
-                this.getPos().setCoordX(this.getPos().getCoordX() - 2);
+                this.getPos().translate(-2, -2);
                 break;
             case 6:
-                this.getPos().setCoordY(this.getPos().getCoordY() + 2);
-                this.getPos().setCoordX(this.getPos().getCoordX() + 2);
+                this.getPos().translate(2, 2);
                 break;
             case 7:
-                this.getPos().setCoordX(this.getPos().getCoordX() - 2);
-                this.getPos().setCoordY(this.getPos().getCoordY() + 2);
+                this.getPos().translate(-2, 2);
                 break;
             case 8:
-                this.getPos().setCoordX(this.getPos().getCoordX() + 2);
-                this.getPos().setCoordY(this.getPos().getCoordY() - 2);
+                this.getPos().translate(2, -2);
                 break;
             default:
-                
+
                 break;
         }
     }

@@ -14,14 +14,29 @@ import java.util.Random;
  */
 public class NuageToxique extends Objet implements Deplacable, Combattant {
 
+    private int ptVie;
+
     /**
-     * Constructeur de nuage avec deux parametres por la position dans le monde
+     * Constructeur de nuage avec trois parametres, pour la position dans le
+     * monde on a deux coordonnes et sa vie.
      *
      * @param px position en x
      * @param py position en Y
+     * @param ptv
      */
-    public NuageToxique(int px, int py) {
+    public NuageToxique(int px, int py, int ptv) {
         super(px, py);
+        ptVie = ptv;
+    }
+
+    /**
+     * 
+     * @param p point dans le monde
+     * @param ptv points de vie
+     */
+    public NuageToxique(Point2D p, int ptv) {
+        super(p);
+        ptVie = ptv;
     }
 
     /**
@@ -29,6 +44,22 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
      */
     public NuageToxique() {
         super(0, 0);
+    }
+
+    /**
+     *
+     * @param ptVie
+     */
+    public void setPtVie(int ptVie) {
+        this.ptVie = ptVie;
+    }
+
+    /**
+     *
+     * @return points de vie
+     */
+    public int getPtVie() {
+        return ptVie;
     }
 
     @Override
@@ -89,6 +120,7 @@ public class NuageToxique extends Objet implements Deplacable, Combattant {
         System.out.println("**************************************");
         System.out.println("Nuage Toxique");
         this.getPos().affiche();
+        System.out.println("Vie Nuage " + ptVie);
         System.out.println("**************************************");
     }
 
