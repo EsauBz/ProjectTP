@@ -6,6 +6,8 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.Random;
+
 /**
  *
  * @author EsauBZ
@@ -102,7 +104,6 @@ public class Archer extends Personnage implements Combattant {
     @Override
     public void combattre(Creature c) {
         
-      
     }
 
 }
