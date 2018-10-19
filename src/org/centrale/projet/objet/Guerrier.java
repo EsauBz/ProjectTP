@@ -6,6 +6,8 @@
  */
 package org.centrale.projet.objet;
 
+import java.util.Random;
+
 /**
  *
  * @author EsauBZ
@@ -41,10 +43,16 @@ public class Guerrier extends Personnage implements Combattant {
     }
 
     /**
+     * Method que effectué un combat avec un créature qui est proche
      *
-     * @param c
+     * @param c parametre du class creature pour combattre
      */
+    @Override
     public void combattre(Creature c) {
-
+        Random gA = new Random();
+        int indiceCombat = gA.nextInt(100);
+        if(indiceCombat <= this.getPourcentageAtt()){
+            System.out.println("L'at");
+        }
     }
 }
