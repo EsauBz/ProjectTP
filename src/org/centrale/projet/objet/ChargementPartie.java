@@ -52,7 +52,7 @@ public class ChargementPartie {
             fichier = new BufferedReader(new FileReader(nomFichier));
             ligne = fichier.readLine();
             String delimiteurs = " ,.;";
-            if (ligne != null) {
+            if (ligne != null) { // si le fichier est rempli
                 int coordX = 0;
                 int coordY = 0;
                 // on declare un 'tokenizer' pour decouper chaque ligne
@@ -83,17 +83,14 @@ public class ChargementPartie {
                 }
                 //Initialisation du monde avec un constructeur de deux parametres
                 World monde = new World(coordX, coordY);
+                ligne = fichier.readLine();
                 
                 while (ligne != null){
-                    while(tokenizer.hasMoreTokens()) {
+                    //while(tokenizer.hasMoreTokens()) {
                         // nextToken() retourne le prochain 'mot' decoupee par les delimiteurs
-                        String mot = tokenizer.nextToken();
-                        
-                        switch(mot){
-                            
-                            case "Guerrier" : 
-                        }
-                    }
+                        //String mot = tokenizer.nextToken();
+                        creerElementJeu(ligne);                     
+                    //}
                 
                     ligne = fichier.readLine();
                 }
@@ -104,6 +101,52 @@ public class ChargementPartie {
         } catch (IOException e) {
             System.out.println(e);
         }     
-  }    
+  }
+    /**
+     *Methode creerElementJeu qui creer un element du jeu selon le fichier reçu
+     * @param line String qui contient le type d'element à Être cree
+     */
+    
+    public void creerElementJeu(String line){
+        String delimiteurs = " ,.;";
+        String mot = "0";
+        StringTokenizer tokenizer_el = new StringTokenizer(line, delimiteurs);
+        if (tokenizer_el.hasMoreTokens()){
+            mot = tokenizer_el.nextToken();
+        } 
+        
+        switch(mot){
+            /*case "Guerrier": 
+                String nom; 
+                int pV = 0, ptM = 0, pA = 0, pP = 0, pM = 0, rM = 0, dA = 0, dM = 0, distMax = 0, ptP = 0, coordX = 0, coordY = 0;
+                Point2D p;
+                nom = tokenizer_el.nextToken();
+                try {
+                        pV = Integer.parseInt(tokenizer_el.nextToken());
+                        ptM = Integer.parseInt(tokenizer_el.nextToken());
+                        pA = Integer.parseInt(tokenizer_el.nextToken());
+                        pP = Integer.parseInt(tokenizer_el.nextToken());
+                        pM = Integer.parseInt(tokenizer_el.nextToken());
+                        rM = Integer.parseInt(tokenizer_el.nextToken());
+                        dA = Integer.parseInt(tokenizer_el.nextToken());
+                        dM = Integer.parseInt(tokenizer_el.nextToken());
+                        distMax = Integer.parseInt(tokenizer_el.nextToken());
+                        ptP = Integer.parseInt(tokenizer_el.nextToken());
+                        coordX = Integer.parseInt(tokenizer_el.nextToken());
+                        coordY = Integer.parseInt(tokenizer_el.nextToken());
+                } catch (NumberFormatException e) {
+                        System.err.println(e.getMessage());  
+                }   
+                p = new Point2D(coordX, coordY);
+                Guerrier(nom, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);*/
+            
+            case "Joueur": 
+                    
+                                
+         
+        }
+            
+        
+    }
     
 }

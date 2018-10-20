@@ -39,6 +39,17 @@ public class Joueur {
         demandeClasse();
         constructorJoeur();
     }
+    
+    /**
+     * Constrcuteur de la classe Joueur qui creer un joueur avec les informations 
+     * fournies dans le fichier texte
+     * 
+     * @param line qui contient les informations pour initialiser le joueur
+     */
+    
+    public Joueur(String line){
+        
+    }
 
     /**
      * Methode qui demande le nom du joeur avec un entree du clavier ce methode

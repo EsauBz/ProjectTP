@@ -50,7 +50,7 @@ public class World {
          */
         this.listPotions = new ArrayList<>();
         /**
-         * Lists de potions *
+         * Lists de monstres *
          */
         this.listMonstres = new ArrayList<>();
         /**
@@ -67,6 +67,22 @@ public class World {
         
         tailleX = x;
         tailleY = y;
+        
+        /**
+         * Lists de personnages *
+         */
+        this.listJouers = new ArrayList<>();
+        /**
+         * Lists de potions *
+         */
+        this.listPotions = new ArrayList<>();
+        /**
+         * Lists de monstres *
+         */
+        this.listMonstres = new ArrayList<>();
+        /**
+         * Variables taille du monde *
+         */
 }
 
 
