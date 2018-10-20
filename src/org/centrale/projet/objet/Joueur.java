@@ -8,6 +8,7 @@ package org.centrale.projet.objet;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -42,13 +43,62 @@ public class Joueur {
     
     /**
      * Constrcuteur de la classe Joueur qui creer un joueur avec les informations 
-     * fournies dans le fichier texte
+     * fournies dans un fichier texte
      * 
-     * @param line qui contient les informations pour initialiser le joueur
+     * @param tokenizer qui nous permet de prendre chaque mot d'une ligne de texte
      */
     
-    public Joueur(String line){
+    public Joueur(StringTokenizer tokenizer){
         
+        String nomP = null; 
+        int pV = 0, ptM = 0, pA = 0, pP = 0, pM = 0, rM = 0, dA = 0, dM = 0, distMax = 0, ptP = 0, coordX = 0, coordY = 0, nbF = 0;
+        Point2D p = null;
+        String type = "0";
+        if (tokenizer.hasMoreTokens()){
+            type = tokenizer.nextToken();
+            nomP = tokenizer.nextToken();
+                
+            try {
+                pV = Integer.parseInt(tokenizer.nextToken());
+                ptM = Integer.parseInt(tokenizer.nextToken());
+                pA = Integer.parseInt(tokenizer.nextToken());
+                pP = Integer.parseInt(tokenizer.nextToken());
+                pM = Integer.parseInt(tokenizer.nextToken());
+                rM = Integer.parseInt(tokenizer.nextToken());
+                dA = Integer.parseInt(tokenizer.nextToken());
+                dM = Integer.parseInt(tokenizer.nextToken());
+                distMax = Integer.parseInt(tokenizer.nextToken());
+                ptP = Integer.parseInt(tokenizer.nextToken());
+                coordX = Integer.parseInt(tokenizer.nextToken());
+                coordY = Integer.parseInt(tokenizer.nextToken());
+                p = new Point2D(coordX, coordY);
+                if (tokenizer.hasMoreTokens()){
+                    nbF = Integer.parseInt(tokenizer.nextToken()); //Au cas il s'agit d'un Archer - récuperer son nombre de Fleches 
+                }
+                
+            } catch (NumberFormatException e) {
+                System.err.println(e.getMessage());  
+            }   
+        }
+        //Appel au constructeur en fonction du type de classe du Joueur humain
+        switch (type){
+            case "Guerrier":
+                this.perso = new Guerrier(nomP, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);
+                break;
+            case "Mage":
+                this.perso = new Mage(nomP, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);
+                break;
+            case "Paysan":
+                this.perso = new Paysan(nomP, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);
+                break;
+            case "Archer":
+                this.perso = new Archer(nomP, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, nbF, ptP);
+                break;
+            default:
+                System.out.println("La classe: " + type + " n'existe pas");
+                System.out.println("Format du fichier invalide");
+                break;
+        }
     }
 
     /**

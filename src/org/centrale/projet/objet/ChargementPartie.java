@@ -89,7 +89,7 @@ public class ChargementPartie {
                     //while(tokenizer.hasMoreTokens()) {
                         // nextToken() retourne le prochain 'mot' decoupee par les delimiteurs
                         //String mot = tokenizer.nextToken();
-                        creerElementJeu(ligne);                     
+                        creerElementJeu(ligne, monde);                     
                     //}
                 
                     ligne = fichier.readLine();
@@ -105,9 +105,10 @@ public class ChargementPartie {
     /**
      *Methode creerElementJeu qui creer un element du jeu selon le fichier reçu
      * @param line String qui contient le type d'element à Être cree
+     * @param monde qui represente le monde à être chargé
      */
     
-    public void creerElementJeu(String line){
+    public void creerElementJeu(String line, World monde){
         String delimiteurs = " ,.;";
         String mot = "0";
         StringTokenizer tokenizer_el = new StringTokenizer(line, delimiteurs);
@@ -141,6 +142,8 @@ public class ChargementPartie {
                 Guerrier(nom, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);*/
             
             case "Joueur": 
+                Joueur p1 = new Joueur(tokenizer_el);
+                monde.getListJouer().add(p1);
                     
                                 
          
