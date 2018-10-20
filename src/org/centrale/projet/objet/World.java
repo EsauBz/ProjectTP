@@ -22,6 +22,10 @@ public class World {
      */
     private ArrayList<ElementDeJeu> listPotions;
     /**
+     * list de Personnages *
+     */
+    private ArrayList<ElementDeJeu> listPersonnages;
+    /**
      * list de Monstres *
      */
     private ArrayList<ElementDeJeu> listMonstres;
@@ -42,9 +46,13 @@ public class World {
      */
     public World() {
         /**
-         * Lists de personnages *
+         * Lists de Joueur *
          */
         this.listJouers = new ArrayList<>();
+        /**
+         * Lists de Personnages *
+         */
+        this.listPersonnages = new ArrayList<>();
         /**
          * Lists de potions *
          */
@@ -376,6 +384,22 @@ public class World {
      */
     public ArrayList<ElementDeJeu> getListPotions() {
         return listPotions;
+    }
+    
+    /**
+     *
+     * @return La liste de Potions dans le monde
+     */
+    public ArrayList<ElementDeJeu> getListMonstres() {
+        return listMonstres;
+    }
+    
+    /**
+     *
+     * @return La liste de Personnages non controlés par humains dans le monde
+     */
+    public ArrayList<ElementDeJeu> getListPersonnages() {
+        return listPersonnages;
     }
     
     /**
