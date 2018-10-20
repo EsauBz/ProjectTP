@@ -45,16 +45,18 @@ public class Joueur {
      * Constrcuteur de la classe Joueur qui creer un joueur avec les informations 
      * fournies dans un fichier texte
      * 
-     * @param tokenizer qui nous permet de prendre chaque mot d'une ligne de texte
+     * @param ligne qui contient la ligne avec les informations pour l'initialisation d'un joueur
      */
     
-    public Joueur(StringTokenizer tokenizer){
-        
+    public Joueur(String ligne){
+        String delimiteurs = " ,.;";
+        StringTokenizer tokenizer = new StringTokenizer(ligne, delimiteurs); 
         String nomP = null; 
         int pV = 0, ptM = 0, pA = 0, pP = 0, pM = 0, rM = 0, dA = 0, dM = 0, distMax = 0, ptP = 0, coordX = 0, coordY = 0, nbF = 0;
         Point2D p = null;
         String type = "0";
         if (tokenizer.hasMoreTokens()){
+            type = tokenizer.nextToken();
             type = tokenizer.nextToken();
             nomP = tokenizer.nextToken();
                 

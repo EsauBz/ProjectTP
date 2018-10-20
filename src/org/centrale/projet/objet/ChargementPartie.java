@@ -141,9 +141,40 @@ public class ChargementPartie {
                 p = new Point2D(coordX, coordY);
                 Guerrier(nom, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);*/
             
+            case "Mana" : 
+                if (tokenizer_el.hasMoreTokens()){
+                    int ptVie = 0, coordX = 0, coordY = 0;
+                    try{
+                        ptVie = Integer.parseInt(tokenizer_el.nextToken());
+                        coordX = Integer.parseInt(tokenizer_el.nextToken());
+                        coordY = Integer.parseInt(tokenizer_el.nextToken());
+                    }catch (NumberFormatException e) {
+                        System.err.println(e.getMessage());  
+                    }
+                    Mana m1 = new Mana(coordX, coordY, ptVie);
+                    monde.getListPotions().add(m1);
+                }
+                break;
+                
+            case "Soin" : 
+                if (tokenizer_el.hasMoreTokens()){
+                    int ptVie = 0, coordX = 0, coordY = 0;
+                    try{
+                        ptVie = Integer.parseInt(tokenizer_el.nextToken());
+                        coordX = Integer.parseInt(tokenizer_el.nextToken());
+                        coordY = Integer.parseInt(tokenizer_el.nextToken());
+                    }catch (NumberFormatException e) {
+                        System.err.println(e.getMessage());  
+                    }
+                    Soin m1 = new Soin(coordX, coordY, ptVie);
+                    monde.getListPotions().add(m1);
+                }
+                break;
+            
             case "Joueur": 
-                Joueur p1 = new Joueur(tokenizer_el);
+                Joueur p1 = new Joueur(line);
                 monde.getListJouer().add(p1);
+                break;
                     
                                 
          

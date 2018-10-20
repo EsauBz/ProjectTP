@@ -6,6 +6,7 @@
 package org.centrale.projet.objet;
 
 import java.util.Random;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -17,12 +18,12 @@ public class Soin extends Potion {
         super(pointx, pointy, pt);
         Random gA = new Random();
     }
-
+    
     public Soin(Point2D p, int pt) {
         super(p, pt);
         Random gA = new Random();
     }
-
+   
     /**
      *
      */

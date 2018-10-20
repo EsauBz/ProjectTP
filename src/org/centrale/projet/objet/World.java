@@ -371,6 +371,14 @@ public class World {
     }
 
     /**
+     *
+     * @return La liste de Potions dans le monde
+     */
+    public ArrayList<ElementDeJeu> getListPotions() {
+        return listPotions;
+    }
+    
+    /**
      * Methode de creation d'un Joueur qui est ajouté a la liste.
      */
     public void creationJoueur() {
