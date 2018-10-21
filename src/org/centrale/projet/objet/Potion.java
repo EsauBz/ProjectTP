@@ -11,6 +11,9 @@ package org.centrale.projet.objet;
  */
 public class Potion extends Objet{     
 
+    /**
+     * Quantite de points de vie qui vont impacter le personnage
+     */
     int pointPotion;
     /**
      * 

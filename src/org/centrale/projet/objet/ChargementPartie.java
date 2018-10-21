@@ -90,14 +90,6 @@ public class ChargementPartie {
     }
     
     /**
-     * 
-     * Methode lecture() pour faire la lecture du fichier
-     * 
-    */
-    public void lecture(){
-             
-  }
-    /**
      *Methode creerElementJeu qui creer un element du jeu selon le fichier reçu
      * @param line String qui contient le type d'element à Être cree
      * @param monde qui represente le monde à être chargé
