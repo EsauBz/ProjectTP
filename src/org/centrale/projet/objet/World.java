@@ -195,10 +195,13 @@ public class World {
                         
                         switch (menuSauvegarde){
                             case "1":
+                                String prefixe = "sauvegarde";
+                                String suffixe = ".txt";
+                                
                                 break;
                                 
                             case "2": 
-                                 System.out.println("Tapez le nom du fichier dont vous voulez sauvegarder le jeu: ");
+                                 System.out.println("Tapez le nom du fichier dans lequel vous voulez sauvegarder le jeu: ");
                                  nomFichier = sc.next();
                                  SauvegardePartie save = new SauvegardePartie(nomFichier);
                                  save.sauvegardePartie(this, nomFichier);
