@@ -185,7 +185,24 @@ public class World {
                         }
                         break;
                     case 3:
-                        //Game Saving
+                        String menuSauvegarde;
+                        String nomFichier;
+                        System.out.println("Manu Sauvegarde :");
+                        System.out.println("1) Sauvegarde Automatique ");
+                        System.out.println("2) Sauvegarde Manuel \n");
+                        System.out.println("Choisissez l'option de sauvegarde: ");
+                        menuSauvegarde = sc.next(); 
+                        
+                        switch (menuSauvegarde){
+                            case "1":
+                                break;
+                                
+                            case "2": 
+                                 System.out.println("Tapez le nom du fichier dont vous voulez sauvegarder le jeu: ");
+                                 nomFichier = sc.next();
+                                 SauvegardePartie save = new SauvegardePartie(nomFichier);
+                                 save.sauvegardePartie(this, nomFichier);
+                        }
                         break;
                 }
 
