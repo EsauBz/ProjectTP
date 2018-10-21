@@ -409,6 +409,22 @@ public class World {
         Joueur p1 = new Joueur();
         listJouers.add(p1);
     }
+    
+    /**
+     * getter de la tailleX du monde
+     * @return tailleX
+     */
+    public int getTailleX(){
+        return this.tailleX;
+    }
+    
+    /**
+     * getter de la tailleY du monde
+     * @return tailleY
+     */
+    public int getTailleY(){
+        return this.tailleY;
+    }
 
     /**
      * Méthode qui verifie les differents potions (Mana et soins) avec la

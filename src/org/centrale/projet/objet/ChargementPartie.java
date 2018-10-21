@@ -83,7 +83,7 @@ public class ChargementPartie {
             }
             fichier.close();
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
               
         return monde;
