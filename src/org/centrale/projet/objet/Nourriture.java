@@ -110,6 +110,4 @@ public class Nourriture extends Objet {
     public void setType(String type){
         this.type = type;
     }
-    
-    
 }

@@ -256,4 +256,73 @@ public class Personnage extends Creature {
     public void combattre(Creature c){
         
     }
+    
+    public void MettreAJourAttributs(ArrayList<Nourriture> listNourriture){
+        for(int x = 0; x < listNourriture.size(); x++){
+            if ("Bonus".equals(listNourriture.get(x).getType())){
+                String carac = listNourriture.get(x).getCaract();
+                switch(carac){
+                    case "pA" : 
+                        this.setPourcentageAtt(this.getPourcentageAtt() + listNourriture.get(x).getValeur()); 
+                        break;
+                        
+                    case "pP" :
+                        this.setPourcentagePar(this.getPourcentagePar() + listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "pM" :
+                        this.setPourcentageMag(this.getPourcentageMag() + listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "rM" :
+                        this.setPourcentageResistMag(this.getPourcentageResistMag() + listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "dA" : 
+                        this.setDegAtt(this.getDegAtt() + listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "dM" :
+                        this.setDegMag(this.getDegMag() + listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "distMax" : 
+                        this.setDistAttMax(this.getDistAttMax() + listNourriture.get(x).getValeur());
+                        break;
+                }
+            }
+            if ("Malus".equals(listNourriture.get(x).getType())){
+                String carac = listNourriture.get(x).getCaract();
+                switch(carac){
+                    case "pA" : 
+                        this.setPourcentageAtt(this.getPourcentageAtt() - listNourriture.get(x).getValeur()); 
+                        break;
+                        
+                    case "pP" :
+                        this.setPourcentagePar(this.getPourcentagePar() - listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "pM" :
+                        this.setPourcentageMag(this.getPourcentageMag() - listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "rM" :
+                        this.setPourcentageResistMag(this.getPourcentageResistMag() - listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "dA" : 
+                        this.setDegAtt(this.getDegAtt() - listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "dM" :
+                        this.setDegMag(this.getDegMag() - listNourriture.get(x).getValeur());
+                        break;
+                        
+                    case "distMax" : 
+                        this.setDistAttMax(this.getDistAttMax() - listNourriture.get(x).getValeur());
+                        break;
+                }
+            }
+        }
+    }
 }
