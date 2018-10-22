@@ -6,6 +6,7 @@
  */
 package org.centrale.projet.objet;
 
+import java.io.File;
 import java.util.*;
 
 /**
@@ -187,6 +188,7 @@ public class World {
                     case 3:
                         String menuSauvegarde;
                         String nomFichier;
+                        SauvegardePartie save;
                         System.out.println("Manu Sauvegarde :");
                         System.out.println("1) Sauvegarde Automatique ");
                         System.out.println("2) Sauvegarde Manuel \n");
@@ -195,15 +197,25 @@ public class World {
                         
                         switch (menuSauvegarde){
                             case "1":
+                                int x = 1;
                                 String prefixe = "sauvegarde";
                                 String suffixe = ".txt";
+                                nomFichier = prefixe + String.valueOf(x) + suffixe;
+                                File F = new File (nomFichier);
+                                while (F.exists()){
+                                    x++;
+                                    nomFichier = prefixe + String.valueOf(x) + suffixe;
+                                    F = new File(nomFichier);
+                                }
+                                save = new SauvegardePartie(nomFichier);
+                                save.sauvegardePartie(this, nomFichier);
                                 
                                 break;
                                 
                             case "2": 
                                  System.out.println("Tapez le nom du fichier dans lequel vous voulez sauvegarder le jeu: ");
                                  nomFichier = sc.next();
-                                 SauvegardePartie save = new SauvegardePartie(nomFichier);
+                                 save = new SauvegardePartie(nomFichier);
                                  save.sauvegardePartie(this, nomFichier);
                         }
                         break;
