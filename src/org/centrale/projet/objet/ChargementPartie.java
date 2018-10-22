@@ -74,9 +74,6 @@ public class ChargementPartie {
                 ligne = fichier.readLine();
                 
                 while (ligne != null){
-                    //while(tokenizer.hasMoreTokens()) {
-                        // nextToken() retourne le prochain 'mot' decoupee par les delimiteurs
-                        //String mot = tokenizer.nextToken();
                     creerElementJeu(ligne, monde);                     
                     ligne = fichier.readLine();
                 }
@@ -272,6 +269,7 @@ public class ChargementPartie {
                         System.err.println(e.getMessage());  
                     }
                     NuageToxique nt1 = new NuageToxique(coordX, coordY, ptVie);
+                    monde.getListNuageToxique().add(nt1);
                     
                 }
                 break;

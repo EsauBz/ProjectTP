@@ -69,9 +69,15 @@ public class SauvegardePartie {
                 bufferedWriter.write(ligne);
                 bufferedWriter.newLine();
             }
+            //For pour sauvegarder les NuageToxique
+            for (int x = 0; x < monde.getListNuageToxique().size(); x++){
+                ligne = getTexteSauvegarde(monde.getListNuageToxique().get(x), 4);
+                bufferedWriter.write(ligne);
+                bufferedWriter.newLine();
+            }
             //For pour sauvegarder les joueurs
             for (int x = 0; x < monde.getListJouer().size(); x++){
-                ligne = getTexteSauvegarde(monde.getListJouer().get(x).getPerso(), 4);
+                ligne = getTexteSauvegarde(monde.getListJouer().get(x).getPerso(), 5);
                 bufferedWriter.write(ligne);
                 bufferedWriter.newLine();
             }
@@ -153,7 +159,13 @@ public class SauvegardePartie {
                 }
                 break;
                 
-            case 4:
+            case 4: if (el instanceof NuageToxique){
+                    NuageToxique nt = (NuageToxique) el;
+                    ligne = "NuageToxique " + String.valueOf(nt.getPtVie()) + " " + String.valueOf(nt.getPos().getCoordX()) + " " + String.valueOf(nt.getPos().getCoordY());
+                }
+                break;
+                 
+            case 5:
                 if (el instanceof Guerrier){
                     Guerrier e = (Guerrier) el;
                     ligne = "Joueur Guerrier " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + String.valueOf(e.getDegMag()) + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());

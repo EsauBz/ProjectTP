@@ -23,6 +23,10 @@ public class World {
      */
     private ArrayList<ElementDeJeu> listPotions;
     /**
+     * list de NuageToxique *
+     */
+    private ArrayList<ElementDeJeu> listNuageToxique;
+    /**
      * list de Personnages *
      */
     private ArrayList<ElementDeJeu> listPersonnages;
@@ -58,6 +62,10 @@ public class World {
          * Lists de potions *
          */
         this.listPotions = new ArrayList<>();
+        /**
+        * list de NuageToxique *
+        */
+        this.listNuageToxique = new ArrayList<>();
         /**
          * Lists de monstres *
          */
@@ -128,8 +136,8 @@ public class World {
         if (listJouers != null) {
             Scanner sc = new Scanner(System.in);
             for (Joueur a : listJouers) {
-                System.out.println("Voulez-vous faire un mouvement ou se battre?");
-                System.out.println("1)Deplacement 2)Battre");
+                System.out.println("Voulez-vous faire un mouvement, se battre ou sauvegarder le jeu?");
+                System.out.println("1)Deplacement 2)Battre 3)Sauvegarder");
                 int i = 0;
                 try {
                     i = Integer.parseInt(sc.next());
@@ -423,6 +431,14 @@ public class World {
      */
     public ArrayList<ElementDeJeu> getListPotions() {
         return listPotions;
+    }
+    
+    /**
+     *
+     * @return La liste de NuageToxique dans le monde
+     */
+    public ArrayList<ElementDeJeu> getListNuageToxique() {
+        return listNuageToxique;
     }
     
     /**
