@@ -71,7 +71,7 @@ public class Personnage extends Creature {
 
     /**
      * Constructeur sans parametres de la class personnage il est utilise par
-     * defaut et initialise tous le parametres en cero
+     * defaut et initialise tous le parametres en zero
      *
      */
     Personnage() {
