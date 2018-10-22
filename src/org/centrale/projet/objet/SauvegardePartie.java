@@ -54,22 +54,26 @@ public class SauvegardePartie {
             //For pour sauvegarder les personnages non controles par un humain
             for (int x = 0; x < monde.getListPersonnages().size(); x++){
                 ligne = getTexteSauvegarde(monde.getListPersonnages().get(x), 1);
-                bufferedWriter.write(ligne + "\n"); 
+                bufferedWriter.write(ligne);
+                bufferedWriter.newLine();
             }
             //For pour sauvegarder les monstres
             for (int x = 0; x < monde.getListMonstres().size(); x++){
                 ligne = getTexteSauvegarde(monde.getListMonstres().get(x), 2);
-                bufferedWriter.write(ligne + "\n"); 
+                bufferedWriter.write(ligne); 
+                bufferedWriter.newLine();
             }
             //For pour sauvegarder les potions
             for (int x = 0; x < monde.getListPotions().size(); x++){
                 ligne = getTexteSauvegarde(monde.getListPotions().get(x), 3);
-                bufferedWriter.write(ligne + "\n"); 
+                bufferedWriter.write(ligne);
+                bufferedWriter.newLine();
             }
             //For pour sauvegarder les joueurs
             for (int x = 0; x < monde.getListJouer().size(); x++){
                 ligne = getTexteSauvegarde(monde.getListJouer().get(x).getPerso(), 4);
-                bufferedWriter.write("Joueur " + ligne + "\n"); 
+                bufferedWriter.write(ligne);
+                bufferedWriter.newLine();
             }
         }
         // on attrape l'exception si on a pas pu creer le fichier
