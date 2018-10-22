@@ -82,6 +82,9 @@ public class World {
     
     public World(int x, int y){
         
+        /**
+         * Variables taille du monde *
+        */
         tailleX = x;
         tailleY = y;
         
@@ -98,8 +101,14 @@ public class World {
          */
         this.listMonstres = new ArrayList<>();
         /**
-         * Variables taille du monde *
+         * Lists de Personnages *
          */
+        this.listPersonnages = new ArrayList<>();
+        /**
+        * list de NuageToxique *
+        */
+        this.listNuageToxique = new ArrayList<>();
+        
 }
 
 
@@ -137,7 +146,7 @@ public class World {
             Scanner sc = new Scanner(System.in);
             for (Joueur a : listJouers) {
                 System.out.println("Voulez-vous faire un mouvement ou sauvegarder le jeu?");
-                System.out.println("1)Deplacement 2)Battre 3)sauvegarder");
+                System.out.println("1)Deplacement 2)Battre 3)Sauvegarder");
                 int i = 0;
                 try {
                     i = Integer.parseInt(sc.next());
@@ -269,8 +278,8 @@ public class World {
     }
 
     /**
-     * Methode de creation Aleatoire des Monstres dans le monde, il cree un
-     * nombre aleatoire de chaque type de Monstre dans une meme liste. Les
+     * Methode de creation Aleatoire des Monstres et Nuage Toxique dans le monde, il cree un
+     * nombre aleatoire de chaque type de Monstre et Nuage Toxique dans une meme liste. Les
      * coordonnes et ses attributs sont aleatoires
      */
     private void creationMonstres() {
@@ -314,13 +323,13 @@ public class World {
          */
         NuageToxique nt;
         for (int i = 0; i < cont; i++) {
-            for (int j = 0; j < listMonstres.size(); j++) {
-                while (p.getCoordX() == listMonstres.get(j).getPos().getCoordX() && p.getCoordY() == listMonstres.get(j).getPos().getCoordY()) {
+            for (int j = 0; j < listNuageToxique.size(); j++) {
+                while (p.getCoordX() == listNuageToxique.get(j).getPos().getCoordX() && p.getCoordY() == listNuageToxique.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listMonstres.add(nt = new NuageToxique(p, gA.nextInt(tailleX)));
+            this.listNuageToxique.add(nt = new NuageToxique(p, gA.nextInt(tailleX)));
         }
     }
 

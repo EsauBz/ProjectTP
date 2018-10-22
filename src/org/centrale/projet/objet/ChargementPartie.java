@@ -257,7 +257,7 @@ public class ChargementPartie {
                     monde.getListMonstres().add(la1);
                  } 
                  break;
-            //Il manque trouver une façon de stocker une NuageToxique dans un monde
+           
             case "NuageToxique" : 
                 if (tokenizer_el.hasMoreTokens()){
                     int ptVie = 0, coordX = 0, coordY = 0;

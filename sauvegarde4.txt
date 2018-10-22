@@ -1,0 +1,67 @@
+Largeur 50
+Hauteur 50
+Lapin 100 21 45 100 29 45 34 1
+Lapin 101 28 16 101 3 26 19 10
+Lapin 102 22 9 102 49 39 48 21
+Lapin 103 47 25 103 37 25 9 7
+Lapin 104 11 19 104 31 33 3 44
+Lapin 105 10 25 105 10 46 13 20
+Lapin 106 47 41 106 3 19 30 1
+Lapin 107 2 42 107 18 33 23 41
+Lapin 108 44 19 108 16 21 9 24
+Lapin 109 22 5 109 22 47 25 39
+Lapin 110 31 42 110 3 32 42 11
+Lapin 111 3 43 111 44 18 42 17
+Lapin 112 34 39 112 17 14 38 1
+Lapin 113 8 28 113 0 5 31 28
+Lapin 114 1 9 114 21 5 22 42
+Lapin 115 16 10 115 31 30 41 41
+Lapin 116 38 21 116 46 30 3 22
+Lapin 117 3 2 117 43 17 15 28
+Loup 100 22 15 100 22 27 43 47
+Loup 101 21 18 101 3 13 41 20
+Loup 102 28 16 102 24 36 4 39
+Loup 103 24 21 103 20 14 0 47
+Loup 104 29 40 104 13 7 16 47
+Loup 105 7 34 105 47 23 15 33
+Loup 106 45 28 106 37 31 33 45
+Loup 107 22 42 107 8 27 18 14
+Loup 108 34 42 108 16 19 45 33
+Loup 109 44 32 109 36 0 19 21
+Loup 110 32 4 110 17 11 0 3
+Loup 111 5 38 111 43 2 2 49
+Loup 112 15 14 112 5 40 1 25
+Loup 113 40 21 113 3 11 1 35
+Loup 114 12 28 114 41 49 13 6
+Loup 115 39 5 115 2 25 3 37
+Loup 116 28 18 116 40 7 28 27
+Loup 117 22 26 117 35 27 34 15
+Soin 23 7 9
+Soin 35 29 4
+Soin 41 13 17
+Soin 36 8 23
+Soin 35 31 18
+Mana 6 35 12
+Mana 18 27 4
+Mana 3 26 0
+Mana 49 1 17
+Mana 16 19 36
+NuageToxique 19 34 15
+NuageToxique 36 36 20
+NuageToxique 48 2 4
+NuageToxique 29 18 13
+NuageToxique 31 11 30
+NuageToxique 42 30 26
+NuageToxique 4 42 20
+NuageToxique 12 36 18
+NuageToxique 4 49 18
+NuageToxique 30 33 39
+NuageToxique 23 43 44
+NuageToxique 30 5 38
+NuageToxique 1 16 2
+NuageToxique 27 30 20
+NuageToxique 42 38 2
+NuageToxique 28 36 30
+NuageToxique 31 35 1
+NuageToxique 40 21 1
+Joueur Archer OII 68 48 10 2 21 8 0207 15 1 4 55

@@ -54,32 +54,44 @@ public class SauvegardePartie {
             //For pour sauvegarder les personnages non controles par un humain
             for (int x = 0; x < monde.getListPersonnages().size(); x++){
                 ligne = getTexteSauvegarde(monde.getListPersonnages().get(x), 1);
-                bufferedWriter.write(ligne);
-                bufferedWriter.newLine();
+                if (ligne != null){
+                    bufferedWriter.write(ligne);
+                    bufferedWriter.newLine();
+                }
             }
             //For pour sauvegarder les monstres
             for (int x = 0; x < monde.getListMonstres().size(); x++){
                 ligne = getTexteSauvegarde(monde.getListMonstres().get(x), 2);
-                bufferedWriter.write(ligne); 
-                bufferedWriter.newLine();
-            }
-            //For pour sauvegarder les potions
-            for (int x = 0; x < monde.getListPotions().size(); x++){
-                ligne = getTexteSauvegarde(monde.getListPotions().get(x), 3);
-                bufferedWriter.write(ligne);
-                bufferedWriter.newLine();
+                if (ligne != null){
+                    bufferedWriter.write(ligne); 
+                    bufferedWriter.newLine();
+                }
             }
             //For pour sauvegarder les NuageToxique
             for (int x = 0; x < monde.getListNuageToxique().size(); x++){
-                ligne = getTexteSauvegarde(monde.getListNuageToxique().get(x), 4);
-                bufferedWriter.write(ligne);
-                bufferedWriter.newLine();
+                ligne = getTexteSauvegarde(monde.getListNuageToxique().get(x), 3);
+                if (ligne != null){
+                    bufferedWriter.write(ligne);
+                    bufferedWriter.newLine();
+                }
             }
+            
+            //For pour sauvegarder les potions
+            for (int x = 0; x < monde.getListPotions().size(); x++){
+                ligne = getTexteSauvegarde(monde.getListPotions().get(x), 4);
+                if (ligne != null){
+                    bufferedWriter.write(ligne);
+                    bufferedWriter.newLine();
+                } 
+            }
+            
             //For pour sauvegarder les joueurs
             for (int x = 0; x < monde.getListJouer().size(); x++){
                 ligne = getTexteSauvegarde(monde.getListJouer().get(x).getPerso(), 5);
-                bufferedWriter.write(ligne);
-                bufferedWriter.newLine();
+                if (ligne != null){
+                    bufferedWriter.write(ligne);
+                    bufferedWriter.newLine();
+                }
             }
         }
         // on attrape l'exception si on a pas pu creer le fichier
@@ -148,7 +160,13 @@ public class SauvegardePartie {
                 }
                 break;
                 
-            case 3: 
+            case 3: if (el instanceof NuageToxique){
+                    NuageToxique nt = (NuageToxique) el;
+                    ligne = "NuageToxique " + String.valueOf(nt.getPtVie()) + " " + String.valueOf(nt.getPos().getCoordX()) + " " + String.valueOf(nt.getPos().getCoordY());
+                }
+                break;
+                
+            case 4: 
                 if (el instanceof Mana){
                     Mana p = (Mana) el;
                     ligne = "Mana " + String.valueOf(p.getPointPotion()) + " " + String.valueOf(p.getPos().getCoordX()) + " " + String.valueOf(p.getPos().getCoordY());
@@ -157,30 +175,24 @@ public class SauvegardePartie {
                     Soin p = (Soin) el;
                     ligne = "Soin " + String.valueOf(p.getPointPotion()) + " " + String.valueOf(p.getPos().getCoordX()) + " " + String.valueOf(p.getPos().getCoordY());
                 }
-                break;
-                
-            case 4: if (el instanceof NuageToxique){
-                    NuageToxique nt = (NuageToxique) el;
-                    ligne = "NuageToxique " + String.valueOf(nt.getPtVie()) + " " + String.valueOf(nt.getPos().getCoordX()) + " " + String.valueOf(nt.getPos().getCoordY());
-                }
-                break;
-                 
+                break; 
+                            
             case 5:
                 if (el instanceof Guerrier){
                     Guerrier e = (Guerrier) el;
-                    ligne = "Joueur Guerrier " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + String.valueOf(e.getDegMag()) + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
+                    ligne = "Joueur Guerrier " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + " " + String.valueOf(e.getDegMag()) + " " +  String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
                 }
                 else if (el instanceof Paysan){
                     Paysan e = (Paysan) el;
-                    ligne = "Joueur Paysan " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + String.valueOf(e.getDegMag()) + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
+                    ligne = "Joueur Paysan " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + " " +  String.valueOf(e.getDegMag()) + " " + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
                 }
                 else if (el instanceof Mage){
                     Mage e = (Mage) el;
-                    ligne = "Joueur Mage " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + String.valueOf(e.getDegMag()) + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
+                    ligne = "Joueur Mage " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + " " + String.valueOf(e.getDegMag()) + " " + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
                 }
                 else if (el instanceof Archer){
                     Archer e = (Archer) el;
-                    ligne = "Joueur Archer " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + String.valueOf(e.getDegMag()) + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY()) + " " + String.valueOf(e.getNbFleches());
+                    ligne = "Joueur Archer " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + " " + String.valueOf(e.getDegMag()) + " " + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY()) + " " + String.valueOf(e.getNbFleches());
                 }
                 break; 
         }
