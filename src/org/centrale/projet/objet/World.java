@@ -189,6 +189,7 @@ public class World {
                         String menuSauvegarde;
                         String nomFichier;
                         SauvegardePartie save;
+                        File F;
                         System.out.println("Manu Sauvegarde :");
                         System.out.println("1) Sauvegarde Automatique ");
                         System.out.println("2) Sauvegarde Manuel \n");
@@ -201,7 +202,7 @@ public class World {
                                 String prefixe = "sauvegarde";
                                 String suffixe = ".txt";
                                 nomFichier = prefixe + String.valueOf(x) + suffixe;
-                                File F = new File (nomFichier);
+                                F = new File (nomFichier);
                                 while (F.exists()){
                                     x++;
                                     nomFichier = prefixe + String.valueOf(x) + suffixe;
@@ -215,6 +216,12 @@ public class World {
                             case "2": 
                                  System.out.println("Tapez le nom du fichier dans lequel vous voulez sauvegarder le jeu: ");
                                  nomFichier = sc.next();
+                                 F = new File (nomFichier);
+                                 while (F.exists()){
+                                    System.out.println("Le nom que vous avez choisi existe deja! Veuillez choisir un autre nom: ");
+                                    nomFichier = sc.next();
+                                    F = new File (nomFichier);
+                                 }
                                  save = new SauvegardePartie(nomFichier);
                                  save.sauvegardePartie(this, nomFichier);
                         }
