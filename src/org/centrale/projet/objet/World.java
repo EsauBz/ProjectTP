@@ -128,8 +128,8 @@ public class World {
         if (listJouers != null) {
             Scanner sc = new Scanner(System.in);
             for (Joueur a : listJouers) {
-                System.out.println("Voulez-vous faire un mouvement ou se battre?");
-                System.out.println("1)Deplacement 2)Battre");
+                System.out.println("Voulez-vous faire un mouvement ou sauvegarder le jeu?");
+                System.out.println("1)Deplacement 2)Battre 3)sauvegarder");
                 int i = 0;
                 try {
                     i = Integer.parseInt(sc.next());
