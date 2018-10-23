@@ -257,9 +257,15 @@ public class Personnage extends Creature {
         
     }
     
-    public void MettreAJourAttributs(ArrayList<Nourriture> listNourriture){
+    public void MettreAJourDuree(ArrayList<Nourriture> listNourriture){
         for(int x = 0; x < listNourriture.size(); x++){
-            if ("Bonus".equals(listNourriture.get(x).getType())){
+            listNourriture.get(x).setDuree(listNourriture.get(x).getDuree() - 1);
+            if (listNourriture.get(x).getDuree() == 0){
+                listNourriture.remove(x);
+            }
+        }
+    }
+            /*if ("Bonus".equals(listNourriture.get(x).getType())){
                 String carac = listNourriture.get(x).getCaract();
                 switch(carac){
                     case "pA" : 
@@ -322,7 +328,5 @@ public class Personnage extends Creature {
                         this.setDistAttMax(this.getDistAttMax() - listNourriture.get(x).getValeur());
                         break;
                 }
-            }
-        }
-    }
+            }*/
 }
