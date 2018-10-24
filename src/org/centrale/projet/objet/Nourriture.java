@@ -63,7 +63,7 @@ public class Nourriture extends Objet {
      * @param type definit si c'est un Bonus ou Malus
      * @param caract caracteristique du Personnage qui va etre modifie
      */
-    public Nourriture (Point2D pos, int duration, int value, String type, String caract){
+    public Nourriture (String type, String caract, int value, int duration, Point2D pos){
         super(pos);
         this.duree = duration;
         this.caract = caract;

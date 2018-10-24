@@ -383,11 +383,11 @@ public class World {
                         p.setCoordY(gA.nextInt(tailleY));
                     }
                 }
-                this.listPersonnages.add(a = new Archer("Warrior"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
+                this.listPersonnages.add(a = new Archer("Bowman"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
             } else {
                 p.setCoordX(gA.nextInt(tailleX));
                 p.setCoordY(gA.nextInt(tailleY));
-                this.listPersonnages.add(a = new Archer("Warrior"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
+                this.listPersonnages.add(a = new Archer("Bowman"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
             }
         }
     }
@@ -527,11 +527,11 @@ public class World {
                     }
                 }
                 
-                this.listNourriture.add(nb = new Nourriture(p, gA.nextInt(10), gA.nextInt(5), "Bonus", caract[gA.nextInt(7)]));
+                this.listNourriture.add(nb = new Nourriture("Bonus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
             } else {
                 p.setCoordX(gA.nextInt(tailleX));
                 p.setCoordY(gA.nextInt(tailleY));
-                this.listNourriture.add(nb = new Nourriture(p, gA.nextInt(10), gA.nextInt(5), "Bonus", caract[gA.nextInt(7)]));
+                this.listNourriture.add(nb = new Nourriture("Bonus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
             }
         }
         cont = gA.nextInt(10);
@@ -547,11 +547,11 @@ public class World {
                     }
                 }
                 
-                this.listNourriture.add(nb = new Nourriture(p, gA.nextInt(10), gA.nextInt(5), "Malus", caract[gA.nextInt(7)]));
+                this.listNourriture.add(nb = new Nourriture("Malus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
             } else {
                 p.setCoordX(gA.nextInt(tailleX));
                 p.setCoordY(gA.nextInt(tailleY));
-                this.listNourriture.add(nb = new Nourriture(p, gA.nextInt(10), gA.nextInt(5), "Malus", caract[gA.nextInt(7)]));
+                this.listNourriture.add(nb = new Nourriture("Malus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
             }
         }
     }
