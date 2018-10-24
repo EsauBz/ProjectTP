@@ -1,0 +1,94 @@
+Largeur 50
+Hauteur 50
+Guerrier Warrior1 100 9 6 43 17 21 40 9 15 34 17 14
+Guerrier Warrior2 101 1 13 34 39 11 34 18 41 22 26 43
+Guerrier Warrior3 102 8 21 4 22 32 25 38 41 25 16 6
+Guerrier Warrior4 103 32 6 40 31 7 26 1 4 0 13 12
+Guerrier Warrior5 104 38 22 13 30 41 26 45 8 22 3 0
+Guerrier Warrior6 105 49 40 37 12 31 42 32 42 5 41 18
+Guerrier Warrior7 106 23 2 4 22 27 11 31 10 36 26 1
+Guerrier Warrior8 107 36 17 39 29 33 46 40 13 23 32 23
+Guerrier Warrior9 108 36 11 3 33 36 38 24 2 30 7 17
+Paysan Peasant1 100 14 46 42 19 37 8 39 12 2 7 42
+Paysan Peasant2 101 4 31 43 28 12 46 36 30 15 9 38
+Archer Bowman1 100 2 21 10 32 42 9 18 30 31 42 12 21
+Archer Bowman2 101 35 46 19 38 23 38 16 26 41 29 24 28
+Archer Bowman3 102 5 14 25 46 49 42 49 2 2 27 15 25
+Archer Bowman4 103 19 39 8 27 8 45 4 45 16 22 10 3
+Archer Bowman5 104 1 4 6 11 1 48 39 6 15 16 42 6
+Archer Bowman6 105 3 26 36 28 32 40 20 19 2 22 4 20
+Archer Bowman7 106 14 49 49 12 29 22 42 33 21 1 46 19
+Archer Bowman8 107 11 8 3 3 24 43 34 46 34 23 13 42
+Archer Bowman9 108 8 41 29 9 13 10 29 27 11 22 47 48
+Archer Bowman10 109 31 11 43 8 14 25 3 17 47 0 35 4
+Archer Bowman11 110 21 21 17 24 20 33 20 21 18 29 47 49
+Archer Bowman12 111 1 13 42 11 25 22 13 30 5 4 34 27
+Archer Bowman13 112 11 24 28 9 34 31 4 32 9 20 11 21
+Archer Bowman14 113 7 3 15 39 42 41 47 30 29 7 3 6
+Archer Bowman15 114 48 29 8 38 47 27 14 27 33 1 45 13
+Archer Bowman16 115 16 49 8 15 26 1 37 29 15 22 30 19
+Archer Bowman17 116 27 23 46 15 6 15 19 36 29 25 33 42
+Archer Bowman18 117 11 12 17 49 43 27 18 48 48 13 45 20
+Archer Bowman19 118 19 26 26 2 4 43 0 40 40 8 15 36
+Lapin 100 23 10 100 11 43 38 13
+Lapin 101 32 33 101 43 39 27 18
+Lapin 102 49 23 102 40 19 5 9
+Lapin 103 17 38 103 23 20 28 37
+Lapin 104 20 27 104 14 46 11 14
+Loup 100 20 45 100 32 28 25 20
+Loup 101 16 43 101 35 0 9 46
+Loup 102 3 20 102 40 22 36 5
+Loup 103 37 24 103 12 8 39 30
+Loup 104 21 31 104 38 36 36 26
+Loup 105 3 33 105 36 48 11 39
+Loup 106 20 37 106 28 46 4 0
+Loup 107 41 47 107 8 36 3 0
+Loup 108 18 28 108 37 19 19 24
+Loup 109 39 21 109 34 30 13 36
+Loup 110 2 17 110 42 16 16 29
+Loup 111 22 11 111 18 30 40 3
+Loup 112 10 45 112 0 16 12 3
+Loup 113 28 1 113 1 43 35 14
+NuageToxique 48 35 14
+NuageToxique 46 32 42
+NuageToxique 41 24 19
+NuageToxique 15 48 29
+NuageToxique 10 22 25
+NuageToxique 15 24 47
+NuageToxique 17 32 12
+NuageToxique 6 31 2
+NuageToxique 12 34 37
+NuageToxique 37 22 15
+NuageToxique 45 26 0
+NuageToxique 38 0 46
+NuageToxique 5 0 16
+NuageToxique 24 30 9
+NuageToxique 41 47 31
+Soin 21 47 38
+Soin 10 18 32
+Soin 48 39 23
+Soin 11 4 39
+Soin 19 14 0
+Soin 32 0 9
+Soin 24 7 35
+Soin 45 9 49
+Mana 20 8 44
+Mana 33 13 43
+Mana 34 28 9
+Mana 1 35 34
+Nourriture Bonus rM 4 3 26 20
+Nourriture Bonus dM 2 6 24 18
+Nourriture Bonus dA 1 3 22 23
+Nourriture Bonus dM 2 2 41 14
+Nourriture Bonus distMax 2 3 48 20
+Nourriture Bonus pM 4 8 19 16
+Nourriture Bonus pA 2 9 24 32
+Nourriture Bonus pM 4 0 21 23
+Nourriture Bonus pM 1 3 5 0
+Nourriture Malus pP 4 2 24 47
+Nourriture Malus dM 2 2 36 30
+Nourriture Malus rM 4 0 5 7
+Nourriture Malus pP 2 7 14 25
+Nourriture Malus pM 4 6 22 15
+Nourriture Malus dM 1 3 5 11
+Joueur Guerrier khgjh 17 26 19 51 26 29 29 9 3 74 34 44

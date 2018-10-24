@@ -317,7 +317,7 @@ public class World {
         Guerrier g;
         for (int i = 0; i < cont; i++) {
             if (i > 0) {
-                for (int j = 0; j < i; j++) {
+                for (int j = 0; j < listPersonnages.size(); j++) {
                     while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
                         p.setCoordX(gA.nextInt(tailleX));
                         p.setCoordY(gA.nextInt(tailleY));
@@ -334,61 +334,47 @@ public class World {
          /**
          * Mage *
          */
+        cont = gA.nextInt(20);
         Mage m;
         for (int i = 0; i < cont; i++) {
-            if (i > 0) {
-                for (int j = 0; j < i; j++) {
-                    while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
-                        p.setCoordX(gA.nextInt(tailleX));
-                        p.setCoordY(gA.nextInt(tailleY));
-                    }
+            for (int j = 0; j < listPersonnages.size(); j++) {
+                while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
+                    p.setCoordX(gA.nextInt(tailleX));
+                    p.setCoordY(gA.nextInt(tailleY));
                 }
-                this.listPersonnages.add(m = new Mage("Wizard"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
-            } else {
-                p.setCoordX(gA.nextInt(tailleX));
-                p.setCoordY(gA.nextInt(tailleY));
-                this.listPersonnages.add(m = new Mage("Wizard"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
             }
+            this.listPersonnages.add(m = new Mage("Wizard"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
         }
         
          /**
          * Paysan *
          */
+        cont = gA.nextInt(20);
         Paysan pay;
         for (int i = 0; i < cont; i++) {
-            if (i > 0) {
-                for (int j = 0; j < i; j++) {
-                    while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
-                        p.setCoordX(gA.nextInt(tailleX));
-                        p.setCoordY(gA.nextInt(tailleY));
-                    }
+            for (int j = 0; j < listPersonnages.size(); j++) {
+                while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
+                    p.setCoordX(gA.nextInt(tailleX));
+                    p.setCoordY(gA.nextInt(tailleY));
                 }
-                this.listPersonnages.add(pay = new Paysan("Peasant"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
-            } else {
-                p.setCoordX(gA.nextInt(tailleX));
-                p.setCoordY(gA.nextInt(tailleY));
-                this.listPersonnages.add(pay = new Paysan("Peasant"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
             }
+            this.listPersonnages.add(pay = new Paysan("Peasant"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
         }
         
          /**
          * Archer *
          */
+        cont = gA.nextInt(20);
         Archer a;
         for (int i = 0; i < cont; i++) {
-            if (i > 0) {
-                for (int j = 0; j < i; j++) {
-                    while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
-                        p.setCoordX(gA.nextInt(tailleX));
-                        p.setCoordY(gA.nextInt(tailleY));
-                    }
+            for (int j = 0; j < listPersonnages.size(); j++) {
+                while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
+                    p.setCoordX(gA.nextInt(tailleX));
+                    p.setCoordY(gA.nextInt(tailleY));
                 }
-                this.listPersonnages.add(a = new Archer("Bowman"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
-            } else {
-                p.setCoordX(gA.nextInt(tailleX));
-                p.setCoordY(gA.nextInt(tailleY));
-                this.listPersonnages.add(a = new Archer("Bowman"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
             }
+            this.listPersonnages.add(a = new Archer("Bowman"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
+        
         }
     }
 
@@ -407,7 +393,7 @@ public class World {
         Lapin l;
         for (int i = 0; i < cont; i++) {
             if (i > 0) {
-                for (int j = 0; j < i; j++) {
+                for (int j = 0; j < listMonstres.size(); j++) {
                     while (p.getCoordX() == listMonstres.get(j).getPos().getCoordX() && p.getCoordY() == listMonstres.get(j).getPos().getCoordY()) {
                         p.setCoordX(gA.nextInt(tailleX));
                         p.setCoordY(gA.nextInt(tailleY));
@@ -420,9 +406,11 @@ public class World {
                 this.listMonstres.add(l = new Lapin(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
             }
         }
+        
         /**
          * Loups *
          */
+        cont = gA.nextInt(20);
         Loup lp;
         for (int i = 0; i < cont; i++) {
             for (int j = 0; j < listMonstres.size(); j++) {
@@ -433,9 +421,11 @@ public class World {
             }
             this.listMonstres.add(lp = new Loup(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
         }
+        
         /**
          * Nuages *
          */
+        cont = gA.nextInt(20);
         NuageToxique nt;
         for (int i = 0; i < cont; i++) {
             for (int j = 0; j < listNuageToxique.size(); j++) {
@@ -477,22 +467,20 @@ public class World {
             }
 
         }
-        cont = gA.nextInt(10);
+        
         /**
          * Potions Mana *
          */
+        cont = gA.nextInt(10);
         Mana mp;
         for (int i = 0; i < cont; i++) {
-
             for (int j = 0; j < listPotions.size(); j++) {
                 while (p.getCoordX() == listPotions.get(j).getPos().getCoordX() && p.getCoordY() == listPotions.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listPotions.add(mp = new Mana(p, gA.nextInt(tailleY))
-            );
-
+            this.listPotions.add(mp = new Mana(p, gA.nextInt(tailleY)));
         }
     }
     
@@ -504,7 +492,7 @@ public class World {
     private void creationNourriture() {
         Random gA = new Random();
         Point2D p = new Point2D();
-        int cont = gA.nextInt(10);
+        int cont = gA.nextInt(20);
         String[] caract = new String[7];
         caract[0] = "pA";
         caract[1] = "pP";
@@ -534,25 +522,19 @@ public class World {
                 this.listNourriture.add(nb = new Nourriture("Bonus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
             }
         }
-        cont = gA.nextInt(10);
+        
         /**
          * Malus *
          */
+        cont = gA.nextInt(20);
         for (int i = 0; i < cont; i++) {
-            if (i > 0) {
-                for (int j = 0; j < listNourriture.size(); j++) {
-                    while (p.getCoordX() == listNourriture.get(j).getPos().getCoordX() && p.getCoordY() == listNourriture.get(j).getPos().getCoordY()) {
-                        p.setCoordX(gA.nextInt(tailleX));
-                        p.setCoordY(gA.nextInt(tailleY));
-                    }
+            for (int j = 0; j < listNourriture.size(); j++) {
+                while (p.getCoordX() == listNourriture.get(j).getPos().getCoordX() && p.getCoordY() == listNourriture.get(j).getPos().getCoordY()) {
+                    p.setCoordX(gA.nextInt(tailleX));
+                    p.setCoordY(gA.nextInt(tailleY));
                 }
-                
-                this.listNourriture.add(nb = new Nourriture("Malus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
-            } else {
-                p.setCoordX(gA.nextInt(tailleX));
-                p.setCoordY(gA.nextInt(tailleY));
-                this.listNourriture.add(nb = new Nourriture("Malus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
             }
+            this.listNourriture.add(nb = new Nourriture("Malus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
         }
     }
 
