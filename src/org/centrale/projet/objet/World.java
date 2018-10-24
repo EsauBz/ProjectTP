@@ -158,8 +158,18 @@ public class World {
         if (listJouers != null) {
             Scanner sc = new Scanner(System.in);
             for (Joueur a : listJouers) {
-                System.out.println("Voulez-vous faire un mouvement, sauvegarder le jeu ou exit?");
-                System.out.println("1)Deplacement 2)Battre 3)Sauvegarder 4)Exit");
+                for (int i = 0; i < listNourriture.size(); i++){
+                    if (a.getPerso().getPos() == listNourriture.get(i).getPos()){
+                        ElementDeJeu el = listNourriture.get(i);
+                        Nourriture r = (Nourriture) el;
+                        a.getPerso().getNourriture().add(r);
+                        a.getPerso().MettreAJourCaract(r);
+                        listNourriture.remove(i);
+                        i--;
+                    }
+                }
+                System.out.println("Voulez-vous faire un mouvement ou sauvegarder le jeu? - Tapez le numero correspondant");
+                System.out.println("1)Deplacement 2)Battre 3)Sauvegarder");
                 int i = 0;
                 try {
                     i = Integer.parseInt(sc.next());
@@ -257,9 +267,12 @@ public class World {
                                  save = new SauvegardePartie(nomFichier);
                                  save.sauvegardePartie(this, nomFichier);
                         }
+                        System.out.println("Le match était sauvegardé! \n");
                         break;
+                        
+                    default:
+                        System.out.println("Un erreur s'est passé! \n");     
                 }
-
             }
         }
     }

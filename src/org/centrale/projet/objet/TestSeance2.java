@@ -47,7 +47,7 @@ public class TestSeance2 {
                            /**
                            * Tour de Jeu*
                            */
-                           w.tourdeJeu();           
+                           w.tourdeJeu();
                        }  
                        break;
             

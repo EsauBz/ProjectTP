@@ -183,6 +183,14 @@ public class Personnage extends Creature {
     public int getDistAttMax() {
         return distAttMax;
     }
+    
+    /**
+     *
+     * @return distance max de l'attaque du personnage
+     */
+    public ArrayList<Nourriture> getNourriture() {
+        return nourriture;
+    }
 
     /**
      * methode affiche: cet methode affiche toute l'information du personnage
