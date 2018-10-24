@@ -158,8 +158,8 @@ public class World {
         if (listJouers != null) {
             Scanner sc = new Scanner(System.in);
             for (Joueur a : listJouers) {
-                System.out.println("Voulez-vous faire un mouvement ou sauvegarder le jeu?");
-                System.out.println("1)Deplacement 2)Battre 3)Sauvegarder");
+                System.out.println("Voulez-vous faire un mouvement, sauvegarder le jeu ou exit?");
+                System.out.println("1)Deplacement 2)Battre 3)Sauvegarder 4)Exit");
                 int i = 0;
                 try {
                     i = Integer.parseInt(sc.next());
@@ -171,6 +171,7 @@ public class World {
                     case 1:
                         a.getPerso().deplacer();
                         verifierPotions(a.getPerso());
+                        a.getPerso().MettreAJourDuree();
                         break;
                     case 2:
                         System.out.println("************************");
@@ -214,6 +215,7 @@ public class World {
                                 }
                             }
                         }
+                        a.getPerso().MettreAJourDuree();
                         break;
                     case 3:
                         String menuSauvegarde;

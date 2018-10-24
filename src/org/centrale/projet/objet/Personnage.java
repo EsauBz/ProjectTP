@@ -263,15 +263,15 @@ public class Personnage extends Creature {
      * qu'une nourriture cause à un personnage
      * 
      *
-     * @param listNourriture qui contient l'ensemble de nourritures qu'un personnage prendre
+     * 
      */
-    public void MettreAJourDuree(ArrayList<Nourriture> listNourriture) {
-        for (int x = 0; x < listNourriture.size(); x++) {
-            listNourriture.get(x).setDuree(listNourriture.get(x).getDuree() - 1);
-            if (listNourriture.get(x).getDuree() == 0) {
-                listNourriture.get(x).setValeur(listNourriture.get(x).getValeur() * (-1));
-                this.MettreAJourCaract(listNourriture.get(x));
-                listNourriture.remove(x);
+    public void MettreAJourDuree() {
+        for (int x = 0; x < nourriture.size(); x++) {
+            nourriture.get(x).setDuree(nourriture.get(x).getDuree() - 1);
+            if (nourriture.get(x).getDuree() == 0) {
+                nourriture.get(x).setValeur(nourriture.get(x).getValeur() * (-1));
+                this.MettreAJourCaract(nourriture.get(x));
+                nourriture.remove(x);
                 x--;
             }
         }
