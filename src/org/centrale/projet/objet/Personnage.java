@@ -82,6 +82,7 @@ public class Personnage extends Creature {
         pourcentageResistMag = 0;
         degMag = 0;
         distAttMax = 0;
+        nourriture = new ArrayList<>();
     }
 
     /**
