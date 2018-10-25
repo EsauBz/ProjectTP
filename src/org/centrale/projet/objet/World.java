@@ -45,9 +45,52 @@ public class World {
     /**
      * taille du monde
      */
-    int tailleX;
-    int tailleY;
-
+    private int tailleX;
+    private int tailleY;
+    /******************************************************/
+    
+    /**
+     * Constructeur du monde WoE on cree les differents lists pour les
+     * personnages, les monstres et les potions, ici s'appelle aussi a les
+     * methodes pour la creation de Joueur et les differents elements
+     */
+    public World(String nom, String cls) {
+        /**
+         * Lists de Joueur *
+         */
+        this.listJouers = new ArrayList<>();
+        /**
+         * Lists de Personnages *
+         */
+        this.listPersonnages = new ArrayList<>();
+        /**
+         * Lists de potions *
+         */
+        this.listPotions = new ArrayList<>();
+        /**
+        * list de NuageToxique *
+        */
+        this.listNuageToxique = new ArrayList<>();
+        /**
+         * Lists de monstres *
+         */
+        this.listMonstres = new ArrayList<>();
+        /**
+         * Lists de Nourriture *
+         */
+        this.listNourriture = new ArrayList<>();
+        /**
+         * Variables taille du monde *
+         */
+        tailleX = 50;
+        tailleY = 50;
+        this.creationJoueur(nom, cls);
+        this.creationPersonnages();
+        this.creationMonstres();
+        this.creationPotions();
+        this.creationNourriture();
+    }
+    /********************************************************/
     /**
      * Constructeur du monde WoE on cree les differents lists pour les
      * personnages, les monstres et les potions, ici s'appelle aussi a les
@@ -83,7 +126,7 @@ public class World {
          */
         tailleX = 50;
         tailleY = 50;
-        this.creationJoueur();
+        //this.creationJoueur();
         this.creationPersonnages();
         this.creationMonstres();
         this.creationPotions();
@@ -648,9 +691,11 @@ public class World {
     
     /**
      * Methode de creation d'un Joueur qui est ajouté a la liste.
+     * @param nm
+     * @param cls
      */
-    public void creationJoueur() {
-        Joueur p1 = new Joueur();
+    public void creationJoueur(String nm, String cls) {
+        Joueur p1 = new Joueur(nm, cls);
         listJouers.add(p1);
     }
     

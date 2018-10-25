@@ -40,7 +40,13 @@ public class Joueur {
         demandeClasse();
         constructorJoeur();
     }
-    
+    /***********************************/
+    public Joueur(String nom, String classe) {
+        this.nom = nom;
+        this.classeJ = classe;
+        constructorJoeur();
+    }
+    /*************************************/
     /**
      * Constrcuteur de la classe Joueur qui creer un joueur avec les informations 
      * fournies dans un fichier texte
@@ -102,6 +108,7 @@ public class Joueur {
                 break;
         }
     }
+    
 
     /**
      * Methode qui demande le nom du joeur avec un entree du clavier ce methode
