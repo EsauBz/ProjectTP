@@ -213,5 +213,13 @@ public class Joueur {
     public void setPerso(Personnage perso) {
         this.perso = perso;
     }
+    
+    public String makeStringInfo(){
+        String info = "";
+        info = info + this.nom + "\n";
+        info = info + this.classeJ + "\n";
+        info = info + this.perso.makeStringInfo();
+        return info;
+    }
 
 }

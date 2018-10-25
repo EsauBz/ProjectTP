@@ -27,7 +27,6 @@ public class GUIECN extends javax.swing.JFrame {
      */
     public GUIECN() {
         initComponents();
-        //gridform();
     }
 
     /**
@@ -48,10 +47,12 @@ public class GUIECN extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jButton6 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("World of ECN");
-        setPreferredSize(new java.awt.Dimension(600, 600));
+        setPreferredSize(new java.awt.Dimension(700, 600));
 
         jButton1.setText("Nouveau jeu");
         jButton1.setAutoscrolls(true);
@@ -106,6 +107,11 @@ public class GUIECN extends javax.swing.JFrame {
 
         jButton4.setText("Combattre");
         jButton4.setAutoscrolls(true);
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton4MouseReleased(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -134,6 +140,10 @@ public class GUIECN extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,12 +161,13 @@ public class GUIECN extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton5)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton6))
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -176,7 +187,9 @@ public class GUIECN extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6))
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
             .addComponent(jSeparator2)
@@ -215,6 +228,7 @@ public class GUIECN extends javax.swing.JFrame {
         /* Creation du Monde WoE */
         monde = new World(nm, cl);
 
+        this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
 
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -262,7 +276,7 @@ public class GUIECN extends javax.swing.JFrame {
             while (F.exists()) {
                 wn = new SauvJeuManuel(this, true, 2);
                 wn.setVisible(true);
-                
+
                 nomFichier = wn.getjTextField1().getText();
                 F = new File(nomFichier);
             }
@@ -270,6 +284,56 @@ public class GUIECN extends javax.swing.JFrame {
             save.sauvegardePartie(monde, nomFichier);
         }
     }//GEN-LAST:event_jButton6MouseReleased
+
+    private void jButton4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseReleased
+
+        for (Joueur a : monde.getListJouer()) {
+            System.out.println("************************");
+            System.out.println("---- MODE COMBAT ----");
+            if (a.getPerso() instanceof Guerrier) {
+                Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
+                while (it.hasNext()) {
+                    Monstre mt = (Monstre) it.next();
+                    if (a.getPerso().getPos().distance(mt.getPos()) == 1) {
+
+                        a.getPerso().combattre(mt);
+                        if (mt instanceof Loup) {
+                            ((Loup) mt).combattre(a.getPerso());
+                        }
+                    }
+                }
+            }
+            if (a.getPerso() instanceof Archer) {
+                Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
+                while (it.hasNext()) {
+                    Monstre mt = (Monstre) it.next();
+                    if (a.getPerso().getPos().distance(mt.getPos()) > 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
+
+                        a.getPerso().combattre(mt);
+                        if (mt instanceof Loup) {
+                            ((Loup) mt).combattre(a.getPerso());
+                        }
+                    }
+                }
+            }
+            if (a.getPerso() instanceof Mage) {
+                Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
+                while (it.hasNext()) {
+                    Monstre mt = (Monstre) it.next();
+                    if (a.getPerso().getPos().distance(mt.getPos()) >= 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
+
+                        a.getPerso().combattre(mt);
+                        if (mt instanceof Loup) {
+                            ((Loup) mt).combattre(a.getPerso());
+                        }
+                    }
+                }
+            }
+            a.getPerso().MettreAJourDuree();
+            this.RefreshMonstres();
+        }
+        this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+    }//GEN-LAST:event_jButton4MouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -280,8 +344,19 @@ public class GUIECN extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
+    private void RefreshMonstres() {
+        Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
+        while (it.hasNext()) {
+            Monstre a = (Monstre) it.next();
+            if (a.getPtVie() < 0) {
+                it.remove();
+            }
+        }
+    }
 }

@@ -183,7 +183,7 @@ public class Personnage extends Creature {
     public int getDistAttMax() {
         return distAttMax;
     }
-    
+
     /**
      *
      * @return distance max de l'attaque du personnage
@@ -267,11 +267,11 @@ public class Personnage extends Creature {
     }
 
     /**
-     * Methode MettreAJourDuree: cet methode met à jour la duree de l'effet 
+     * Methode MettreAJourDuree: cet methode met à jour la duree de l'effet
      * qu'une nourriture cause à un personnage
-     * 
      *
-     * 
+     *
+     *
      */
     public void MettreAJourDuree() {
         for (int x = 0; x < nourriture.size(); x++) {
@@ -284,13 +284,13 @@ public class Personnage extends Creature {
             }
         }
     }
-    
+
     /**
-     * Methode MettreAJourCaract: cet methode met est appelé au moment  
-     * qu'un personnage prendre une nourriture et elle a comme fonction actualiser 
-     * la valeur d'un de ces parametres
+     * Methode MettreAJourCaract: cet methode met est appelé au moment qu'un
+     * personnage prendre une nourriture et elle a comme fonction actualiser la
+     * valeur d'un de ces parametres
      *
-     * 
+     *
      * @param r qui represente une nourriture pris par un personnage
      */
     public void MettreAJourCaract(Nourriture r) {
@@ -359,7 +359,24 @@ public class Personnage extends Creature {
                     this.setDistAttMax(this.getDistAttMax() - r.getValeur());
                     break;
             }
-        } 
+        }
+    }
+
+    public String makeStringInfo() {
+        String info = "";
+
+        info = info + "Point de Vie: " + this.getPtVie() + "\n";
+        info = info + "Point de Mana: " + this.ptMana + "\n";
+        info = info + "Pourcentage d'attaque: " + this.getPourcentageAtt() + "\n";
+        info = info + "Pourcentage de Par: " + this.getPourcentagePar() + "\n";
+
+        info = info + "Pourcentage de Magie: " + this.pourcentageMag + "\n";
+        info = info + "Resistence au Magie: " + this.pourcentageResistMag + "\n";
+        info = info + "Damage Attaque: " + this.getDegAtt() + "\n";
+        info = info + "Damage Magie: " + this.degMag + "\n";
+
+        info = info + "Distance d'ataque: " + this.getDistAttMax() + "\n";
+
+        return info;
     }
 }
-
