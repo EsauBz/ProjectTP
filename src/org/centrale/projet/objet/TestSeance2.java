@@ -19,6 +19,10 @@ public class TestSeance2 {
 
     public static void main(String[] args) {
         
+       /* GUIECN window = new GUIECN();
+        window.setVisible(true);
+        
+        */
         String startMenu;
         
         Scanner sc = new Scanner(System.in);
