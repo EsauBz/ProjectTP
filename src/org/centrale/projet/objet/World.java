@@ -159,7 +159,7 @@ public class World {
             Scanner sc = new Scanner(System.in);
             for (Joueur a : listJouers) {
                 for (int i = 0; i < listNourriture.size(); i++){
-                    if (a.getPerso().getPos().getCoordX() == listNourriture.get(i).getPos().getCoordX() && a.getPerso().getPos().getCoordY() == listNourriture.get(i).getPos().getCoordY()){
+                    if ( a.getPerso().getPos().memePos(listNourriture.get(i).getPos()) ){
                         ElementDeJeu el = listNourriture.get(i);
                         Nourriture r = (Nourriture) el;
                         a.getPerso().getNourriture().add(r);
