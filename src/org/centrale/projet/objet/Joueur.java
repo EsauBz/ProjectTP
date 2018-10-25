@@ -152,7 +152,7 @@ public class Joueur {
                 this.perso = new Mage(nom, gA.nextInt(100), gA.nextInt(100), gA.nextInt(80)/*attack*/, gA.nextInt(50)/*Par*/, gA.nextInt(100)/*magie*/, gA.nextInt(100), gA.nextInt(70), gA.nextInt(80), gA.nextInt(12), p, gA.nextInt(60));
                 break;
             default:
-                System.out.println("La clase: " + classeJ + " n'existe pas");
+                System.out.println("La classe: " + classeJ + " n'existe pas");
                 this.demandeClasse();
                 this.constructorJoeur();
                 break;

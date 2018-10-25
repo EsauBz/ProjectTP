@@ -83,7 +83,6 @@ public class World {
          */
         tailleX = 50;
         tailleY = 50;
-        
         this.creationJoueur();
         this.creationPersonnages();
         this.creationMonstres();
@@ -160,7 +159,7 @@ public class World {
             Scanner sc = new Scanner(System.in);
             for (Joueur a : listJouers) {
                 for (int i = 0; i < listNourriture.size(); i++){
-                    if (a.getPerso().getPos().memePos(listNourriture.get(i).getPos()) ){
+                    if (a.getPerso().getPos().getCoordX() == listNourriture.get(i).getPos().getCoordX() && a.getPerso().getPos().getCoordY() == listNourriture.get(i).getPos().getCoordY()){
                         ElementDeJeu el = listNourriture.get(i);
                         Nourriture r = (Nourriture) el;
                         a.getPerso().getNourriture().add(r);
@@ -293,7 +292,7 @@ public class World {
             this.listJouers.get(i).getPerso().affiche();
         }
         /**
-         * Personnages *
+         * Joueurs *
          */
         for (int i = 0; i < this.listPersonnages.size(); i++) {
             this.listPersonnages.get(i).affiche();
@@ -315,13 +314,6 @@ public class World {
          */
         for (int i = 0; i < this.listNourriture.size(); i++) {
             this.listNourriture.get(i).affiche();
-        }
-        
-        /**
-         * Nuages *
-         */
-        for (int i = 0; i < this.listNuageToxique.size(); i++) {
-            this.listNuageToxique.get(i).affiche();
         }
     }
     
