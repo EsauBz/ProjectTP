@@ -19,7 +19,7 @@ public class TestSeance2 {
 
     public static void main(String[] args) {
         
-       /* GUIECN window = new GUIECN();
+         /* GUIECN window = new GUIECN();
         window.setVisible(true);
         
         */
@@ -51,55 +51,16 @@ public class TestSeance2 {
                            /**
                            * Tour de Jeu*
                            */
-                           w.tourdeJeu();           
+                           w.tourdeJeu();
                        }  
                        break;
             
-            case "2" : String menuCharge;
-                       System.out.println("Menu Chargement ");
-                       System.out.println("Veuillez choisir le fichier que vous voulez charger: ");
-                       //File folder = new File("C:\\Users\\guiishida\\CENTRALE NANTES\\Informatique\\ProgrammationObjet\\TPs\\TP6\\ProjectTP");
-                       
-                       /*File dir = new File(".");
-                       FileFilter fileFilter = new WildcardFileFilter("*.txt");
-                       File[] files = dir.listFiles(fileFilter);
-                       for (int i = 0; i < files.length; i++) {
-                            System.out.println((i + 1) + ") " + files[i]);
-                       }*/
-                       
-                       /*
-                       FileFilter fileFilter = new WildcardFileFilter("*.txt");
-                       File[] listOfFiles = folder.listFiles();
-
-                       for (int i = 0; i < listOfFiles.length; i++) {
-                           if (listOfFiles[i].isFile()) {
-                                System.out.println("File " + listOfFiles[i].getName());
-                           } else if (listOfFiles[i].isDirectory()) {
-                                System.out.println("Directory " + listOfFiles[i].getName());
-                           }
-                       }*/
-                       System.out.println("1) Chargement Automatique");
-                       System.out.println("2) Chargement Manuel ");
-                       System.out.println("Choisissez l'option de chargement: ");
-                       menuCharge = sc.next(); 
-                       
-                       switch(menuCharge){
-                           
-                           case "1" : 
-                                      System.out.println("Chargement Complet! \n");
-                                      break;
-                                      
-                           case "2" : String fichierNom;
-                                      System.out.println("Ecrivez le nom du ficher à charger: ");
-                                      fichierNom = sc.next();
-                                      ChargementPartie load = new ChargementPartie(fichierNom);
-                                      load.chargerPartie();
-                                      break;
-                           default :  System.out.println("Vous n'avez suivi les instructions! See ya later! \n");
-                                      break;
-                       }
-                       
-                       break;
+            case "2" :  String nomFichier;
+                        System.out.println("Choisissez le fichier que vous voulez telechargez: ");
+                        nomFichier = sc.next();
+                        ChargementPartie load = new ChargementPartie(nomFichier);
+                        load.chargerPartie();
+                        break;
                     
             case "3" : System.out.println("Merci de jouer World of ECN \n");
                        break;
@@ -111,5 +72,3 @@ public class TestSeance2 {
 
    
 }
-
-

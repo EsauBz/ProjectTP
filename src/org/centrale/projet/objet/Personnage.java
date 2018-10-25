@@ -82,6 +82,7 @@ public class Personnage extends Creature {
         pourcentageResistMag = 0;
         degMag = 0;
         distAttMax = 0;
+        nourriture = new ArrayList<>();
     }
 
     /**
@@ -182,6 +183,14 @@ public class Personnage extends Creature {
     public int getDistAttMax() {
         return distAttMax;
     }
+    
+    /**
+     *
+     * @return distance max de l'attaque du personnage
+     */
+    public ArrayList<Nourriture> getNourriture() {
+        return nourriture;
+    }
 
     /**
      * methode affiche: cet methode affiche toute l'information du personnage
@@ -252,81 +261,105 @@ public class Personnage extends Creature {
                 break;
         }
     }
-    
-    public void combattre(Creature c){
-        
+
+    public void combattre(Creature c) {
+
     }
-    
-    public void MettreAJourDuree(ArrayList<Nourriture> listNourriture){
-        for(int x = 0; x < listNourriture.size(); x++){
-            listNourriture.get(x).setDuree(listNourriture.get(x).getDuree() - 1);
-            if (listNourriture.get(x).getDuree() == 0){
-                listNourriture.remove(x);
+
+    /**
+     * Methode MettreAJourDuree: cet methode met à jour la duree de l'effet 
+     * qu'une nourriture cause à un personnage
+     * 
+     *
+     * 
+     */
+    public void MettreAJourDuree() {
+        for (int x = 0; x < nourriture.size(); x++) {
+            nourriture.get(x).setDuree(nourriture.get(x).getDuree() - 1);
+            if (nourriture.get(x).getDuree() == 0) {
+                nourriture.get(x).setValeur(nourriture.get(x).getValeur() * (-1));
+                this.MettreAJourCaract(nourriture.get(x));
+                nourriture.remove(x);
+                x--;
             }
         }
     }
-            /*if ("Bonus".equals(listNourriture.get(x).getType())){
-                String carac = listNourriture.get(x).getCaract();
-                switch(carac){
-                    case "pA" : 
-                        this.setPourcentageAtt(this.getPourcentageAtt() + listNourriture.get(x).getValeur()); 
-                        break;
-                        
-                    case "pP" :
-                        this.setPourcentagePar(this.getPourcentagePar() + listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "pM" :
-                        this.setPourcentageMag(this.getPourcentageMag() + listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "rM" :
-                        this.setPourcentageResistMag(this.getPourcentageResistMag() + listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "dA" : 
-                        this.setDegAtt(this.getDegAtt() + listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "dM" :
-                        this.setDegMag(this.getDegMag() + listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "distMax" : 
-                        this.setDistAttMax(this.getDistAttMax() + listNourriture.get(x).getValeur());
-                        break;
-                }
+    
+    /**
+     * Methode MettreAJourCaract: cet methode met est appelé au moment  
+     * qu'un personnage prendre une nourriture et elle a comme fonction actualiser 
+     * la valeur d'un de ces parametres
+     *
+     * 
+     * @param r qui represente une nourriture pris par un personnage
+     */
+    public void MettreAJourCaract(Nourriture r) {
+        //si c'est un Bonus on fait une addition
+        if ("Bonus".equals(r.getType())) {
+            String carac = r.getCaract();
+            switch (carac) {
+                case "pA":
+                    this.setPourcentageAtt(this.getPourcentageAtt() + r.getValeur());
+                    break;
+
+                case "pP":
+                    this.setPourcentagePar(this.getPourcentagePar() + r.getValeur());
+                    break;
+
+                case "pM":
+                    this.setPourcentageMag(this.getPourcentageMag() + r.getValeur());
+                    break;
+
+                case "rM":
+                    this.setPourcentageResistMag(this.getPourcentageResistMag() + r.getValeur());
+                    break;
+
+                case "dA":
+                    this.setDegAtt(this.getDegAtt() + r.getValeur());
+                    break;
+
+                case "dM":
+                    this.setDegMag(this.getDegMag() + r.getValeur());
+                    break;
+
+                case "distMax":
+                    this.setDistAttMax(this.getDistAttMax() + r.getValeur());
+                    break;
             }
-            if ("Malus".equals(listNourriture.get(x).getType())){
-                String carac = listNourriture.get(x).getCaract();
-                switch(carac){
-                    case "pA" : 
-                        this.setPourcentageAtt(this.getPourcentageAtt() - listNourriture.get(x).getValeur()); 
-                        break;
-                        
-                    case "pP" :
-                        this.setPourcentagePar(this.getPourcentagePar() - listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "pM" :
-                        this.setPourcentageMag(this.getPourcentageMag() - listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "rM" :
-                        this.setPourcentageResistMag(this.getPourcentageResistMag() - listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "dA" : 
-                        this.setDegAtt(this.getDegAtt() - listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "dM" :
-                        this.setDegMag(this.getDegMag() - listNourriture.get(x).getValeur());
-                        break;
-                        
-                    case "distMax" : 
-                        this.setDistAttMax(this.getDistAttMax() - listNourriture.get(x).getValeur());
-                        break;
-                }
-            }*/
+        }
+        //Si c'est un malus on fait une soustraction
+        if ("Malus".equals(r.getType())) {
+            String carac = r.getCaract();
+            switch (carac) {
+                case "pA":
+                    this.setPourcentageAtt(this.getPourcentageAtt() - r.getValeur());
+                    break;
+
+                case "pP":
+                    this.setPourcentagePar(this.getPourcentagePar() - r.getValeur());
+                    break;
+
+                case "pM":
+                    this.setPourcentageMag(this.getPourcentageMag() - r.getValeur());
+                    break;
+
+                case "rM":
+                    this.setPourcentageResistMag(this.getPourcentageResistMag() - r.getValeur());
+                    break;
+
+                case "dA":
+                    this.setDegAtt(this.getDegAtt() - r.getValeur());
+                    break;
+
+                case "dM":
+                    this.setDegMag(this.getDegMag() - r.getValeur());
+                    break;
+
+                case "distMax":
+                    this.setDistAttMax(this.getDistAttMax() - r.getValeur());
+                    break;
+            }
+        } 
+    }
 }
+

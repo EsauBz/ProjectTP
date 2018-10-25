@@ -303,11 +303,36 @@ public class ChargementPartie {
                     monde.getListPotions().add(m1);
                 }
                 break;
+                
+            case "Nourriture" : 
+                if (tokenizer_el.hasMoreTokens()){
+                    Point2D p = null;
+                    int value = 0, duration = 0, coordX = 0, coordY = 0;
+                    String type = null, caract = null;
+                    try{
+                        type = tokenizer_el.nextToken();
+                        caract = tokenizer_el.nextToken(); 
+                        value = Integer.parseInt(tokenizer_el.nextToken());
+                        duration = Integer.parseInt(tokenizer_el.nextToken());
+                        coordX = Integer.parseInt(tokenizer_el.nextToken());
+                        coordY = Integer.parseInt(tokenizer_el.nextToken());
+                        p = new Point2D(coordX, coordY);
+                    }catch (NumberFormatException e) {
+                        System.err.println(e.getMessage());  
+                    }
+                    Nourriture n1 = new Nourriture(type, caract, value, duration, p);
+                    monde.getListNourriture().add(n1);
+                }
+                break;
             
             case "Joueur": 
                 Joueur p1 = new Joueur(line);
                 monde.getListJouer().add(p1);
-                break;                         
+                break;    
+                
+            default :
+                System.out.println("Errer! Classe non existante! ");
+                break;
          
         }
     }

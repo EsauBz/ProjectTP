@@ -23,6 +23,10 @@ public class World {
      */
     private ArrayList<ElementDeJeu> listPotions;
     /**
+     * list de Nourritures *
+     */
+    private ArrayList<ElementDeJeu> listNourriture;
+    /**
      * list de NuageToxique *
      */
     private ArrayList<ElementDeJeu> listNuageToxique;
@@ -71,13 +75,20 @@ public class World {
          */
         this.listMonstres = new ArrayList<>();
         /**
+         * Lists de Nourriture *
+         */
+        this.listNourriture = new ArrayList<>();
+        /**
          * Variables taille du monde *
          */
         tailleX = 50;
         tailleY = 50;
+        
         this.creationJoueur();
+        this.creationPersonnages();
         this.creationMonstres();
         this.creationPotions();
+        this.creationNourriture();
     }
     
     public World(int x, int y){
@@ -108,9 +119,12 @@ public class World {
         * list de NuageToxique *
         */
         this.listNuageToxique = new ArrayList<>();
+         /**
+         * Lists de Nourriture *
+         */
+        this.listNourriture = new ArrayList<>();
         
 }
-
 
     /**
      * Ce methode done une position aleatoire a les diferents Joueurs les
@@ -145,7 +159,17 @@ public class World {
         if (listJouers != null) {
             Scanner sc = new Scanner(System.in);
             for (Joueur a : listJouers) {
-                System.out.println("Voulez-vous faire un mouvement ou sauvegarder le jeu?");
+                for (int i = 0; i < listNourriture.size(); i++){
+                    if (a.getPerso().getPos().memePos(listNourriture.get(i).getPos()) ){
+                        ElementDeJeu el = listNourriture.get(i);
+                        Nourriture r = (Nourriture) el;
+                        a.getPerso().getNourriture().add(r);
+                        a.getPerso().MettreAJourCaract(r);
+                        listNourriture.remove(i);
+                        i--;
+                    }
+                }
+                System.out.println("Voulez-vous faire un mouvement ou sauvegarder le jeu? - Tapez le numero correspondant");
                 System.out.println("1)Deplacement 2)Battre 3)Sauvegarder");
                 int i = 0;
                 try {
@@ -158,6 +182,7 @@ public class World {
                     case 1:
                         a.getPerso().deplacer();
                         verifierPotions(a.getPerso());
+                        a.getPerso().MettreAJourDuree();
                         break;
                     case 2:
                         System.out.println("************************");
@@ -201,6 +226,7 @@ public class World {
                                 }
                             }
                         }
+                        a.getPerso().MettreAJourDuree();
                         break;
                     case 3:
                         String menuSauvegarde;
@@ -242,9 +268,12 @@ public class World {
                                  save = new SauvegardePartie(nomFichier);
                                  save.sauvegardePartie(this, nomFichier);
                         }
+                        System.out.println("Le match était sauvegardé! \n");
                         break;
+                        
+                    default:
+                        System.out.println("Un erreur s'est passé! \n");     
                 }
-
             }
         }
     }
@@ -264,6 +293,12 @@ public class World {
             this.listJouers.get(i).getPerso().affiche();
         }
         /**
+         * Personnages *
+         */
+        for (int i = 0; i < this.listPersonnages.size(); i++) {
+            this.listPersonnages.get(i).affiche();
+        }
+        /**
          * Monstres *
          */
         for (int i = 0; i < listMonstres.size(); i++) {
@@ -274,6 +309,95 @@ public class World {
          */
         for (int i = 0; i < this.listPotions.size(); i++) {
             this.listPotions.get(i).affiche();
+        }
+        /**
+         * Nourriture *
+         */
+        for (int i = 0; i < this.listNourriture.size(); i++) {
+            this.listNourriture.get(i).affiche();
+        }
+        
+        /**
+         * Nuages *
+         */
+        for (int i = 0; i < this.listNuageToxique.size(); i++) {
+            this.listNuageToxique.get(i).affiche();
+        }
+    }
+    
+    /**
+     * Methode de creation Aleatoire des Personnages dans le monde, il cree un
+     * nombre aleatoire de chaque type de personnage dans une meme liste. Les
+     * coordonnes sont aleatoires.
+     */
+    private void creationPersonnages(){
+        Random gA = new Random();
+        Point2D p = new Point2D();
+        int cont = gA.nextInt(20);
+         /**
+         * Guerrier *
+         */
+        Guerrier g;
+        for (int i = 0; i < cont; i++) {
+            if (i > 0) {
+                for (int j = 0; j < listPersonnages.size(); j++) {
+                    while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
+                        p.setCoordX(gA.nextInt(tailleX));
+                        p.setCoordY(gA.nextInt(tailleY));
+                    }
+                }
+                this.listPersonnages.add(g = new Guerrier("Warrior"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
+            } else {
+                p.setCoordX(gA.nextInt(tailleX));
+                p.setCoordY(gA.nextInt(tailleY));
+                this.listPersonnages.add(g = new Guerrier("Warrior"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
+            }
+        }
+        
+         /**
+         * Mage *
+         */
+        cont = gA.nextInt(20);
+        Mage m;
+        for (int i = 0; i < cont; i++) {
+            for (int j = 0; j < listPersonnages.size(); j++) {
+                while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
+                    p.setCoordX(gA.nextInt(tailleX));
+                    p.setCoordY(gA.nextInt(tailleY));
+                }
+            }
+            this.listPersonnages.add(m = new Mage("Wizard"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
+        }
+        
+         /**
+         * Paysan *
+         */
+        cont = gA.nextInt(20);
+        Paysan pay;
+        for (int i = 0; i < cont; i++) {
+            for (int j = 0; j < listPersonnages.size(); j++) {
+                while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
+                    p.setCoordX(gA.nextInt(tailleX));
+                    p.setCoordY(gA.nextInt(tailleY));
+                }
+            }
+            this.listPersonnages.add(pay = new Paysan("Peasant"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
+        }
+        
+         /**
+         * Archer *
+         */
+        cont = gA.nextInt(20);
+        Archer a;
+        for (int i = 0; i < cont; i++) {
+            for (int j = 0; j < listPersonnages.size(); j++) {
+                while (p.getCoordX() == listPersonnages.get(j).getPos().getCoordX() && p.getCoordY() == listPersonnages.get(j).getPos().getCoordY()) {
+                    p.setCoordX(gA.nextInt(tailleX));
+                    p.setCoordY(gA.nextInt(tailleY));
+                }
+            }
+            this.listPersonnages.add(a = new Archer("Bowman"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
+        
         }
     }
 
@@ -292,7 +416,7 @@ public class World {
         Lapin l;
         for (int i = 0; i < cont; i++) {
             if (i > 0) {
-                for (int j = 0; j < i; j++) {
+                for (int j = 0; j < listMonstres.size(); j++) {
                     while (p.getCoordX() == listMonstres.get(j).getPos().getCoordX() && p.getCoordY() == listMonstres.get(j).getPos().getCoordY()) {
                         p.setCoordX(gA.nextInt(tailleX));
                         p.setCoordY(gA.nextInt(tailleY));
@@ -305,9 +429,11 @@ public class World {
                 this.listMonstres.add(l = new Lapin(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
             }
         }
+        
         /**
          * Loups *
          */
+        cont = gA.nextInt(20);
         Loup lp;
         for (int i = 0; i < cont; i++) {
             for (int j = 0; j < listMonstres.size(); j++) {
@@ -318,9 +444,11 @@ public class World {
             }
             this.listMonstres.add(lp = new Loup(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
         }
+        
         /**
          * Nuages *
          */
+        cont = gA.nextInt(20);
         NuageToxique nt;
         for (int i = 0; i < cont; i++) {
             for (int j = 0; j < listNuageToxique.size(); j++) {
@@ -362,22 +490,74 @@ public class World {
             }
 
         }
-        cont = gA.nextInt(10);
+        
         /**
          * Potions Mana *
          */
+        cont = gA.nextInt(10);
         Mana mp;
         for (int i = 0; i < cont; i++) {
-
             for (int j = 0; j < listPotions.size(); j++) {
                 while (p.getCoordX() == listPotions.get(j).getPos().getCoordX() && p.getCoordY() == listPotions.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listPotions.add(mp = new Mana(p, gA.nextInt(tailleY))
-            );
-
+            this.listPotions.add(mp = new Mana(p, gA.nextInt(tailleY)));
+        }
+    }
+    
+    /**
+     * Methode de creation Aleatoire des Nourriture dans le monde, il cree un
+     * nombre aleatoire de differents types de nourriture dans une meme liste. Les
+     * coordonnes sont aleatoires.
+     */
+    private void creationNourriture() {
+        Random gA = new Random();
+        Point2D p = new Point2D();
+        int cont = gA.nextInt(20);
+        String[] caract = new String[7];
+        caract[0] = "pA";
+        caract[1] = "pP";
+        caract[2] = "pM";
+        caract[3] = "rM";
+        caract[4] = "dA";
+        caract[5] = "dM";
+        caract[6] = "distMax";
+        
+        /**
+         * Bonus *
+         */
+        Nourriture nb;
+        for (int i = 0; i < cont; i++) {
+            if (i > 0) {
+                for (int j = 0; j < listNourriture.size(); j++) {
+                    while (p.getCoordX() == listNourriture.get(j).getPos().getCoordX() && p.getCoordY() == listNourriture.get(j).getPos().getCoordY()) {
+                        p.setCoordX(gA.nextInt(tailleX));
+                        p.setCoordY(gA.nextInt(tailleY));
+                    }
+                }
+                
+                this.listNourriture.add(nb = new Nourriture("Bonus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
+            } else {
+                p.setCoordX(gA.nextInt(tailleX));
+                p.setCoordY(gA.nextInt(tailleY));
+                this.listNourriture.add(nb = new Nourriture("Bonus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
+            }
+        }
+        
+        /**
+         * Malus *
+         */
+        cont = gA.nextInt(20);
+        for (int i = 0; i < cont; i++) {
+            for (int j = 0; j < listNourriture.size(); j++) {
+                while (p.getCoordX() == listNourriture.get(j).getPos().getCoordX() && p.getCoordY() == listNourriture.get(j).getPos().getCoordY()) {
+                    p.setCoordX(gA.nextInt(tailleX));
+                    p.setCoordY(gA.nextInt(tailleY));
+                }
+            }
+            this.listNourriture.add(nb = new Nourriture("Malus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
         }
     }
 
@@ -464,6 +644,14 @@ public class World {
      */
     public ArrayList<ElementDeJeu> getListPersonnages() {
         return listPersonnages;
+    }
+    
+    /**
+     *
+     * @return La liste de Nourriture presentes dans le monde
+     */
+    public ArrayList<ElementDeJeu> getListNourriture() {
+        return listNourriture;
     }
     
     /**

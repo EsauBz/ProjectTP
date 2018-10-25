@@ -1,8 +1,7 @@
-/**
- * Ecole Centrale de Nantes
- * Option Informatique
- * Programation Oriente a Object
- *
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package org.centrale.projet.objet;
 
@@ -86,9 +85,18 @@ public class SauvegardePartie {
                 } 
             }
             
+            //For pour sauvegarder les nourritures
+            for (int x = 0; x < monde.getListNourriture().size(); x++){
+                ligne = getTexteSauvegarde(monde.getListNourriture().get(x), 5);
+                if (ligne != null){
+                    bufferedWriter.write(ligne);
+                    bufferedWriter.newLine();
+                } 
+            }
+            
             //For pour sauvegarder les joueurs
             for (int x = 0; x < monde.getListJouer().size(); x++){
-                ligne = getTexteSauvegarde(monde.getListJouer().get(x).getPerso(), 5);
+                ligne = getTexteSauvegarde(monde.getListJouer().get(x).getPerso(), 6);
                 if (ligne != null){
                     bufferedWriter.write(ligne);
                     bufferedWriter.newLine();
@@ -134,19 +142,19 @@ public class SauvegardePartie {
             case 1: 
                 if (el instanceof Guerrier){
                     Guerrier e = (Guerrier) el;
-                    ligne = "Guerrier " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + String.valueOf(e.getDegMag()) + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
+                    ligne = "Guerrier " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + " " + String.valueOf(e.getDegMag()) + " " + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
                 }
                 else if (el instanceof Paysan){
                     Paysan e = (Paysan) el;
-                    ligne = "Paysan " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + String.valueOf(e.getDegMag()) + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
+                    ligne = "Paysan " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + " " +  String.valueOf(e.getDegMag()) + " " +  String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
                 }
                 else if (el instanceof Mage){
                     Mage e = (Mage) el;
-                    ligne = "Mage " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + String.valueOf(e.getDegMag()) + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
+                    ligne = "Mage " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + " " +  String.valueOf(e.getDegMag()) + " " +  String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
                 }
                 else if (el instanceof Archer){
                     Archer e = (Archer) el;
-                    ligne = "Archer " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + String.valueOf(e.getDegMag()) + String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY()) + " " + String.valueOf(e.getNbFleches());
+                    ligne = "Archer " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + " " +  String.valueOf(e.getDegMag()) + " " +  String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY()) + " " + String.valueOf(e.getNbFleches());
                 }
                 break; 
             
@@ -177,8 +185,14 @@ public class SauvegardePartie {
                     ligne = "Soin " + String.valueOf(p.getPointPotion()) + " " + String.valueOf(p.getPos().getCoordX()) + " " + String.valueOf(p.getPos().getCoordY());
                 }
                 break; 
+                
+            case 5 :
+                if(el instanceof Nourriture){
+                    Nourriture n = (Nourriture) el;
+                    ligne = "Nourriture " + n.getType() + " " + n.getCaract() + " " + String.valueOf(n.getValeur()) + " " + String.valueOf(n.getDuree()) + " " + String.valueOf(n.getPos().getCoordX()) + " " + String.valueOf(n.getPos().getCoordY());
+                }
                             
-            case 5:
+            case 6:
                 if (el instanceof Guerrier){
                     Guerrier e = (Guerrier) el;
                     ligne = "Joueur Guerrier " + e.getNom() + " " + String.valueOf(e.getPtVie()) + " " + String.valueOf(e.getPtMana()) + " " + String.valueOf(e.getPourcentageAtt()) + " " + String.valueOf(e.getPourcentagePar()) + " " + String.valueOf(e.getPourcentageMag()) + " " + String.valueOf(e.getPourcentageResistMag()) + " " + String.valueOf(e.getDegAtt()) + " " + String.valueOf(e.getDegMag()) + " " +  String.valueOf(e.getDistAttMax()) + " " + String.valueOf(e.getPtPar()) + " " + String.valueOf(e.getPos().getCoordX()) + " " + String.valueOf(e.getPos().getCoordY());
