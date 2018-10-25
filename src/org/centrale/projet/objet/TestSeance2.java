@@ -52,10 +52,20 @@ public class TestSeance2 {
                        break;
             
             case "2" :  String nomFichier;
+                        World monde;
                         System.out.println("Choisissez le fichier que vous voulez telechargez: ");
                         nomFichier = sc.next();
                         ChargementPartie load = new ChargementPartie(nomFichier);
-                        load.chargerPartie();
+                        monde = load.chargerPartie();
+                        int b = 1;
+                        while (b < 3){
+                            if( b == 1){
+                                monde.afficheWorld();
+                                b++;
+                            }
+                            monde.getListJouer().get(0).getPerso().affiche();
+                            monde.tourdeJeu();
+                        }
                         break;
                     
             case "3" : System.out.println("Merci de jouer World of ECN \n");
