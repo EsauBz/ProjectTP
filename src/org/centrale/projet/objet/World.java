@@ -288,6 +288,9 @@ public class World {
         /**
          * Joueurs *
          */
+        //System.out.println(this.tailleX + "\n");
+        //System.out.println(this.tailleY + "\n");
+        
         for (int i = 0; i < this.listJouers.size(); i++) {
             this.listJouers.get(i).getPerso().affiche();
         }

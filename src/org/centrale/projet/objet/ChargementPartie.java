@@ -58,11 +58,11 @@ public class ChargementPartie {
                     }  
                 }
                 ligne = fichier.readLine();
-                
+                StringTokenizer tokenizer2 = new StringTokenizer(ligne, delimiteurs);
                 // If pour récuperer la valeur de l'hauteur du monde
-                if (tokenizer.hasMoreTokens()){
-                    String mot2 = tokenizer.nextToken();
-                    String hauteur = tokenizer.nextToken();
+                if (tokenizer2.hasMoreTokens()){
+                    String mot2 = tokenizer2.nextToken();
+                    String hauteur = tokenizer2.nextToken();
                     try {
                         coordY = Integer.parseInt(hauteur);
                     } catch (NumberFormatException e) {
