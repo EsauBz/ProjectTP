@@ -1,0 +1,116 @@
+Largeur 50
+Hauteur 50
+Guerrier Warrior1 100 26 17 3 21 26 31 5 15 36 18 16
+Guerrier Warrior2 101 42 30 8 13 27 25 28 47 4 39 6
+Guerrier Warrior3 102 42 33 30 13 22 41 44 33 18 28 48
+Guerrier Warrior4 103 26 30 32 38 15 28 44 19 15 49 12
+Guerrier Warrior5 104 14 5 36 42 6 4 23 46 17 8 21
+Guerrier Warrior6 105 31 15 33 14 44 31 40 41 25 9 6
+Guerrier Warrior7 106 25 5 34 30 31 10 7 26 41 17 33
+Guerrier Warrior8 107 38 39 38 7 35 36 43 38 17 25 31
+Guerrier Warrior9 108 19 46 6 10 3 15 33 48 8 32 0
+Guerrier Warrior10 109 2 13 22 29 17 13 0 43 10 33 42
+Mage Wizard1 100 37 48 33 6 46 4 26 41 20 33 42
+Mage Wizard2 101 4 23 3 20 39 48 48 47 41 33 42
+Mage Wizard3 102 19 11 40 8 40 37 3 1 19 33 42
+Mage Wizard4 103 32 29 44 29 36 17 42 40 34 33 42
+Mage Wizard5 104 8 34 41 8 38 49 40 20 4 33 42
+Paysan Peasant1 100 48 34 2 44 0 12 38 29 42 33 42
+Paysan Peasant2 101 38 49 36 10 46 46 2 34 42 33 42
+Paysan Peasant3 102 10 11 0 10 35 11 10 13 7 33 42
+Paysan Peasant4 103 3 5 17 38 14 32 14 47 14 33 42
+Archer Bowman1 100 40 14 46 22 15 18 11 3 14 33 42 18
+Archer Bowman2 101 33 9 8 28 40 11 23 28 24 33 42 31
+Archer Bowman3 102 30 3 40 19 35 28 1 10 6 33 42 8
+Archer Bowman4 103 8 6 44 39 28 2 28 42 20 33 42 6
+Archer Bowman5 104 19 4 12 45 40 45 46 38 1 33 42 48
+Archer Bowman6 105 7 2 6 38 46 17 16 27 30 33 42 20
+Archer Bowman7 106 0 27 40 5 31 0 33 38 43 33 42 27
+Archer Bowman8 107 10 46 36 26 11 25 38 1 11 33 42 1
+Archer Bowman9 108 17 23 27 40 28 4 43 41 32 33 42 33
+Archer Bowman10 109 21 30 39 48 18 10 45 18 41 33 42 27
+Archer Bowman11 110 38 13 39 1 38 27 3 6 0 6 8 4
+Archer Bowman12 111 24 46 18 0 25 42 44 7 37 6 8 13
+Archer Bowman13 112 0 0 23 1 44 34 27 42 0 6 8 39
+Archer Bowman14 113 20 45 29 8 47 2 31 9 34 6 8 3
+Archer Bowman15 114 31 37 30 15 24 44 1 38 2 6 8 39
+Archer Bowman16 115 10 2 48 43 32 14 48 12 23 6 8 4
+Archer Bowman17 116 21 7 15 5 22 22 29 10 24 6 8 6
+Lapin 100 23 25 100 43 18 32 5
+Lapin 101 37 13 101 12 16 38 10
+Lapin 102 2 5 102 34 21 0 22
+Lapin 103 28 5 103 43 33 38 4
+Lapin 104 40 18 104 48 12 27 28
+Lapin 105 47 10 105 1 39 45 49
+Lapin 106 49 34 106 13 17 5 3
+Lapin 107 21 42 107 7 28 6 44
+Lapin 108 39 26 108 33 42 32 14
+Lapin 109 13 36 109 47 24 43 48
+Lapin 110 30 25 110 31 3 30 30
+Lapin 111 20 21 111 4 10 29 29
+Lapin 112 24 12 112 22 9 19 39
+Lapin 113 1 27 113 6 19 41 45
+Lapin 114 49 17 114 49 24 0 36
+Lapin 115 0 36 115 13 42 31 33
+Lapin 116 37 33 116 30 24 0 10
+Lapin 117 42 13 117 0 17 15 26
+Loup 100 0 15 100 47 35 32 48
+Loup 101 27 17 101 10 37 24 3
+Loup 102 7 23 102 25 37 46 2
+Loup 103 31 17 103 4 13 27 15
+Loup 104 18 34 104 23 48 24 39
+Loup 105 17 9 105 33 38 1 33
+Loup 106 31 21 106 22 44 18 8
+Loup 107 42 41 107 38 27 11 30
+Loup 108 26 20 108 10 23 22 27
+Loup 109 30 44 109 32 11 29 47
+Loup 110 47 23 110 11 14 48 27
+NuageToxique 33 48 27
+NuageToxique 3 4 13
+NuageToxique 17 20 8
+NuageToxique 6 33 49
+NuageToxique 3 13 31
+NuageToxique 34 45 6
+NuageToxique 47 4 41
+NuageToxique 46 16 22
+NuageToxique 3 21 11
+NuageToxique 2 40 31
+NuageToxique 43 27 5
+NuageToxique 12 24 24
+NuageToxique 23 34 29
+NuageToxique 11 17 49
+NuageToxique 46 42 41
+NuageToxique 25 4 4
+NuageToxique 42 5 49
+Soin 20 34 14
+Soin 17 3 14
+Mana 6 42 40
+Mana 0 47 21
+Mana 45 24 44
+Mana 11 8 48
+Mana 3 35 40
+Mana 41 27 34
+Mana 32 39 7
+Mana 41 42 44
+Nourriture Bonus pM 4 6 21 44
+Nourriture Bonus pM 3 9 46 46
+Nourriture Bonus rM 2 5 18 43
+Nourriture Bonus dM 1 6 2 21
+Nourriture Bonus distMax 3 3 14 7
+Nourriture Bonus distMax 2 8 4 9
+Nourriture Bonus pP 2 7 38 11
+Nourriture Bonus pP 5 1 32 34
+Nourriture Bonus dM 1 4 30 22
+Nourriture Bonus distMax 4 4 28 19
+Nourriture Bonus pP 2 5 46 12
+Nourriture Bonus pM 1 7 2 45
+Nourriture Bonus dM 3 9 18 16
+Nourriture Malus dA 1 5 22 39
+Nourriture Malus rM 1 2 26 39
+Nourriture Malus pP 3 7 17 45
+Nourriture Malus rM 3 9 25 7
+Nourriture Malus dA 2 8 43 49
+Nourriture Malus dA 1 3 42 13
+Nourriture Malus rM 4 5 20 32
+Nourriture Malus dM 3 0 37 9
+Joueur Paysan PPP 45 52 3 0 26 62 24 70 4 45 1 1
