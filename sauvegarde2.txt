@@ -1,98 +1,123 @@
-Largeur 50
-Hauteur 50
-Guerrier Warrior1 100 23 27 47 16 28 7 33 13 17 42 5
-Guerrier Warrior2 101 49 13 34 12 11 22 24 26 28 2 9
-Guerrier Warrior3 102 36 2 10 32 32 17 26 46 0 29 13
-Guerrier Warrior4 103 40 48 44 0 6 33 18 42 14 49 30
-Guerrier Warrior5 104 2 24 15 40 27 0 29 25 10 47 8
-Guerrier Warrior6 105 48 18 19 49 2 43 29 13 1 43 2
-Guerrier Warrior7 106 20 34 6 42 20 20 36 3 42 45 3
-Guerrier Warrior8 107 5 11 10 26 49 1 18 21 48 25 17
-Guerrier Warrior9 108 5 42 42 29 15 1 8 20 34 40 47
-Guerrier Warrior10 109 12 15 23 36 39 43 48 36 22 39 43
-Guerrier Warrior11 110 30 38 40 39 38 19 43 24 22 22 6
-Guerrier Warrior12 111 44 24 7 15 42 27 8 49 42 20 40
-Guerrier Warrior13 112 31 4 41 44 34 41 49 46 42 22 46
-Guerrier Warrior14 113 33 44 21 6 5 4 37 47 22 35 30
-Mage Wizard1 100 30 4 44 17 11 35 1 11 25 47 7
-Mage Wizard2 101 42 6 44 12 44 45 20 43 20 36 31
-Mage Wizard3 102 36 38 14 8 28 49 11 18 22 20 39
-Mage Wizard4 103 40 47 34 20 23 37 27 15 11 30 7
-Mage Wizard5 104 12 27 18 12 13 42 24 42 28 24 6
-Mage Wizard6 105 15 40 24 45 23 22 11 30 47 29 34
-Mage Wizard7 106 30 33 5 43 35 17 34 6 11 13 1
-Mage Wizard8 107 17 36 0 22 22 12 17 6 30 11 47
-Mage Wizard9 108 17 9 26 47 2 42 14 27 42 36 26
-Mage Wizard10 109 40 21 36 4 18 8 7 26 44 4 38
-Mage Wizard11 110 3 17 38 35 44 46 6 23 5 35 39
-Paysan Peasant1 100 30 27 38 49 0 18 41 17 15 39 25
-Paysan Peasant2 101 17 42 23 43 27 4 16 19 40 6 19
-Paysan Peasant3 102 18 48 16 7 1 49 43 7 14 48 0
-Paysan Peasant4 103 24 3 25 46 43 21 33 29 16 2 29
-Paysan Peasant5 104 15 45 44 35 17 15 18 26 9 25 36
-Paysan Peasant6 105 23 20 29 4 42 21 47 21 44 44 40
-Paysan Peasant7 106 35 21 5 48 30 42 28 18 20 25 0
-Paysan Peasant8 107 19 39 9 34 16 47 18 47 32 11 48
-Paysan Peasant9 108 24 19 42 9 30 4 34 34 35 8 8
-Paysan Peasant10 109 46 39 34 38 38 38 48 41 37 36 49
-Paysan Peasant11 110 43 29 13 47 17 37 15 11 12 20 15
-Paysan Peasant12 111 31 10 35 46 18 5 27 18 17 36 13
-Paysan Peasant13 112 48 33 7 0 40 26 29 25 42 24 28
-Paysan Peasant14 113 44 16 44 20 49 49 36 26 35 45 27
-Paysan Peasant15 114 46 1 36 16 22 37 49 5 19 45 19
-Archer Bowman1 100 17 6 10 40 47 27 17 24 26 32 24 2
-Archer Bowman2 101 25 12 21 16 45 45 16 25 30 4 25 39
-Archer Bowman3 102 15 20 34 15 17 27 36 2 3 25 16 31
-Archer Bowman4 103 6 24 43 10 36 45 3 48 37 7 24 45
-Archer Bowman5 104 5 7 15 39 34 19 1 49 5 20 11 37
-Archer Bowman6 105 2 49 31 26 49 24 31 30 0 4 30 8
-Archer Bowman7 106 24 46 13 39 13 13 42 24 12 43 19 22
-Archer Bowman8 107 48 23 25 44 4 7 10 28 12 20 16 21
-Archer Bowman9 108 15 13 22 9 30 3 2 28 34 14 19 22
-Archer Bowman10 109 30 22 11 33 24 12 23 35 27 26 8 12
-Archer Bowman11 110 0 46 0 43 49 47 1 4 46 34 4 17
-Archer Bowman12 111 39 21 18 11 13 5 31 17 3 7 14 30
-Archer Bowman13 112 13 37 34 44 34 3 9 32 12 43 29 41
-Archer Bowman14 113 23 40 35 44 28 41 29 25 42 47 21 12
-Archer Bowman15 114 48 7 0 10 8 17 14 4 40 0 7 14
-Lapin 100 49 32 100 22 45 48 38
-Lapin 101 3 1 101 41 49 8 12
-Lapin 102 26 3 102 29 31 11 17
-Lapin 103 4 48 103 38 1 35 1
-Lapin 104 38 0 104 30 30 23 29
-Lapin 105 24 27 105 37 17 33 14
-Lapin 106 15 11 106 49 41 11 41
-Lapin 107 28 42 107 19 34 15 7
-Lapin 108 7 42 108 8 1 12 21
-Lapin 109 40 37 109 6 30 44 13
-Loup 100 23 22 100 26 45 24 6
-Loup 101 33 7 101 29 34 46 32
-Loup 102 17 3 102 20 26 49 39
-Loup 103 37 27 103 31 35 24 32
-Loup 104 39 16 104 9 45 9 22
-Loup 105 0 26 105 44 48 41 8
-Loup 106 49 13 106 28 29 4 26
-Loup 107 44 41 107 10 27 27 30
-NuageToxique 6 27 30
-NuageToxique 15 35 25
-NuageToxique 33 30 10
-NuageToxique 3 48 39
-NuageToxique 39 15 49
-NuageToxique 41 42 25
-Soin 16 8 40
-Mana 39 6 40
-Mana 26 13 11
-Mana 43 25 18
-Nourriture Bonus rM 5 7 17 20
-Nourriture Bonus rM 2 4 37 2
-Nourriture Bonus pP 5 5 29 4
-Nourriture Bonus rM 2 7 41 8
-Nourriture Bonus pM 1 4 0 43
-Nourriture Bonus pA 3 2 15 35
-Nourriture Bonus pM 2 4 0 33
-Nourriture Bonus distMax 1 2 30 4
-Nourriture Bonus pP 2 4 47 2
-Nourriture Bonus rM 4 5 48 39
-Nourriture Bonus distMax 3 2 48 27
-Nourriture Malus distMax 2 6 20 34
-Joueur Mage Ishida 75 36 51 30 72 12 20 3 5 28 32 49
+Largeur 20
+Hauteur 20
+Guerrier Warrior1 100 7 6 6 14 11 12 7 0 3 13 0
+Guerrier Warrior2 101 12 6 12 19 8 1 13 3 9 6 10
+Guerrier Warrior3 102 14 16 6 17 19 17 5 19 10 18 18
+Guerrier Warrior4 103 8 15 18 1 4 10 9 2 5 1 2
+Guerrier Warrior5 104 14 17 2 11 16 18 11 4 18 3 1
+Guerrier Warrior6 105 13 7 4 18 11 3 17 5 0 4 13
+Guerrier Warrior7 106 19 1 17 7 6 14 2 0 8 18 13
+Guerrier Warrior8 107 5 16 0 14 3 4 9 8 2 12 7
+Guerrier Warrior9 108 16 16 14 16 11 14 12 4 19 0 8
+Guerrier Warrior10 109 12 9 18 16 4 4 7 5 12 12 6
+Guerrier Warrior11 110 9 3 7 2 10 8 19 10 6 7 6
+Mage Wizard1 100 5 12 10 12 19 15 5 11 16 5 18
+Mage Wizard2 101 4 4 14 16 10 10 18 1 4 16 12
+Mage Wizard3 102 7 5 14 1 4 19 17 2 17 12 15
+Mage Wizard4 103 19 15 17 11 17 4 8 2 15 14 14
+Mage Wizard5 104 14 9 10 4 19 12 19 5 15 3 9
+Mage Wizard6 105 13 10 4 17 1 2 17 6 16 13 2
+Mage Wizard7 106 2 9 8 3 3 8 10 15 1 13 9
+Mage Wizard8 107 17 6 6 1 3 13 11 11 16 5 13
+Mage Wizard9 108 12 17 9 9 12 18 14 16 6 15 9
+Mage Wizard10 109 6 10 9 4 14 18 6 11 9 10 16
+Mage Wizard11 110 8 0 15 15 3 10 3 13 8 10 1
+Mage Wizard12 111 0 14 14 5 2 11 17 13 14 3 15
+Mage Wizard13 112 4 2 5 12 5 14 0 8 8 12 14
+Mage Wizard14 113 6 12 16 2 4 9 16 11 17 6 0
+Paysan Peasant1 100 4 14 0 3 0 3 13 15 12 17 4
+Paysan Peasant2 101 19 12 15 5 12 2 17 7 18 3 2
+Paysan Peasant3 102 6 1 3 17 3 13 12 16 4 4 3
+Paysan Peasant4 103 11 5 7 9 10 19 16 17 3 11 8
+Paysan Peasant5 104 7 5 9 16 0 10 8 9 1 7 15
+Paysan Peasant6 105 9 10 9 17 14 12 15 13 4 1 1
+Paysan Peasant7 106 17 7 4 12 9 19 7 3 6 4 15
+Paysan Peasant8 107 13 8 7 5 2 10 19 10 7 19 17
+Paysan Peasant9 108 17 15 12 3 9 6 16 7 18 2 17
+Paysan Peasant10 109 15 0 4 17 9 8 4 1 8 18 18
+Paysan Peasant11 110 0 6 17 15 9 14 15 6 15 1 5
+Archer Bowman1 100 0 14 2 7 1 18 2 14 15 9 7 7
+Archer Bowman2 101 8 5 12 9 4 18 9 11 16 3 18 8
+Archer Bowman3 102 16 16 16 8 5 11 9 15 11 5 10 6
+Archer Bowman4 103 8 16 2 5 6 3 7 2 8 1 17 3
+Archer Bowman5 104 6 9 11 9 12 1 7 2 7 17 19 0
+Archer Bowman6 105 17 8 1 17 14 0 8 4 10 4 7 10
+Archer Bowman7 106 19 18 8 17 4 17 9 14 8 16 0 4
+Archer Bowman8 107 7 18 5 8 16 4 16 2 2 12 2 1
+Archer Bowman9 108 11 8 15 12 13 10 19 6 14 1 9 0
+Archer Bowman10 109 12 9 3 18 2 9 19 2 14 12 17 7
+Archer Bowman11 110 9 7 16 13 18 8 2 13 3 3 12 9
+Archer Bowman12 111 2 8 16 8 14 5 1 8 3 16 13 16
+Archer Bowman13 112 18 11 6 6 7 5 7 6 12 7 2 15
+Archer Bowman14 113 17 15 11 19 1 4 13 11 6 4 4 10
+Lapin 100 5 18 7 8 10 15
+Lapin 101 8 19 0 18 9 16
+Lapin 102 13 11 5 1 5 13
+Lapin 103 2 11 13 2 5 9
+Lapin 104 4 17 8 18 8 5
+Lapin 105 2 15 2 11 9 4
+Lapin 106 9 8 4 17 14 8
+Lapin 107 11 3 0 11 4 13
+Lapin 108 6 7 6 10 16 15
+Lapin 109 8 19 5 4 5 8
+Lapin 110 13 4 15 12 11 13
+Loup 100 15 10 11 13 15 9
+Loup 101 9 9 17 2 8 14
+Loup 102 12 3 15 5 15 10
+Loup 103 14 7 0 18 14 17
+Loup 104 18 6 10 18 18 14
+Loup 105 13 16 5 18 17 13
+Loup 106 16 19 18 17 2 14
+Loup 107 7 13 6 2 14 6
+Loup 108 18 9 17 12 18 6
+Loup 109 4 4 5 19 0 11
+Loup 110 2 13 18 19 9 18
+Loup 111 19 13 9 13 13 6
+Loup 112 16 1 15 10 13 18
+Loup 113 3 17 19 12 19 13
+Loup 114 11 4 1 1 1 4
+Loup 115 18 10 7 7 13 0
+Loup 116 8 1 15 12 4 19
+NuageToxique 9 10 9
+NuageToxique 19 16 14
+NuageToxique 3 1 6
+NuageToxique 1 3 6
+NuageToxique 15 6 6
+NuageToxique 1 9 1
+NuageToxique 14 18 11
+NuageToxique 9 10 1
+NuageToxique 3 5 3
+NuageToxique 9 1 5
+NuageToxique 16 3 19
+NuageToxique 5 15 8
+NuageToxique 6 18 10
+NuageToxique 13 15 15
+NuageToxique 16 2 19
+NuageToxique 7 16 1
+Soin 0 15 3
+Soin 6 1 17
+Soin 9 18 19
+Mana 14 9 5
+Mana 3 12 19
+Mana 18 6 2
+Mana 1 13 11
+Mana 10 0 0
+Mana 3 13 4
+Mana 19 19 3
+Mana 4 3 15
+Nourriture Bonus pP 2 7 8 4
+Nourriture Bonus distMax 1 1 18 18
+Nourriture Bonus distMax 3 1 10 16
+Nourriture Bonus dA 3 8 18 3
+Nourriture Bonus dA 2 9 10 16
+Nourriture Bonus rM 2 5 12 9
+Nourriture Bonus dM 2 0 18 1
+Nourriture Bonus pP 4 8 8 5
+Nourriture Bonus dM 2 3 3 14
+Nourriture Bonus dA 5 9 2 12
+Nourriture Bonus dM 2 7 13 8
+Nourriture Malus pP 5 6 14 18
+Nourriture Malus pM 2 4 15 14
+Nourriture Malus distMax 4 6 17 3
+Nourriture Malus dM 2 8 9 9
+Joueur Archer esau 33 39 31 2 10 36 36 0 7 7 8 12 20

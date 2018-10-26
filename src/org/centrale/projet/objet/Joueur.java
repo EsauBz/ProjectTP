@@ -40,7 +40,9 @@ public class Joueur {
         demandeClasse();
         constructorJoeur();
     }
-    /***********************************/
+    /**
+     * @param nom*
+     * @param classe********************************/
     public Joueur(String nom, String classe) {
         this.nom = nom;
         this.classeJ = classe;
@@ -92,15 +94,23 @@ public class Joueur {
         switch (type){
             case "Guerrier":
                 this.perso = new Guerrier(nomP, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);
+                this.nom = nomP;
+                this.classeJ = "Guerrier";
                 break;
             case "Mage":
                 this.perso = new Mage(nomP, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);
+                this.nom = nomP;
+                this.classeJ = "Mage";
                 break;
             case "Paysan":
                 this.perso = new Paysan(nomP, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, ptP);
+                this.nom = nomP;
+                this.classeJ = "Paysan";
                 break;
             case "Archer":
                 this.perso = new Archer(nomP, pV, ptM, pA, pP, pM, rM, dA, dM, distMax, p, nbF, ptP);
+                this.nom = nomP;
+                this.classeJ = "Archer";
                 break;
             default:
                 System.out.println("La classe: " + type + " n'existe pas");

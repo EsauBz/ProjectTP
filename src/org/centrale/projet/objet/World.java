@@ -47,8 +47,11 @@ public class World {
      */
     private int tailleX;
     private int tailleY;
-    /******************************************************/
-    
+
+    /**
+     * ***************************************************
+     */
+
     /**
      * Constructeur du monde WoE on cree les differents lists pour les
      * personnages, les monstres et les potions, ici s'appelle aussi a les
@@ -68,8 +71,8 @@ public class World {
          */
         this.listPotions = new ArrayList<>();
         /**
-        * list de NuageToxique *
-        */
+         * list de NuageToxique *
+         */
         this.listNuageToxique = new ArrayList<>();
         /**
          * Lists de monstres *
@@ -90,7 +93,10 @@ public class World {
         this.creationPotions();
         this.creationNourriture();
     }
-    /********************************************************/
+
+    /**
+     * *****************************************************
+     */
     /**
      * Constructeur du monde WoE on cree les differents lists pour les
      * personnages, les monstres et les potions, ici s'appelle aussi a les
@@ -110,8 +116,8 @@ public class World {
          */
         this.listPotions = new ArrayList<>();
         /**
-        * list de NuageToxique *
-        */
+         * list de NuageToxique *
+         */
         this.listNuageToxique = new ArrayList<>();
         /**
          * Lists de monstres *
@@ -132,15 +138,15 @@ public class World {
         this.creationPotions();
         this.creationNourriture();
     }
-    
-    public World(int x, int y){
-        
+
+    public World(int x, int y) {
+
         /**
          * Variables taille du monde *
-        */
+         */
         tailleX = x;
         tailleY = y;
-        
+
         /**
          * Lists de personnages *
          */
@@ -158,15 +164,15 @@ public class World {
          */
         this.listPersonnages = new ArrayList<>();
         /**
-        * list de NuageToxique *
-        */
+         * list de NuageToxique *
+         */
         this.listNuageToxique = new ArrayList<>();
-         /**
+        /**
          * Lists de Nourriture *
          */
         this.listNourriture = new ArrayList<>();
-        
-}
+
+    }
 
     /**
      * Ce methode done une position aleatoire a les diferents Joueurs les
@@ -201,8 +207,8 @@ public class World {
         if (listJouers != null) {
             Scanner sc = new Scanner(System.in);
             for (Joueur a : listJouers) {
-                for (int i = 0; i < listNourriture.size(); i++){
-                    if (a.getPerso().getPos().getCoordX() == listNourriture.get(i).getPos().getCoordX() && a.getPerso().getPos().getCoordY() == listNourriture.get(i).getPos().getCoordY()){
+                for (int i = 0; i < listNourriture.size(); i++) {
+                    if (a.getPerso().getPos().getCoordX() == listNourriture.get(i).getPos().getCoordX() && a.getPerso().getPos().getCoordY() == listNourriture.get(i).getPos().getCoordY()) {
                         ElementDeJeu el = listNourriture.get(i);
                         Nourriture r = (Nourriture) el;
                         a.getPerso().getNourriture().add(r);
@@ -236,7 +242,7 @@ public class World {
                                 if (a.getPerso().getPos().distance(mt.getPos()) == 1) {
 
                                     a.getPerso().combattre(mt);
-                                    if(mt instanceof Loup){
+                                    if (mt instanceof Loup) {
                                         ((Loup) mt).combattre(a.getPerso());
                                     }
                                 }
@@ -249,7 +255,7 @@ public class World {
                                 if (a.getPerso().getPos().distance(mt.getPos()) > 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
 
                                     a.getPerso().combattre(mt);
-                                    if(mt instanceof Loup){
+                                    if (mt instanceof Loup) {
                                         ((Loup) mt).combattre(a.getPerso());
                                     }
                                 }
@@ -262,12 +268,13 @@ public class World {
                                 if (a.getPerso().getPos().distance(mt.getPos()) >= 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
 
                                     a.getPerso().combattre(mt);
-                                    if(mt instanceof Loup){
+                                    if (mt instanceof Loup) {
                                         ((Loup) mt).combattre(a.getPerso());
                                     }
                                 }
                             }
                         }
+                        
                         a.getPerso().MettreAJourDuree();
                         break;
                     case 3:
@@ -279,42 +286,42 @@ public class World {
                         System.out.println("1) Sauvegarde Automatique ");
                         System.out.println("2) Sauvegarde Manuel \n");
                         System.out.println("Choisissez l'option de sauvegarde: ");
-                        menuSauvegarde = sc.next(); 
-                        
-                        switch (menuSauvegarde){
+                        menuSauvegarde = sc.next();
+
+                        switch (menuSauvegarde) {
                             case "1":
                                 int x = 1;
                                 String prefixe = "sauvegarde";
                                 String suffixe = ".txt";
                                 nomFichier = prefixe + String.valueOf(x) + suffixe;
-                                F = new File (nomFichier);
-                                while (F.exists()){
+                                F = new File(nomFichier);
+                                while (F.exists()) {
                                     x++;
                                     nomFichier = prefixe + String.valueOf(x) + suffixe;
                                     F = new File(nomFichier);
                                 }
                                 save = new SauvegardePartie(nomFichier);
                                 save.sauvegardePartie(this, nomFichier);
-                                
+
                                 break;
-                                
-                            case "2": 
-                                 System.out.println("Tapez le nom du fichier dans lequel vous voulez sauvegarder le jeu: ");
-                                 nomFichier = sc.next();
-                                 F = new File (nomFichier);
-                                 while (F.exists()){
+
+                            case "2":
+                                System.out.println("Tapez le nom du fichier dans lequel vous voulez sauvegarder le jeu: ");
+                                nomFichier = sc.next();
+                                F = new File(nomFichier);
+                                while (F.exists()) {
                                     System.out.println("Le nom que vous avez choisi existe deja! Veuillez choisir un autre nom: ");
                                     nomFichier = sc.next();
-                                    F = new File (nomFichier);
-                                 }
-                                 save = new SauvegardePartie(nomFichier);
-                                 save.sauvegardePartie(this, nomFichier);
+                                    F = new File(nomFichier);
+                                }
+                                save = new SauvegardePartie(nomFichier);
+                                save.sauvegardePartie(this, nomFichier);
                         }
                         System.out.println("Le match était sauvegardé! \n");
                         break;
-                        
+
                     default:
-                        System.out.println("Un erreur s'est passé! \n");     
+                        System.out.println("Un erreur s'est passé! \n");
                 }
             }
         }
@@ -331,10 +338,10 @@ public class World {
         /**
          * Joueurs *
          */
-         for (int i = 0; i < this.listNuageToxique.size(); i++) {
+        for (int i = 0; i < this.listNuageToxique.size(); i++) {
             this.listNuageToxique.get(i).affiche();
         }
-        
+
         for (int i = 0; i < this.listJouers.size(); i++) {
             this.listJouers.get(i).getPerso().affiche();
         }
@@ -363,17 +370,17 @@ public class World {
             this.listNourriture.get(i).affiche();
         }
     }
-    
+
     /**
      * Methode de creation Aleatoire des Personnages dans le monde, il cree un
      * nombre aleatoire de chaque type de personnage dans une meme liste. Les
      * coordonnes sont aleatoires.
      */
-    private void creationPersonnages(){
+    private void creationPersonnages() {
         Random gA = new Random();
         Point2D p = new Point2D();
         int cont = gA.nextInt(20);
-         /**
+        /**
          * Guerrier *
          */
         Guerrier g;
@@ -385,15 +392,15 @@ public class World {
                         p.setCoordY(gA.nextInt(tailleY));
                     }
                 }
-                this.listPersonnages.add(g = new Guerrier("Warrior"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
+                this.listPersonnages.add(g = new Guerrier("Warrior" + (i + 1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
             } else {
                 p.setCoordX(gA.nextInt(tailleX));
                 p.setCoordY(gA.nextInt(tailleY));
-                this.listPersonnages.add(g = new Guerrier("Warrior"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
+                this.listPersonnages.add(g = new Guerrier("Warrior" + (i + 1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
             }
         }
-        
-         /**
+
+        /**
          * Mage *
          */
         cont = gA.nextInt(20);
@@ -405,10 +412,10 @@ public class World {
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listPersonnages.add(m = new Mage("Wizard"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
+            this.listPersonnages.add(m = new Mage("Wizard" + (i + 1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
         }
-        
-         /**
+
+        /**
          * Paysan *
          */
         cont = gA.nextInt(20);
@@ -420,10 +427,10 @@ public class World {
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listPersonnages.add(pay = new Paysan("Peasant"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
+            this.listPersonnages.add(pay = new Paysan("Peasant" + (i + 1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
         }
-        
-         /**
+
+        /**
          * Archer *
          */
         cont = gA.nextInt(20);
@@ -435,15 +442,16 @@ public class World {
                     p.setCoordY(gA.nextInt(tailleY));
                 }
             }
-            this.listPersonnages.add(a = new Archer("Bowman"+(i+1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
-        
+            this.listPersonnages.add(a = new Archer("Bowman" + (i + 1), 100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX), gA.nextInt(tailleX)));
+
         }
     }
 
     /**
-     * Methode de creation Aleatoire des Monstres et Nuage Toxique dans le monde, il cree un
-     * nombre aleatoire de chaque type de Monstre et Nuage Toxique dans une meme liste. Les
-     * coordonnes et ses attributs sont aleatoires
+     * Methode de creation Aleatoire des Monstres et Nuage Toxique dans le
+     * monde, il cree un nombre aleatoire de chaque type de Monstre et Nuage
+     * Toxique dans une meme liste. Les coordonnes et ses attributs sont
+     * aleatoires
      */
     private void creationMonstres() {
         Random gA = new Random();
@@ -468,7 +476,7 @@ public class World {
                 this.listMonstres.add(l = new Lapin(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
             }
         }
-        
+
         /**
          * Loups *
          */
@@ -483,13 +491,17 @@ public class World {
             }
             this.listMonstres.add(lp = new Loup(100 + i, gA.nextInt(tailleX), gA.nextInt(tailleX), gA.nextInt(tailleX), p, gA.nextInt(tailleX)));
         }
-        
+
         /**
          * Nuages *
          */
         cont = gA.nextInt(20);
         NuageToxique nt;
+        
+        p.setCoordX(gA.nextInt(tailleX));
+        p.setCoordY(gA.nextInt(tailleY));
         for (int i = 0; i < cont; i++) {
+
             for (int j = 0; j < listNuageToxique.size(); j++) {
                 while (p.getCoordX() == listNuageToxique.get(j).getPos().getCoordX() && p.getCoordY() == listNuageToxique.get(j).getPos().getCoordY()) {
                     p.setCoordX(gA.nextInt(tailleX));
@@ -529,7 +541,7 @@ public class World {
             }
 
         }
-        
+
         /**
          * Potions Mana *
          */
@@ -545,11 +557,11 @@ public class World {
             this.listPotions.add(mp = new Mana(p, gA.nextInt(tailleY)));
         }
     }
-    
+
     /**
      * Methode de creation Aleatoire des Nourriture dans le monde, il cree un
-     * nombre aleatoire de differents types de nourriture dans une meme liste. Les
-     * coordonnes sont aleatoires.
+     * nombre aleatoire de differents types de nourriture dans une meme liste.
+     * Les coordonnes sont aleatoires.
      */
     private void creationNourriture() {
         Random gA = new Random();
@@ -563,7 +575,7 @@ public class World {
         caract[4] = "dA";
         caract[5] = "dM";
         caract[6] = "distMax";
-        
+
         /**
          * Bonus *
          */
@@ -576,7 +588,7 @@ public class World {
                         p.setCoordY(gA.nextInt(tailleY));
                     }
                 }
-                
+
                 this.listNourriture.add(nb = new Nourriture("Bonus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
             } else {
                 p.setCoordX(gA.nextInt(tailleX));
@@ -584,7 +596,7 @@ public class World {
                 this.listNourriture.add(nb = new Nourriture("Bonus", caract[gA.nextInt(7)], gA.nextInt(5) + 1, gA.nextInt(10), p));
             }
         }
-        
+
         /**
          * Malus *
          */
@@ -660,7 +672,7 @@ public class World {
     public ArrayList<ElementDeJeu> getListPotions() {
         return listPotions;
     }
-    
+
     /**
      *
      * @return La liste de NuageToxique dans le monde
@@ -668,7 +680,7 @@ public class World {
     public ArrayList<ElementDeJeu> getListNuageToxique() {
         return listNuageToxique;
     }
-    
+
     /**
      *
      * @return La liste de Potions dans le monde
@@ -676,7 +688,7 @@ public class World {
     public ArrayList<ElementDeJeu> getListMonstres() {
         return listMonstres;
     }
-    
+
     /**
      *
      * @return La liste de Personnages non controlés par humains dans le monde
@@ -684,7 +696,7 @@ public class World {
     public ArrayList<ElementDeJeu> getListPersonnages() {
         return listPersonnages;
     }
-    
+
     /**
      *
      * @return La liste de Nourriture presentes dans le monde
@@ -692,9 +704,10 @@ public class World {
     public ArrayList<ElementDeJeu> getListNourriture() {
         return listNourriture;
     }
-    
+
     /**
      * Methode de creation d'un Joueur qui est ajouté a la liste.
+     *
      * @param nm
      * @param cls
      */
@@ -702,20 +715,22 @@ public class World {
         Joueur p1 = new Joueur(nm, cls);
         listJouers.add(p1);
     }
-    
+
     /**
      * getter de la tailleX du monde
+     *
      * @return tailleX
      */
-    public int getTailleX(){
+    public int getTailleX() {
         return this.tailleX;
     }
-    
+
     /**
      * getter de la tailleY du monde
+     *
      * @return tailleY
      */
-    public int getTailleY(){
+    public int getTailleY() {
         return this.tailleY;
     }
 
@@ -727,6 +742,7 @@ public class World {
      * @param p On verifie si ce personnage est dans la potition d'un potion.
      */
     public void verifierPotions(Personnage p) {
+        
         Iterator<ElementDeJeu> it = this.listPotions.iterator();
         while (it.hasNext()) {
             ElementDeJeu i = it.next();
@@ -736,7 +752,7 @@ public class World {
                 it.remove();
             }
 
-            if (it instanceof Mana && i.getPos().memePos(p.getPos())) {
+            if (i instanceof Mana && i.getPos().memePos(p.getPos())) {
                 Mana m = (Mana) i;
                 p.setPtMana(p.getPtMana() + m.getPointPotion());
                 it.remove();
@@ -745,19 +761,18 @@ public class World {
 
     }
 
-    
     public void verifierNorriture(Personnage p) {
         Iterator<ElementDeJeu> it = this.listNourriture.iterator();
         while (it.hasNext()) {
-            Nourriture i = (Nourriture)it.next();
+            Nourriture i = (Nourriture) it.next();
             if (i.getPos().memePos(p.getPos())) {
                 p.getNourriture().add(i);
                 p.MettreAJourCaract(i);
-                
+
                 it.remove();
             }
 
         }
     }
-    
+
 }

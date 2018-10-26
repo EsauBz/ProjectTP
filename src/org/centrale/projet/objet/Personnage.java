@@ -249,6 +249,8 @@ public class Personnage extends Creature {
             case 8:
                 this.getPos().translate(1, 1);
                 break;
+            default:
+                break;
         }
     }
 
@@ -318,38 +320,66 @@ public class Personnage extends Creature {
             }
         }
         //Si c'est un malus on fait une soustraction
-        if ("Malus".equals(r.getType())) {
+       if ("Malus".equals(r.getType())) {
             String carac = r.getCaract();
             switch (carac) {
                 case "pA":
                     this.setPourcentageAtt(this.getPourcentageAtt() - r.getValeur());
+                    if (this.getPourcentageAtt() < 0){
+                        r.setValeur(r.getValeur() + this.getPourcentageAtt());
+                        this.setPourcentageAtt(0);
+                    }
                     break;
 
                 case "pP":
                     this.setPourcentagePar(this.getPourcentagePar() - r.getValeur());
+                    if (this.getPourcentagePar() < 0){
+                        r.setValeur(r.getValeur() + this.getPourcentagePar());
+                        this.setPourcentagePar(0);
+                    }
                     break;
 
                 case "pM":
                     this.setPourcentageMag(this.getPourcentageMag() - r.getValeur());
+                    if (this.getPourcentageMag() < 0){
+                        r.setValeur(r.getValeur() + this.getPourcentageMag());
+                        this.setPourcentageMag(0);
+                    }
                     break;
 
                 case "rM":
                     this.setPourcentageResistMag(this.getPourcentageResistMag() - r.getValeur());
+                    if (this.getPourcentageResistMag() < 0){
+                        r.setValeur(r.getValeur() + this.getPourcentageResistMag());
+                        this.setPourcentageResistMag(0);
+                    }
                     break;
 
                 case "dA":
                     this.setDegAtt(this.getDegAtt() - r.getValeur());
+                    if (this.getDegAtt() < 0){
+                        r.setValeur(r.getValeur() + this.getDegAtt());
+                        this.setDegAtt(0);
+                    }
                     break;
 
                 case "dM":
                     this.setDegMag(this.getDegMag() - r.getValeur());
+                    if (this.getDegMag() < 0){
+                        r.setValeur(r.getValeur() + this.getDegMag());
+                        this.setDegMag(0);
+                    }
                     break;
 
                 case "distMax":
                     this.setDistAttMax(this.getDistAttMax() - r.getValeur());
+                    if (this.getDistAttMax() < 0){
+                        r.setValeur(r.getValeur() + this.getDistAttMax());
+                        this.setDistAttMax(0);
+                    }
                     break;
             }
-        }
+        } 
     }
 
     public String makeStringInfo() {

@@ -24,7 +24,7 @@ public class GUIECN extends javax.swing.JFrame {
     SauvegardePartie save;
     File F;
     private JButton[][] chessBoardSquares;
-    private static final String COLS = "ABCDEFGH";
+    private String combat = "";
 
     /**
      * Creates new form GUIECN
@@ -57,6 +57,8 @@ public class GUIECN extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("World of ECN");
@@ -181,6 +183,10 @@ public class GUIECN extends javax.swing.JFrame {
             }
         });
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -199,24 +205,29 @@ public class GUIECN extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(jButton7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jButton9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jButton10)))
+                        .addContainerGap(45, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton5)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton6)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton8))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jButton7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jButton10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane2)
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +240,6 @@ public class GUIECN extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5)
@@ -237,15 +247,16 @@ public class GUIECN extends javax.swing.JFrame {
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton8)
-                            .addComponent(jButton9))
+                            .addComponent(jButton9)
+                            .addComponent(jButton8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10)
-                        .addGap(0, 72, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addComponent(jSeparator2)
@@ -345,51 +356,123 @@ public class GUIECN extends javax.swing.JFrame {
     private void jButton4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseReleased
 
         for (Joueur a : monde.getListJouer()) {
-            System.out.println("************************");
-            System.out.println("---- MODE COMBAT ----");
+
+            combat = combat + "---- MODE COMBAT ---- \n";
+
             if (a.getPerso() instanceof Guerrier) {
                 Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
                 while (it.hasNext()) {
                     Monstre mt = (Monstre) it.next();
                     if (a.getPerso().getPos().distance(mt.getPos()) == 1) {
 
+                        combat = combat + " Combat Guerrier contre " + mt.getClass() + "\n";
+                        combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
+
                         a.getPerso().combattre(mt);
+
                         if (mt instanceof Loup) {
                             ((Loup) mt).combattre(a.getPerso());
                         }
+                        combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
                     }
                 }
+                Iterator<ElementDeJeu> ps = monde.getListPersonnages().iterator();
+                while (ps.hasNext()) {
+                    Personnage pt = (Personnage) ps.next();
+                    if (a.getPerso().getPos().distance(pt.getPos()) == 1) {
+
+                        combat = combat + " Combat Guerrier contre " + pt.getClass() + "\n";
+                        combat = combat + "Pt Vie Creature: " + pt.getPtVie() + "\n";
+
+                        a.getPerso().combattre(pt);
+                        if (!(pt instanceof Paysan)) {
+                            pt.combattre(a.getPerso());
+                        }
+                        combat = combat + "Pt Vie Creature: " + pt.getPtVie() + "\n";
+                    }
+                }
+
             }
             if (a.getPerso() instanceof Archer) {
                 Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
                 while (it.hasNext()) {
                     Monstre mt = (Monstre) it.next();
                     if (a.getPerso().getPos().distance(mt.getPos()) > 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
-
-                        a.getPerso().combattre(mt);
+                        Archer rr = (Archer) a.getPerso();
+                        if (rr.getNbFleches() > 0) {
+                            
+                            combat = combat + " Combat Archer contre " + mt.getClass() + "\n";
+                            combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
+                            a.getPerso().combattre(mt);
+                        }
                         if (mt instanceof Loup) {
                             ((Loup) mt).combattre(a.getPerso());
                         }
+                        combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
                     }
                 }
+                Iterator<ElementDeJeu> ps = monde.getListPersonnages().iterator();
+                while (ps.hasNext()) {
+                    Personnage pt = (Personnage) ps.next();
+                    if (a.getPerso().getPos().distance(pt.getPos()) >= 1 && a.getPerso().getPos().distance(pt.getPos()) < a.getPerso().getDistAttMax()) {
+
+                        Archer rr = (Archer) a.getPerso();
+                        if (rr.getNbFleches() > 0) {
+                            combat = combat + " Combat Archer contre " + pt.getClass() + "\n";
+                            combat = combat + "Pt Vie Creature: " + pt.getPtVie() + "\n";
+                            
+                            a.getPerso().combattre(pt);
+                        }
+                        if (!(pt instanceof Paysan)) {
+                            pt.combattre(a.getPerso());
+                        }
+                        combat = combat + "Pt Vie Creature: " + pt.getPtVie() + "\n";
+                    }
+                }
+
             }
             if (a.getPerso() instanceof Mage) {
                 Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
                 while (it.hasNext()) {
                     Monstre mt = (Monstre) it.next();
                     if (a.getPerso().getPos().distance(mt.getPos()) >= 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
-
-                        a.getPerso().combattre(mt);
+                        if (a.getPerso().getPtMana() > 0) {
+                            
+                            combat = combat + " Combat Mage contre " + mt.getClass() + "\n";
+                            combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
+                            a.getPerso().combattre(mt);
+                        }
                         if (mt instanceof Loup) {
                             ((Loup) mt).combattre(a.getPerso());
                         }
+                         combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
+                    }
+                }
+                Iterator<ElementDeJeu> ps = monde.getListPersonnages().iterator();
+                while (ps.hasNext()) {
+                    Personnage pt = (Personnage) ps.next();
+                    if (a.getPerso().getPos().distance(pt.getPos()) >= 1 && a.getPerso().getPos().distance(pt.getPos()) < a.getPerso().getDistAttMax()) {
+                        if (a.getPerso().getPtMana() > 0) {
+                           
+                            combat = combat + " Combat Mage contre " + pt.getClass() + "\n";
+                            combat = combat + "Pt Vie Creature: " + pt.getPtVie() + "\n";
+                            a.getPerso().combattre(pt);
+                        }
+                        if (!(pt instanceof Paysan)) {
+                            pt.combattre(a.getPerso());
+                        }
+                        combat = combat + "Pt Vie Creature: " + pt.getPtVie() + "\n";
                     }
                 }
             }
+
             a.getPerso().MettreAJourDuree();
             this.RefreshMonstres();
         }
+
         this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+        this.jTextArea2.setText(combat);
+        rePaint(0);
     }//GEN-LAST:event_jButton4MouseReleased
 
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
@@ -405,7 +488,7 @@ public class GUIECN extends javax.swing.JFrame {
      * @param evt
      */
     private void jButton7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseReleased
-        if (this.monde != null) {
+        if (this.monde != null && monde.getListJouer().get(0).getPerso().getPos().getCoordX() - 1 > 0) {
             rePaint(3);
             monde.verifierPotions(monde.getListJouer().get(0).getPerso());
             monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
@@ -421,7 +504,7 @@ public class GUIECN extends javax.swing.JFrame {
      * @param evt
      */
     private void jButton10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseReleased
-        if (this.monde != null) {
+        if (this.monde != null && monde.getListJouer().get(0).getPerso().getPos().getCoordX() + 1 < 21) {
             rePaint(4);
             monde.verifierPotions(monde.getListJouer().get(0).getPerso());
             monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
@@ -437,7 +520,7 @@ public class GUIECN extends javax.swing.JFrame {
      * @param evt
      */
     private void jButton9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseReleased
-        if (this.monde != null) {
+        if (this.monde != null && monde.getListJouer().get(0).getPerso().getPos().getCoordY() - 1 > 0) {
             rePaint(2);
             monde.verifierPotions(monde.getListJouer().get(0).getPerso());
             monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
@@ -453,7 +536,7 @@ public class GUIECN extends javax.swing.JFrame {
      * @param evt
      */
     private void jButton8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseReleased
-        if (this.monde != null) {
+        if (this.monde != null && monde.getListJouer().get(0).getPerso().getPos().getCoordY() + 1 < 21) {
             rePaint(1);
 
             monde.verifierPotions(monde.getListJouer().get(0).getPerso());
@@ -477,9 +560,11 @@ public class GUIECN extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 
     private void RefreshMonstres() {
@@ -493,10 +578,10 @@ public class GUIECN extends javax.swing.JFrame {
     }
 
     private void makeGrid() {
-        
+
         this.chessBoardSquares = new JButton[monde.getTailleX()][monde.getTailleY()];
         this.jPanel1.removeAll();
-        
+
         this.jPanel1.setLayout(new GridLayout(monde.getTailleY(), monde.getTailleX()));
         this.jPanel1.setBorder(new LineBorder(Color.BLACK));
 
@@ -580,6 +665,18 @@ public class GUIECN extends javax.swing.JFrame {
                     }
                 }
 
+                for (ElementDeJeu a : monde.getListNourriture()) {
+                    if (a.getPos().memePos(ii + 1, jj + 1)) {
+                        Nourriture nt = (Nourriture) a;
+                        if (nt.getType().equals("Bonus")) {
+                            b.setText("BN");
+                        } else {
+                            b.setText("ML");
+                        }
+
+                    }
+                }
+
                 chessBoardSquares[jj][ii] = b;
             }
         }
@@ -589,8 +686,19 @@ public class GUIECN extends javax.swing.JFrame {
 
         monde.getListJouer().get(0).getPerso().deplacer(dir);
         this.makeGrid();
+        verifieJoueur();
 
         this.validate();
         this.jPanel1.validate();
+    }
+
+    public void verifieJoueur() {
+        if (monde.getListJouer().get(0).getPerso().getPtVie() < 0) {
+            YouDie wn = new YouDie(this, true);
+            wn.setVisible(true);
+
+            this.setVisible(false);
+            this.dispose();
+        }
     }
 }

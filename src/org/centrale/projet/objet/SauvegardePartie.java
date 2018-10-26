@@ -161,11 +161,11 @@ public class SauvegardePartie {
             case 2:
                 if (el instanceof Lapin){
                     Lapin l = (Lapin) el;
-                    ligne = "Lapin " + String.valueOf(l.getPtVie()) + " " + String.valueOf(l.getPourcentageAtt())+ " " + String.valueOf(l.getPourcentagePar())+ " " + String.valueOf(l.getPtVie())+ " " + String.valueOf(l.getDegAtt())+ " " + String.valueOf(l.getPtPar())+ " " + String.valueOf(l.getPos().getCoordX())+ " " + String.valueOf(l.getPos().getCoordY());
+                    ligne = "Lapin " + String.valueOf(l.getPtVie()) + " " + String.valueOf(l.getPourcentageAtt())+ " " + String.valueOf(l.getPourcentagePar())+ " " + String.valueOf(l.getDegAtt())+ " " + String.valueOf(l.getPtPar())+ " " + String.valueOf(l.getPos().getCoordX())+ " " + String.valueOf(l.getPos().getCoordY());
                 }
                 else if (el instanceof Loup){
                     Loup l = (Loup) el;
-                    ligne = "Loup " + String.valueOf(l.getPtVie()) + " " + String.valueOf(l.getPourcentageAtt())+ " " + String.valueOf(l.getPourcentagePar())+ " " + String.valueOf(l.getPtVie())+ " " + String.valueOf(l.getDegAtt())+ " " + String.valueOf(l.getPtPar())+ " " + String.valueOf(l.getPos().getCoordX())+ " " + String.valueOf(l.getPos().getCoordY());
+                    ligne = "Loup " + String.valueOf(l.getPtVie()) + " " + String.valueOf(l.getPourcentageAtt())+ " " + String.valueOf(l.getPourcentagePar())+ " " + String.valueOf(l.getDegAtt())+ " " + String.valueOf(l.getPtPar())+ " " + String.valueOf(l.getPos().getCoordX())+ " " + String.valueOf(l.getPos().getCoordY());
                 }
                 break;
                 
