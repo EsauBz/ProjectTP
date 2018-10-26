@@ -366,8 +366,6 @@ public class Personnage extends Creature {
         info = info + "Damage Magie: " + this.degMag + "\n";
 
         info = info + "Distance d'ataque: " + this.getDistAttMax() + "\n";
-        
-        info = info + "PositionX: " + this.getPos().getCoordX() + " PositionY: " + this.getPos().getCoordY() +"\n";
 
         return info;
     }

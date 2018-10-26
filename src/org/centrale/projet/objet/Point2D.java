@@ -110,4 +110,18 @@ public class Point2D {
         }
         return dif;
     }
+    
+    /**
+     * 
+     * @param x
+     * @param y
+     * @return 
+     */
+    public boolean memePos(int x, int y) {
+        boolean dif = false;
+        if (x == this.coordX && y == this.coordY) {
+            dif = true;
+        }
+        return dif;
+    }
 }

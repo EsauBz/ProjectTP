@@ -211,7 +211,7 @@ public class GUIECN extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton8))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
+                        .addGap(81, 81, 81)
                         .addComponent(jButton7))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
@@ -282,7 +282,6 @@ public class GUIECN extends javax.swing.JFrame {
 
         this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
 
-        this.chessBoardSquares = new JButton[monde.getTailleX()][monde.getTailleY()];
         this.makeGrid();
 
 
@@ -299,8 +298,6 @@ public class GUIECN extends javax.swing.JFrame {
 
         this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
 
-        this.jPanel1.setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), new LineBorder(Color.BLACK)));
-        this.chessBoardSquares = new JButton[monde.getTailleX()][monde.getTailleY()];
         this.makeGrid();
 
     }//GEN-LAST:event_jButton2MouseReleased
@@ -409,13 +406,13 @@ public class GUIECN extends javax.swing.JFrame {
      */
     private void jButton7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseReleased
         if (this.monde != null) {
-            monde.getListJouer().get(0).getPerso().deplacer(1);
-            
+            rePaint(3);
             monde.verifierPotions(monde.getListJouer().get(0).getPerso());
             monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
             monde.getListJouer().get(0).getPerso().MettreAJourDuree();
-            
+
             this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+
         }
     }//GEN-LAST:event_jButton7MouseReleased
     /**
@@ -425,37 +422,46 @@ public class GUIECN extends javax.swing.JFrame {
      */
     private void jButton10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseReleased
         if (this.monde != null) {
-            monde.getListJouer().get(0).getPerso().deplacer(2);
-            
+            rePaint(4);
             monde.verifierPotions(monde.getListJouer().get(0).getPerso());
             monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
             monde.getListJouer().get(0).getPerso().MettreAJourDuree();
-            
+
             this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+
         }
     }//GEN-LAST:event_jButton10MouseReleased
-
+    /**
+     * Event pour déplacer le joueur d'une case a gauche
+     *
+     * @param evt
+     */
     private void jButton9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseReleased
         if (this.monde != null) {
-            monde.getListJouer().get(0).getPerso().deplacer(3);
-            
+            rePaint(2);
             monde.verifierPotions(monde.getListJouer().get(0).getPerso());
             monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
             monde.getListJouer().get(0).getPerso().MettreAJourDuree();
-            
+
             this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+
         }
     }//GEN-LAST:event_jButton9MouseReleased
-
+    /**
+     * Event pour déplacer le joueur d'une case a droit
+     *
+     * @param evt
+     */
     private void jButton8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseReleased
         if (this.monde != null) {
-            monde.getListJouer().get(0).getPerso().deplacer(4);
-            
+            rePaint(1);
+
             monde.verifierPotions(monde.getListJouer().get(0).getPerso());
             monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
             monde.getListJouer().get(0).getPerso().MettreAJourDuree();
-            
+
             this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+
         }
     }//GEN-LAST:event_jButton8MouseReleased
 
@@ -487,19 +493,15 @@ public class GUIECN extends javax.swing.JFrame {
     }
 
     private void makeGrid() {
-
+        
+        this.chessBoardSquares = new JButton[monde.getTailleX()][monde.getTailleY()];
+        this.jPanel1.removeAll();
+        
         this.jPanel1.setLayout(new GridLayout(monde.getTailleY(), monde.getTailleX()));
         this.jPanel1.setBorder(new LineBorder(Color.BLACK));
 
-        for (int ii = 0; ii < chessBoardSquares.length; ii++) {
-            for (int jj = 0; jj < chessBoardSquares[ii].length; jj++) {
-                JButton b = new JButton();
-                b.setBackground(Color.WHITE);
-                b.setSize(1, 1);
-               
-                chessBoardSquares[jj][ii] = b;
-            }
-        }
+        paintMonde();
+
         // fill the black non-pawn piece row
         for (int ii = 0; ii < chessBoardSquares.length; ii++) {
             for (int jj = 0; jj < chessBoardSquares[ii].length; jj++) {
@@ -507,8 +509,88 @@ public class GUIECN extends javax.swing.JFrame {
                 this.jPanel1.add(chessBoardSquares[jj][ii]);
             }
         }
-        this.pack();
-        // ensures the minimum size is enforced.
-        this.setMinimumSize(this.getSize());
+        this.validate();
     }//fin
+
+    public void paintMonde() {
+
+        JButton b;
+
+        for (int ii = 0; ii < chessBoardSquares.length; ii++) {
+            for (int jj = 0; jj < chessBoardSquares[ii].length; jj++) {
+
+                b = new JButton();
+                b.setBackground(Color.WHITE);
+
+                for (ElementDeJeu a : monde.getListMonstres()) {
+                    if (a.getPos().memePos(ii + 1, jj + 1)) {
+                        if (a instanceof Lapin) {
+                            b.setText("La");
+                        } else {
+
+                            if (a instanceof Loup) {
+                                b.setText("Lp");
+                            }
+                        }
+                    }
+                }
+                for (Joueur a : monde.getListJouer()) {
+                    if (a.getPerso().getPos().memePos(ii + 1, jj + 1)) {
+                        b.setBackground(Color.BLUE);
+                        b.setText("J");
+                    }
+                }
+
+                for (ElementDeJeu a : monde.getListPersonnages()) {
+                    if (a.getPos().memePos(ii + 1, jj + 1)) {
+                        if (a instanceof Guerrier) {
+                            b.setText("G");
+                        } else {
+
+                            if (a instanceof Archer) {
+                                b.setText("A");
+                            } else {
+                                if (a instanceof Mage) {
+                                    b.setText("Mg");
+                                } else {
+                                    b.setText("P");
+                                }
+                            }
+                        }
+                    }
+                }
+
+                for (ElementDeJeu a : monde.getListPotions()) {
+                    if (a.getPos().memePos(ii + 1, jj + 1)) {
+                        if (a instanceof Soin) {
+                            b.setText("Sn");
+                        } else {
+
+                            if (a instanceof Mana) {
+                                b.setText("Mn");
+                            }
+                        }
+                    }
+                }
+                for (ElementDeJeu a : monde.getListNuageToxique()) {
+                    if (a.getPos().memePos(ii + 1, jj + 1)) {
+
+                        b.setText("Ng");
+
+                    }
+                }
+
+                chessBoardSquares[jj][ii] = b;
+            }
+        }
+    }
+
+    public void rePaint(int dir) {
+
+        monde.getListJouer().get(0).getPerso().deplacer(dir);
+        this.makeGrid();
+
+        this.validate();
+        this.jPanel1.validate();
+    }
 }

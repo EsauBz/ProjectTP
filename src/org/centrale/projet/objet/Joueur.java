@@ -144,7 +144,7 @@ public class Joueur {
      */
     private void constructorJoeur() {
         Random gA = new Random();
-        Point2D p = new Point2D(gA.nextInt(50), gA.nextInt(50));
+        Point2D p = new Point2D(gA.nextInt(20), gA.nextInt(20));
         switch (classeJ) {
             case "Guerrier":
                 this.perso = new Guerrier(nom, gA.nextInt(100), gA.nextInt(30), gA.nextInt(100)/*attack*/, gA.nextInt(80)/*Par*/, gA.nextInt(30)/*magie*/, gA.nextInt(50), gA.nextInt(70), gA.nextInt(30), gA.nextInt(5)+1, p, gA.nextInt(80));

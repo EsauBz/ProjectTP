@@ -82,8 +82,8 @@ public class World {
         /**
          * Variables taille du monde *
          */
-        tailleX = 30;
-        tailleY = 30;
+        tailleX = 20;
+        tailleY = 20;
         this.creationJoueur(nom, cls);
         this.creationPersonnages();
         this.creationMonstres();
