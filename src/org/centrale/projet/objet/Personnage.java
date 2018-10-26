@@ -222,42 +222,32 @@ public class Personnage extends Creature {
      * direction.
      *
      */
-    @Override
-    public void deplacer() {
-        int dir = 0;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Dans quelle direction voulez-vous vous déplacer(numero)?");
-        System.out.println("1)haut 2)bas 3)gauche 4)droite Coins: 5)sup. droit 6)sup. gauche 7)inf. droite 8)inf. gauche");
-        try {
-            dir = Integer.parseInt(sc.next());
-        } catch (NumberFormatException e) {
-            System.out.println("Vous avez choisi un direction invalide");
-            throw e;
-        }
+    //@Override
+    public void deplacer(int dir) {
         switch (dir) {
             case 1:
-                this.getPos().translate(0, 2);
+                this.getPos().translate(0, 1);
                 break;
             case 2:
-                this.getPos().translate(0, -2);
+                this.getPos().translate(0, -1);
                 break;
             case 3:
-                this.getPos().translate(-2, 0);
+                this.getPos().translate(-1, 0);
                 break;
             case 4:
-                this.getPos().translate(2, 0);
+                this.getPos().translate(1, 0);
                 break;
             case 5:
-                this.getPos().translate(-2, 2);
+                this.getPos().translate(-1, 1);
                 break;
             case 6:
-                this.getPos().translate(2, -2);
+                this.getPos().translate(1, -1);
                 break;
             case 7:
-                this.getPos().translate(-2, -2);
+                this.getPos().translate(-1, -1);
                 break;
             case 8:
-                this.getPos().translate(2, 2);
+                this.getPos().translate(1, 1);
                 break;
         }
     }
@@ -376,6 +366,8 @@ public class Personnage extends Creature {
         info = info + "Damage Magie: " + this.degMag + "\n";
 
         info = info + "Distance d'ataque: " + this.getDistAttMax() + "\n";
+        
+        info = info + "PositionX: " + this.getPos().getCoordX() + " PositionY: " + this.getPos().getCoordY() +"\n";
 
         return info;
     }

@@ -7,6 +7,7 @@
 package org.centrale.projet.objet;
 
 import java.awt.*;
+import javax.swing.border.*;
 import java.io.File;
 import java.util.Iterator;
 import javax.swing.*;
@@ -21,7 +22,6 @@ public class GUIECN extends javax.swing.JFrame {
     String nomFichier;
     SauvegardePartie save;
     File F;
-
     /**
      * Creates new form GUIECN
      */
@@ -49,10 +49,22 @@ public class GUIECN extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("World of ECN");
-        setPreferredSize(new java.awt.Dimension(700, 600));
+        setPreferredSize(new java.awt.Dimension(720, 600));
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                formKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                formKeyTyped(evt);
+            }
+        });
 
         jButton1.setText("Nouveau jeu");
         jButton1.setAutoscrolls(true);
@@ -87,11 +99,11 @@ public class GUIECN extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 548, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 560, Short.MAX_VALUE)
         );
 
         jSeparator1.setAutoscrolls(true);
@@ -144,6 +156,34 @@ public class GUIECN extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jButton7.setText("UP");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton7MouseReleased(evt);
+            }
+        });
+
+        jButton8.setText("RG");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton8MouseReleased(evt);
+            }
+        });
+
+        jButton9.setText("LF");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton9MouseReleased(evt);
+            }
+        });
+
+        jButton10.setText("DW");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jButton10MouseReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -160,15 +200,28 @@ public class GUIECN extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton5)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton6)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jButton9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton8))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jButton7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jButton10)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,6 +233,7 @@ public class GUIECN extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -189,9 +243,16 @@ public class GUIECN extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton8)
+                            .addComponent(jButton9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton10)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jSeparator2)
         );
 
@@ -227,14 +288,26 @@ public class GUIECN extends javax.swing.JFrame {
         String cl = wn.getjTextField2().getText();
         /* Creation du Monde WoE */
         monde = new World(nm, cl);
-
+        
+        this.jPanel1.setLayout(new GridLayout(monde.getTailleY(), monde.getTailleX()));
+        //this.jPanel1.setBorder( new CompoundBorder( new EmptyBorder(5,5,5,5) , new LineBorder(Color.BLACK) ));
+        
         this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
 
+        
+        Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
+        while (it.hasNext()) {
+            Monstre a = (Monstre) it.next();
+            this.jPanel1.add(new JButton("M"));
+            this.jPanel1.add(new JButton("M"));
+            this.jPanel1.add(new JButton("M"));
+            this.jPanel1.add(new JButton("M"));
+            this.jPanel1.validate();
+        }
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseReleased
-
-        String nomFichier;
 
         chargeMonde wn = new chargeMonde(this, true);
         wn.setVisible(true);
@@ -242,7 +315,20 @@ public class GUIECN extends javax.swing.JFrame {
         nomFichier = wn.getjTextField1().getText();
         ChargementPartie load = new ChargementPartie(nomFichier);
         monde = load.chargerPartie();
-        int i = 0;
+        
+        this.jPanel1.setLayout(new GridLayout(monde.getTailleY(), monde.getTailleX()));
+        this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+        
+        this.jPanel1.setBorder( new CompoundBorder( new EmptyBorder(5,5,5,5) , new LineBorder(Color.BLACK) ));
+        
+        Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
+        while (it.hasNext()) {
+            Monstre a = (Monstre) it.next();
+            this.jPanel1.add(new JLabel("M"), SwingConstants.CENTER);
+            this.jPanel1.add(new JLabel("M"), SwingConstants.CENTER);
+            this.jPanel1.add(new JLabel("M"), SwingConstants.CENTER);
+        }
+        
     }//GEN-LAST:event_jButton2MouseReleased
     /**
      * AUTOMATIQUE *
@@ -335,14 +421,61 @@ public class GUIECN extends javax.swing.JFrame {
         this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
     }//GEN-LAST:event_jButton4MouseReleased
 
+    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
+
+    }//GEN-LAST:event_formKeyReleased
+
+    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
+
+    }//GEN-LAST:event_formKeyTyped
+    /**
+     * Event pour déplacer le joueur d'une case vers le haut
+     *
+     * @param evt
+     */
+    private void jButton7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseReleased
+        if (this.monde != null) {
+            monde.getListJouer().get(0).getPerso().deplacer(1);
+            this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+        }
+    }//GEN-LAST:event_jButton7MouseReleased
+    /**
+     * Event pour déplacer le joueur d'une case vers le bas
+     *
+     * @param evt
+     */
+    private void jButton10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseReleased
+        if (this.monde != null) {
+            monde.getListJouer().get(0).getPerso().deplacer(2);
+            this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+        }
+    }//GEN-LAST:event_jButton10MouseReleased
+
+    private void jButton9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseReleased
+        if (this.monde != null) {
+            monde.getListJouer().get(0).getPerso().deplacer(3);
+            this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+        }
+    }//GEN-LAST:event_jButton9MouseReleased
+
+    private void jButton8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseReleased
+        if (this.monde != null) {
+            monde.getListJouer().get(0).getPerso().deplacer(4);
+            this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
+        }
+    }//GEN-LAST:event_jButton8MouseReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
