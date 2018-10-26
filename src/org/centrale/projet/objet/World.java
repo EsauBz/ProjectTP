@@ -82,8 +82,8 @@ public class World {
         /**
          * Variables taille du monde *
          */
-        tailleX = 50;
-        tailleY = 50;
+        tailleX = 30;
+        tailleY = 30;
         this.creationJoueur(nom, cls);
         this.creationPersonnages();
         this.creationMonstres();
@@ -331,8 +331,9 @@ public class World {
         /**
          * Joueurs *
          */
-        //System.out.println(this.tailleX + "\n");
-        //System.out.println(this.tailleY + "\n");
+         for (int i = 0; i < this.listNuageToxique.size(); i++) {
+            this.listNuageToxique.get(i).affiche();
+        }
         
         for (int i = 0; i < this.listJouers.size(); i++) {
             this.listJouers.get(i).getPerso().affiche();
@@ -744,4 +745,19 @@ public class World {
 
     }
 
+    
+    public void verifierNorriture(Personnage p) {
+        Iterator<ElementDeJeu> it = this.listNourriture.iterator();
+        while (it.hasNext()) {
+            Nourriture i = (Nourriture)it.next();
+            if (i.getPos().memePos(p.getPos())) {
+                p.getNourriture().add(i);
+                p.MettreAJourCaract(i);
+                
+                it.remove();
+            }
+
+        }
+    }
+    
 }

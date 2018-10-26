@@ -7,6 +7,7 @@
 package org.centrale.projet.objet;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import javax.swing.border.*;
 import java.io.File;
 import java.util.Iterator;
@@ -22,11 +23,15 @@ public class GUIECN extends javax.swing.JFrame {
     String nomFichier;
     SauvegardePartie save;
     File F;
+    private JButton[][] chessBoardSquares;
+    private static final String COLS = "ABCDEFGH";
+
     /**
      * Creates new form GUIECN
      */
     public GUIECN() {
         initComponents();
+
     }
 
     /**
@@ -42,7 +47,6 @@ public class GUIECN extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -94,6 +98,7 @@ public class GUIECN extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setAutoscrolls(true);
+        jPanel1.setMaximumSize(new java.awt.Dimension(700, 700));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,19 +108,11 @@ public class GUIECN extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jSeparator1.setAutoscrolls(true);
         jSeparator1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, java.awt.Color.lightGray));
-
-        jButton3.setText("Deplacer");
-        jButton3.setAutoscrolls(true);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         jButton4.setText("Combattre");
         jButton4.setAutoscrolls(true);
@@ -145,7 +142,7 @@ public class GUIECN extends javax.swing.JFrame {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jButton6.setText("Sauvegarder Manuel");
+        jButton6.setText("Sauvegarder Manuelle");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jButton6MouseReleased(evt);
@@ -205,9 +202,7 @@ public class GUIECN extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton5)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton6)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
@@ -233,10 +228,8 @@ public class GUIECN extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(42, 42, 42)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5)
@@ -251,8 +244,10 @@ public class GUIECN extends javax.swing.JFrame {
                             .addComponent(jButton8)
                             .addComponent(jButton9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton10)
+                        .addGap(0, 72, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addComponent(jSeparator2)
         );
 
@@ -266,10 +261,6 @@ public class GUIECN extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -288,23 +279,13 @@ public class GUIECN extends javax.swing.JFrame {
         String cl = wn.getjTextField2().getText();
         /* Creation du Monde WoE */
         monde = new World(nm, cl);
-        
-        this.jPanel1.setLayout(new GridLayout(monde.getTailleY(), monde.getTailleX()));
-        //this.jPanel1.setBorder( new CompoundBorder( new EmptyBorder(5,5,5,5) , new LineBorder(Color.BLACK) ));
-        
+
         this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
 
-        
-        Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
-        while (it.hasNext()) {
-            Monstre a = (Monstre) it.next();
-            this.jPanel1.add(new JButton("M"));
-            this.jPanel1.add(new JButton("M"));
-            this.jPanel1.add(new JButton("M"));
-            this.jPanel1.add(new JButton("M"));
-            this.jPanel1.validate();
-        }
-        
+        this.chessBoardSquares = new JButton[monde.getTailleX()][monde.getTailleY()];
+        this.makeGrid();
+
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseReleased
@@ -315,20 +296,13 @@ public class GUIECN extends javax.swing.JFrame {
         nomFichier = wn.getjTextField1().getText();
         ChargementPartie load = new ChargementPartie(nomFichier);
         monde = load.chargerPartie();
-        
-        this.jPanel1.setLayout(new GridLayout(monde.getTailleY(), monde.getTailleX()));
+
         this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
-        
-        this.jPanel1.setBorder( new CompoundBorder( new EmptyBorder(5,5,5,5) , new LineBorder(Color.BLACK) ));
-        
-        Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
-        while (it.hasNext()) {
-            Monstre a = (Monstre) it.next();
-            this.jPanel1.add(new JLabel("M"), SwingConstants.CENTER);
-            this.jPanel1.add(new JLabel("M"), SwingConstants.CENTER);
-            this.jPanel1.add(new JLabel("M"), SwingConstants.CENTER);
-        }
-        
+
+        this.jPanel1.setBorder(new CompoundBorder(new EmptyBorder(5, 5, 5, 5), new LineBorder(Color.BLACK)));
+        this.chessBoardSquares = new JButton[monde.getTailleX()][monde.getTailleY()];
+        this.makeGrid();
+
     }//GEN-LAST:event_jButton2MouseReleased
     /**
      * AUTOMATIQUE *
@@ -436,6 +410,11 @@ public class GUIECN extends javax.swing.JFrame {
     private void jButton7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseReleased
         if (this.monde != null) {
             monde.getListJouer().get(0).getPerso().deplacer(1);
+            
+            monde.verifierPotions(monde.getListJouer().get(0).getPerso());
+            monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
+            monde.getListJouer().get(0).getPerso().MettreAJourDuree();
+            
             this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
         }
     }//GEN-LAST:event_jButton7MouseReleased
@@ -447,6 +426,11 @@ public class GUIECN extends javax.swing.JFrame {
     private void jButton10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseReleased
         if (this.monde != null) {
             monde.getListJouer().get(0).getPerso().deplacer(2);
+            
+            monde.verifierPotions(monde.getListJouer().get(0).getPerso());
+            monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
+            monde.getListJouer().get(0).getPerso().MettreAJourDuree();
+            
             this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
         }
     }//GEN-LAST:event_jButton10MouseReleased
@@ -454,6 +438,11 @@ public class GUIECN extends javax.swing.JFrame {
     private void jButton9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseReleased
         if (this.monde != null) {
             monde.getListJouer().get(0).getPerso().deplacer(3);
+            
+            monde.verifierPotions(monde.getListJouer().get(0).getPerso());
+            monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
+            monde.getListJouer().get(0).getPerso().MettreAJourDuree();
+            
             this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
         }
     }//GEN-LAST:event_jButton9MouseReleased
@@ -461,6 +450,11 @@ public class GUIECN extends javax.swing.JFrame {
     private void jButton8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseReleased
         if (this.monde != null) {
             monde.getListJouer().get(0).getPerso().deplacer(4);
+            
+            monde.verifierPotions(monde.getListJouer().get(0).getPerso());
+            monde.verifierNorriture(monde.getListJouer().get(0).getPerso());
+            monde.getListJouer().get(0).getPerso().MettreAJourDuree();
+            
             this.jTextArea1.setText(monde.getListJouer().get(0).makeStringInfo());
         }
     }//GEN-LAST:event_jButton8MouseReleased
@@ -469,7 +463,6 @@ public class GUIECN extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -492,4 +485,30 @@ public class GUIECN extends javax.swing.JFrame {
             }
         }
     }
+
+    private void makeGrid() {
+
+        this.jPanel1.setLayout(new GridLayout(monde.getTailleY(), monde.getTailleX()));
+        this.jPanel1.setBorder(new LineBorder(Color.BLACK));
+
+        for (int ii = 0; ii < chessBoardSquares.length; ii++) {
+            for (int jj = 0; jj < chessBoardSquares[ii].length; jj++) {
+                JButton b = new JButton();
+                b.setBackground(Color.WHITE);
+                b.setSize(1, 1);
+               
+                chessBoardSquares[jj][ii] = b;
+            }
+        }
+        // fill the black non-pawn piece row
+        for (int ii = 0; ii < chessBoardSquares.length; ii++) {
+            for (int jj = 0; jj < chessBoardSquares[ii].length; jj++) {
+
+                this.jPanel1.add(chessBoardSquares[jj][ii]);
+            }
+        }
+        this.pack();
+        // ensures the minimum size is enforced.
+        this.setMinimumSize(this.getSize());
+    }//fin
 }
