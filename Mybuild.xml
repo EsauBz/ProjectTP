@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="testAnt" default="compile" basedir=".">
+<project name="testAnt" default="javadocs" basedir=".">
 <description>This is a simple test project.</description>
 
   <!-- set global properties for this build -->
@@ -19,11 +19,11 @@
    </target>
 -->
 	<target name="javadocs" depends="compile">
-   <mkdir dir="build/release/javadoc"/>
+   <mkdir dir="javadoc"/>
 
    <javadoc
             sourcepath="${src}"
-            destdir="${build}/release/javadoc"
+            destdir="javadoc"
    />
 	</target>
 </project> 
