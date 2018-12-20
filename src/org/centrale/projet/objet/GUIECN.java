@@ -280,7 +280,11 @@ public class GUIECN extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
-
+    /**
+     * Creation d'un noveau jeu apres click sur le button Noveau jeu
+     *
+     * @param evt
+     */
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         informationJuoeur wn = new informationJuoeur(this, true);
@@ -297,7 +301,12 @@ public class GUIECN extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton1MouseClicked
-
+    /**
+     * Mehtod qui charge un un monde qui deja exist sur un fichier il lance un
+     * JDialog pour ecrire le nom du fichier
+     *
+     * @param evt
+     */
     private void jButton2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseReleased
 
         chargeMonde wn = new chargeMonde(this, true);
@@ -313,7 +322,10 @@ public class GUIECN extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2MouseReleased
     /**
-     * AUTOMATIQUE *
+     * Le button qui sauvegarder le jeu de facon automatique avec un nombre cree
+     * par le jeu. Le monde doit etre different de null
+     *
+     * @param evt
      */
     private void jButton5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseReleased
         if (monde != null) {
@@ -332,7 +344,11 @@ public class GUIECN extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5MouseReleased
     /**
-     * Manuel *
+     * Le button qui sauvegarder le jeu de facon manuelle avec un nombre cree
+     * par l'utilosateur, un JDialog est lance pour ecrire le nom du fichier. Le
+     * monde doit etre different de null
+     *
+     * @param evt
      */
     private void jButton6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseReleased
         if (monde != null) {
@@ -352,7 +368,14 @@ public class GUIECN extends javax.swing.JFrame {
             save.sauvegardePartie(monde, nomFichier);
         }
     }//GEN-LAST:event_jButton6MouseReleased
-
+    /**
+     * Button qui lance le combat dans le jeu. cette methode verifie si le
+     * joueur est proche de les differents personnages ou monstres et il affiche
+     * aussi l'information du combat dans dans la zone de texte sous le cadre
+     * JFrame
+     *
+     * @param evt
+     */
     private void jButton4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseReleased
 
         for (Joueur a : monde.getListJouer()) {
@@ -400,7 +423,7 @@ public class GUIECN extends javax.swing.JFrame {
                     if (a.getPerso().getPos().distance(mt.getPos()) > 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
                         Archer rr = (Archer) a.getPerso();
                         if (rr.getNbFleches() > 0) {
-                            
+
                             combat = combat + " Combat Archer contre " + mt.getClass() + "\n";
                             combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
                             a.getPerso().combattre(mt);
@@ -420,7 +443,7 @@ public class GUIECN extends javax.swing.JFrame {
                         if (rr.getNbFleches() > 0) {
                             combat = combat + " Combat Archer contre " + pt.getClass() + "\n";
                             combat = combat + "Pt Vie Creature: " + pt.getPtVie() + "\n";
-                            
+
                             a.getPerso().combattre(pt);
                         }
                         if (!(pt instanceof Paysan)) {
@@ -437,7 +460,7 @@ public class GUIECN extends javax.swing.JFrame {
                     Monstre mt = (Monstre) it.next();
                     if (a.getPerso().getPos().distance(mt.getPos()) >= 1 && a.getPerso().getPos().distance(mt.getPos()) < a.getPerso().getDistAttMax()) {
                         if (a.getPerso().getPtMana() > 0) {
-                            
+
                             combat = combat + " Combat Mage contre " + mt.getClass() + "\n";
                             combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
                             a.getPerso().combattre(mt);
@@ -445,7 +468,7 @@ public class GUIECN extends javax.swing.JFrame {
                         if (mt instanceof Loup) {
                             ((Loup) mt).combattre(a.getPerso());
                         }
-                         combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
+                        combat = combat + "Pt Vie Creature: " + mt.getPtVie() + "\n";
                     }
                 }
                 Iterator<ElementDeJeu> ps = monde.getListPersonnages().iterator();
@@ -453,7 +476,7 @@ public class GUIECN extends javax.swing.JFrame {
                     Personnage pt = (Personnage) ps.next();
                     if (a.getPerso().getPos().distance(pt.getPos()) >= 1 && a.getPerso().getPos().distance(pt.getPos()) < a.getPerso().getDistAttMax()) {
                         if (a.getPerso().getPtMana() > 0) {
-                           
+
                             combat = combat + " Combat Mage contre " + pt.getClass() + "\n";
                             combat = combat + "Pt Vie Creature: " + pt.getPtVie() + "\n";
                             a.getPerso().combattre(pt);
@@ -567,6 +590,10 @@ public class GUIECN extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Cet methode verigie si quelque monstre a ses points de vie inferieur a 0,
+     * si ce le cas il doit disparettre de la list monstres
+     */
     private void RefreshMonstres() {
         Iterator<ElementDeJeu> it = monde.getListMonstres().iterator();
         while (it.hasNext()) {
@@ -577,6 +604,11 @@ public class GUIECN extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * ce methode est utilise pour faire le GridLayout que le JPanel utilise
+     * pour monstre les differents elements de jeu. on utilise un matrice de
+     * buttons pour garder la information et apres on la ajoute a le GridLayout
+     */
     private void makeGrid() {
 
         this.chessBoardSquares = new JButton[monde.getTailleX()][monde.getTailleY()];
@@ -597,6 +629,11 @@ public class GUIECN extends javax.swing.JFrame {
         this.validate();
     }//fin
 
+    /**
+     * Ce Methode decide si on est dans les coordonees de un element de jeu, si
+     * c'est le cas, il verifie la classe de l'objet pour savoir si il ecrit J=
+     * Joueur Sn = Soin etc. Le jouer a aussi un couleur different
+     */
     public void paintMonde() {
 
         JButton b;
@@ -682,6 +719,12 @@ public class GUIECN extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Methode qui refait le grid, c'est important car chaque fois qu'on avance
+     * ou un potion est utilise la grid doit être mis à jour
+     *
+     * @param dir
+     */
     public void rePaint(int dir) {
 
         monde.getListJouer().get(0).getPerso().deplacer(dir);
@@ -692,6 +735,10 @@ public class GUIECN extends javax.swing.JFrame {
         this.jPanel1.validate();
     }
 
+    /**
+     * Ce methode verifie si le jouer a encore des points de vie. sinon il lance
+     * un JDialog que apres de valide fermera le jeu
+     */
     public void verifieJoueur() {
         if (monde.getListJouer().get(0).getPerso().getPtVie() < 0) {
             YouDie wn = new YouDie(this, true);

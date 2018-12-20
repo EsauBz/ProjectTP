@@ -221,6 +221,7 @@ public class Personnage extends Creature {
      * d'un joeur dans 8 directions differents, le joeur peut choisir quelle
      * direction.
      *
+     * @param dir
      */
     //@Override
     public void deplacer(int dir) {
@@ -254,6 +255,10 @@ public class Personnage extends Creature {
         }
     }
 
+    /**
+     *
+     * @param c
+     */
     public void combattre(Creature c) {
 
     }
@@ -382,6 +387,10 @@ public class Personnage extends Creature {
         } 
     }
 
+    /**
+     *
+     * @return
+     */
     public String makeStringInfo() {
         String info = "";
 

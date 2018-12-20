@@ -35,14 +35,25 @@ public class ElementDeJeu {
         pos = new Point2D(x, y);
     }
 
+    /**
+     *
+     */
     public void affiche() {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public Point2D getPos() {
         return pos;
     }
 
+    /**
+     *
+     * @param pos
+     */
     public void setPos(Point2D pos) {
         this.pos = pos;
     }

@@ -51,11 +51,12 @@ public class World {
     /**
      * ***************************************************
      */
-
     /**
      * Constructeur du monde WoE on cree les differents lists pour les
      * personnages, les monstres et les potions, ici s'appelle aussi a les
      * methodes pour la creation de Joueur et les differents elements
+     * @param nom
+     * @param cls
      */
     public World(String nom, String cls) {
         /**
@@ -139,6 +140,11 @@ public class World {
         this.creationNourriture();
     }
 
+    /**
+     *
+     * @param x
+     * @param y
+     */
     public World(int x, int y) {
 
         /**
@@ -274,7 +280,7 @@ public class World {
                                 }
                             }
                         }
-                        
+
                         a.getPerso().MettreAJourDuree();
                         break;
                     case 3:
@@ -497,7 +503,7 @@ public class World {
          */
         cont = gA.nextInt(20);
         NuageToxique nt;
-        
+
         p.setCoordX(gA.nextInt(tailleX));
         p.setCoordY(gA.nextInt(tailleY));
         for (int i = 0; i < cont; i++) {
@@ -742,7 +748,7 @@ public class World {
      * @param p On verifie si ce personnage est dans la potition d'un potion.
      */
     public void verifierPotions(Personnage p) {
-        
+
         Iterator<ElementDeJeu> it = this.listPotions.iterator();
         while (it.hasNext()) {
             ElementDeJeu i = it.next();
@@ -761,6 +767,13 @@ public class World {
 
     }
 
+    /**
+     * Method qui verifie si le joueur est dans la position de quelque norriture
+     * si c'est vrai il ajoute cet nourriture a ce list et la quitte de la liste
+     * nourriture
+     *
+     * @param p personnage
+     */
     public void verifierNorriture(Personnage p) {
         Iterator<ElementDeJeu> it = this.listNourriture.iterator();
         while (it.hasNext()) {

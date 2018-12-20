@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="testAnt" default="javadocs" basedir=".">
+<description>This is a simple test project.</description>
+
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist" location="dist"/>
+
+  <target name="compile"
+        description="compile the source">
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+<!--
+  <target name="jar" depends="compile">
+	<mkdir dir="build/release"/>   -->
+	<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file 
+    <jar jarfile="build/release/MyProject.jar" basedir="${build}"/>
+   </target>
+-->
+	<target name="javadocs" depends="compile">
+   <mkdir dir="build/release/javadoc"/>
+
+   <javadoc
+            sourcepath="${src}"
+            destdir="${build}/release/javadoc"
+   />
+	</target>
+</project> 
+<!--  </target>
+
+
+	<target name="run" depends="javadocs">
+		<java jar="build/release/MyProject.jar" fork="true"/>
+	    </target>
+   -->
+
+
+
